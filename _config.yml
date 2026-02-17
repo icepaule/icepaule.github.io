@@ -1,0 +1,31 @@
+title: IcePaule Projects
+description: Documentation & Project Portfolio
+remote_theme: just-the-docs/just-the-docs@v0.10.1
+url: "https://icepaule.github.io"
+
+color_scheme: dark
+
+aux_links:
+  GitHub Profile:
+    - "https://github.com/icepaule"
+
+nav_sort: case_insensitive
+search_enabled: true
+search.heading_level: 3
+
+heading_anchor: true
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+footer_content: "&copy; 2026 IcePaule. Powered by <a href=\"https://pages.github.com/\">GitHub Pages</a>."
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
