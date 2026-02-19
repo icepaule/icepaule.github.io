@@ -13,9 +13,9 @@ nav_order: 9
 
 **Secure Zero-Trust Remote Access Gateway for Malware Analysis Labs**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![DORA Compliant](https://img.shields.io/badge/DORA-Compliant-blue.svg)](docs/OPERATIONS-MANUAL.md#4-dora-compliance)
-[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-red.svg)](docs/OPERATIONS-MANUAL.md#5-mitre-attck-mapping)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/icepaule/IceLaborVPN/blob/main/LICENSE)
+[![DORA Compliant](https://img.shields.io/badge/DORA-Compliant-blue.svg)](https://github.com/icepaule/IceLaborVPN/blob/main/docs/OPERATIONS-MANUAL.md#4-dora-compliance)
+[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-red.svg)](https://github.com/icepaule/IceLaborVPN/blob/main/docs/OPERATIONS-MANUAL.md#5-mitre-attck-mapping)
 
 ***
 
@@ -23,7 +23,7 @@ nav_order: 9
 
 IceLaborVPN provides secure, browser-based remote access to isolated malware analysis infrastructure without requiring client software installation. Designed for regulated environments (DORA, ISO 27001), it implements defense-in-depth security with comprehensive audit logging.
 
-![Portal Dashboard](docs/screenshots/portal-dashboard.png)
+![Portal Dashboard](https://raw.githubusercontent.com/icepaule/IceLaborVPN/main/docs/screenshots/portal-dashboard.png)
 
 ### Key Features
 
@@ -44,26 +44,26 @@ IceLaborVPN provides secure, browser-based remote access to isolated malware ana
 ## Screenshots
 
 ### Login Portal
-![Guacamole Login](docs/screenshots/guacamole-login.png)
+![Guacamole Login](https://raw.githubusercontent.com/icepaule/IceLaborVPN/main/docs/screenshots/guacamole-login.png)
 *Secure login with TOTP/2FA authentication*
 
 ### Dashboard
-![Guacamole Dashboard](docs/screenshots/guacamole-dashboard.png)
+![Guacamole Dashboard](https://raw.githubusercontent.com/icepaule/IceLaborVPN/main/docs/screenshots/guacamole-dashboard.png)
 *Connection overview with quick access to lab systems*
 
 ### SSH Session
-![SSH Session](docs/screenshots/ssh-session.png)
+![SSH Session](https://raw.githubusercontent.com/icepaule/IceLaborVPN/main/docs/screenshots/ssh-session.png)
 *HTML5 SSH terminal with session recording*
 
 ### Security Alerts
-![Pushover Alert](docs/screenshots/pushover-alert.png)
+![Pushover Alert](https://raw.githubusercontent.com/icepaule/IceLaborVPN/main/docs/screenshots/pushover-alert.png)
 *Real-time security notifications via Pushover*
 
 ***
 
 ## Architecture
 
-![IceLaborVPN Architecture](website/images/architecture.svg)
+![IceLaborVPN Architecture](https://raw.githubusercontent.com/icepaule/IceLaborVPN/main/website/images/architecture.svg)
 
 *Zero-Trust Architecture with WireGuard VPN mesh and HTML5 Remote Access*
 
@@ -118,7 +118,7 @@ sudo ./scripts/install.sh
 | `ABUSEIPDB_API_KEY` | AbuseIPDB API key for reporting + blocklist | Yes |
 | `SSL_EMAIL` | Email for Let's Encrypt | Yes |
 
-See [.env.example](.env.example) for all options.
+See [.env.example](https://github.com/icepaule/IceLaborVPN/blob/main/.env.example) for all options.
 
 ### Adding Connections
 
@@ -160,7 +160,7 @@ deploy-tailscale-linux.sh
 deploy-tailscale-macos.sh
 ```
 
-See [deployment/README.md](deployment/README.md) for configuration instructions.
+See [deployment/README.md](https://github.com/icepaule/IceLaborVPN/blob/main/deployment/README.md) for configuration instructions.
 
 ### Guacamole Auto-Sync
 
@@ -270,10 +270,10 @@ All 7 fail2ban jails automatically report banned IPs to [AbuseIPDB](https://www.
 
 | Document | Description |
 |----------|-------------|
-| [Operations Manual](docs/OPERATIONS-MANUAL.md) | Complete ITSO handbook (DORA/MITRE) |
-| [Installation Guide](docs/INSTALLATION.md) | Step-by-step setup |
-| [User Guide](docs/USER-GUIDE.md) | End-user documentation |
-| [Troubleshooting](docs/TROUBLESHOOTING.md) | Common issues and solutions |
+| [Operations Manual](https://github.com/icepaule/IceLaborVPN/blob/main/docs/OPERATIONS-MANUAL.md) | Complete ITSO handbook (DORA/MITRE) |
+| [Installation Guide](https://github.com/icepaule/IceLaborVPN/blob/main/docs/INSTALLATION.md) | Step-by-step setup |
+| [User Guide](https://github.com/icepaule/IceLaborVPN/blob/main/docs/USER-GUIDE.md) | End-user documentation |
+| [Troubleshooting](https://github.com/icepaule/IceLaborVPN/blob/main/docs/TROUBLESHOOTING.md) | Common issues and solutions |
 
 ***
 
@@ -356,13 +356,13 @@ sudo fail2ban-client set guacamole unbanip 192.0.2.1
 
 ## Contributing
 
-Contributions welcome! Please read our [Contributing Guide](CONTRIBUTING.md).
+Contributions welcome! Please read our [Contributing Guide](https://github.com/icepaule/IceLaborVPN/blob/main/CONTRIBUTING.md).
 
 ***
 
 ## License
 
-MIT License - see [LICENSE](LICENSE)
+MIT License - see [LICENSE](https://github.com/icepaule/IceLaborVPN/blob/main/LICENSE)
 
 ***
 
