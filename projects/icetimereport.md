@@ -32,44 +32,34 @@ Dieses Tool liest Zeiteinträge aus einer lokalen Solidtime-Installation (Postgr
 | §5 | Ruhezeit ≥ 11 Stunden | Ende Tag N → Start Tag N+1 |
 | §9 | Keine Sonn-/Feiertagsarbeit | Datumsprüfung |
 
+### Abwesenheitsbehandlung
+
+| Tagestyp | Ist-Stunden | Soll-Stunden | Effekt auf Überstunden |
+|----------|-------------|-------------|------------------------|
+| **Urlaub** | hours_per_day | hours_per_day | Neutral (bezahlte Abwesenheit) |
+| **Krank** | hours_per_day | hours_per_day | Neutral (Entgeltfortzahlung) |
+| **Gleittag** | 0 | hours_per_day | Überstundenabbau |
+| **Leerer Werktag** | 0 | hours_per_day | Überstundenabbau (Brückentag) |
+| **Wochenende/Feiertag** | Tatsächliche Arbeitszeit | 0 | Vollständig als Überstunden |
+
 ### Korrektur-Algorithmus (Büro-Version)
 
 - Wochenend-/Feiertagsstunden → auf nächsten Werktag verschoben
 - Max. 10h/Tag, Überschuss → Carry-Over auf Folgetage
 - Fiktive Start-/End-/Pausenzeiten (Start 08:00)
+- Urlaub/Krank → Ist = Soll = hours_per_day (überstundenneutral)
+- Gleittag → Ist = 0, Soll bleibt (Überstundenabbau)
 - **Gesamtstunden bleiben erhalten** (nur Verteilung ändert sich)
 
 ## Features
 
 - Automatische Feiertagsberechnung für alle 16 Bundesländer
-- Erkennung von Urlaub/Krankheit/Gleittagen aus Projekt-Namen
-- Urlaubs- und Überstundenkonto
-- Monatliche E-Mail mit Zusammenfassung + Excel-Anhang
+- Erkennung von Urlaub/Krank/Gleittagen aus Projekt-Namen
+- Urlaubs- und Überstundenkonto (kumulativ seit Vertragsstart)
+- Monatliche E-Mail mit Zusammenfassung + Excel-Anhang + Google Drive Link
+- ArbZG-Compliance-Bestätigung in der E-Mail (§3, §4, §5, §9)
 - Google Drive Sync via rclone
 - Täglicher Cron-Job für automatische Generierung
-
-## Schnellstart
-
-Siehe [Benutzerhandbuch](docs/USER.md) für die vollständige Anleitung.
-
-```bash
-# 1. Repository klonen
-git clone https://github.com/your-org/overtime-report.git
-cd overtime-report
-
-# 2. Konfiguration anpassen
-cp .env.example .env
-nano .env  # Member-ID, Client-ID, E-Mail etc. eintragen
-
-# 3. Container bauen und starten
-docker compose up -d
-
-# 4. Manuell generieren (Test)
-docker exec overtime-report python3 /app/main.py generate --year 2025
-
-# 5. Ergebnis prüfen
-ls -la output/real/ output/office/
-```
 
 ## Voraussetzungen
 
@@ -81,8 +71,9 @@ ls -la output/real/ output/office/
 
 | Dokument | Inhalt |
 |----------|--------|
-| [Benutzerhandbuch](docs/USER.md) | Tägliche Nutzung, Konfiguration, FAQ |
-| [Administratorhandbuch](docs/ADMIN.md) | Installation, Solidtime-Setup, E-Mail, rclone, Troubleshooting |
+| [Benutzerhandbuch](https://icepaule.github.io/IceTimereport/USER) | Tägliche Nutzung, Konfiguration, FAQ |
+| [Administratorhandbuch](https://icepaule.github.io/IceTimereport/ADMIN) | Installation, Solidtime-Setup, E-Mail, rclone, Troubleshooting |
+| [Berechnungslogik](https://icepaule.github.io/IceTimereport/CALCULATIONS) | Detaillierte Erklärung aller Berechnungen und Algorithmen |
 
 ## Projektstruktur
 
@@ -92,8 +83,6 @@ overtime-report/
 ├── docker-compose.yml      # Container-Definition
 ├── requirements.txt        # Python-Abhängigkeiten
 ├── .env.example            # Konfigurations-Template
-├── .env                    # Lokale Konfiguration (git-ignored)
-├── rclone.conf             # Google Drive Konfiguration (git-ignored)
 ├── entrypoint.sh           # Container-Startskript
 ├── crontab                 # Scheduling-Konfiguration
 ├── app/
@@ -104,12 +93,13 @@ overtime-report/
 │   ├── excel_real.py       # Reale Version (+ ArbZG-Spalte)
 │   ├── excel_office.py     # Büro-Version (korrigiert)
 │   └── mailer.py           # E-Mail-Versand (SMTP)
-├── output/                 # Generierte Excel-Dateien (git-ignored)
+├── output/                 # Generierte Excel-Dateien
 │   ├── real/               # Private Version
 │   └── office/             # Büro-Version
 └── docs/
     ├── USER.md             # Benutzerhandbuch
-    └── ADMIN.md            # Administratorhandbuch
+    ├── ADMIN.md            # Administratorhandbuch
+    └── CALCULATIONS.md     # Berechnungslogik
 ```
 
 ## Lizenz
