@@ -1,122 +1,154 @@
 ---
 layout: default
-title: XWiki Knowledge Stack
+title: IceXWiKi - Knowledge Stack
 parent: Home Automation & Networking
 nav_order: 10
 ---
 
-# XWiki Knowledge Stack
+# IceXWiKi - Self-Hosted Knowledge Stack
 
-A self-hosted knowledge management platform combining XWiki with AI-powered features for homelab infrastructure documentation.
+A self-hosted knowledge management platform combining **XWiki** with AI-powered features, infrastructure auto-discovery, GitHub integration, and Confluence migration.
 
-[View on GitHub](https://github.com/icepaule/xwiki-stack){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View on GitHub](https://github.com/icepaule/IceXWiKi){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ---
 
+## Overview
+
+Built as a Docker Compose stack with 5 services, designed for homelab environments. XWiki serves as the central wiki engine, extended by custom FastAPI microservices for GitHub sync, AI features, infrastructure scanning, and RAG-based semantic search.
+
+![XWiki Home](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/xwiki-home.png)
+
 ## Architecture
-
-```
-                    +-------------------+
-                    |    AnythingLLM    |
-                    |   (RAG Engine)    |
-                    |    Port 3001      |
-                    +--------+----------+
-                             |
-+----------+    +------------+------------+    +-----------+
-|  Ollama  |<-->|    Bridge (FastAPI)     |<-->|  XWiki    |
-| (AI/LLM) |    |    Port 8090           |    | Port 8085 |
-+----------+    +------------------------+    +-----+-----+
-                                                    |
-+----------+    +------------------------+    +-----+-----+
-| Docker   |<-->|   AutoDoc (FastAPI)    |<-->| PostgreSQL|
-| Socket   |    |    Port 8091           |    | Port 5433 |
-+----------+    +------------------------+    +-----------+
-```
-
-## Components
 
 | Service | Description | Port |
 |:--------|:-----------|:-----|
 | **XWiki** | Wiki engine (LTS, PostgreSQL backend) | 8085 |
-| **PostgreSQL** | Database for XWiki | 5433 |
-| **Bridge** | FastAPI middleware - GitHub sync, AI endpoints, Word import, RAG ingest | 8090 |
-| **AutoDoc** | Infrastructure auto-discovery - Docker, Network, ESXi, Synology scanning | 8091 |
-| **AnythingLLM** | RAG engine with Ollama as LLM/embedding provider | 3001 |
+| **PostgreSQL** | Database backend | 5433 |
+| **Bridge** | FastAPI - GitHub sync, AI endpoints, Word import, RAG | 8090 |
+| **AutoDoc** | FastAPI - Infrastructure scanning + Web GUI | 8091 |
+| **AnythingLLM** | RAG engine with Ollama LLM/embedding provider | 3001 |
 
-## Features
+External dependency: **Ollama** running on a separate host with `qwen2.5:14b` (LLM) and `nomic-embed-text` (embeddings).
 
-### GitHub Repository Sync
-Automatically imports all GitHub repositories as XWiki pages including README content, language breakdown, and metadata.
+## Bridge API
 
-### AI-Powered Endpoints
-- **Summarize** - Condense technical documents
-- **Runbook Generator** - Create operational runbooks from notes
-- **Classify** - Categorize content (Network, Security, Storage, etc.)
+FastAPI service connecting XWiki to external systems: GitHub repository sync, AI-powered summarization/runbook generation/classification, Word document import, and RAG ingestion via AnythingLLM.
 
-### Infrastructure Auto-Discovery (AutoDoc)
-Scheduled scans with AI analysis:
-- **Docker** - Containers, networks, volumes via Docker socket
-- **Network** - Subnet discovery via nmap
-- **ESXi** - VMs, datastores, networking via SSH
-- **Synology** - Volumes, shares, packages via SSH
+![Bridge Swagger UI](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/bridge-swagger.png)
 
-### Confluence Migration
-Standalone script to migrate Confluence spaces to XWiki with content conversion and attachment support.
+### Key Endpoints
 
-### RAG Integration
-Ingest XWiki spaces/pages into AnythingLLM workspaces for semantic search and AI-assisted knowledge retrieval.
+| Endpoint | Method | Description |
+|:---------|:-------|:-----------|
+| `/api/github/sync` | POST | Sync GitHub repos to XWiki pages |
+| `/api/import/word` | POST | Import DOCX files as wiki pages |
+| `/api/ai/summarize` | POST | AI-powered text summarization |
+| `/api/ai/runbook` | POST | Generate runbooks from notes |
+| `/api/ai/classify` | POST | Classify content categories |
+| `/api/rag/ingest-space` | POST | Ingest XWiki space into AnythingLLM |
+
+### GitHub Sync Result
+
+All GitHub repositories are automatically imported as XWiki pages with README content, language breakdown, and metadata:
+
+![GitHub Space in XWiki](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/xwiki-github-space.png)
+
+## AutoDoc - Infrastructure Auto-Discovery
+
+Automated infrastructure scanning with web GUI, scheduled scans, and AI-annotated reports written directly to XWiki.
+
+![AutoDoc Web GUI](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/autodoc-gui.png)
+
+### Scanners
+
+| Scanner | Method | Discovers |
+|:--------|:-------|:----------|
+| Docker | Docker API (socket + TCP) | Containers, images, networks, volumes |
+| Network | nmap | Subnet hosts, open ports, services |
+| ESXi | SSH (paramiko, RSA key) | VMs, datastores, networking |
+| Synology | SSH (paramiko, ed25519) | Volumes, shares, packages |
+
+### AutoDoc API
+
+![AutoDoc Swagger UI](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/autodoc-swagger.png)
+
+## Confluence Migration
+
+Standalone Python script to bulk-migrate all Confluence spaces to XWiki, including content conversion and attachment transfer.
+
+![Migrated Confluence Spaces](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/xwiki-confluence-spaces.png)
+
+### Capabilities
+
+- Pagination support for large spaces (1300+ pages tested)
+- Confluence Storage Format (XHTML) to XWiki 2.1 syntax conversion
+- Attachment migration with content-type preservation
+- Macro mapping: `tip` → `success`, `note` → `warning`, `info`/`warning`/`error` preserved
+- Handles headings, bold, italic, code blocks, tables, links, images
+- Post-migration macro fix script for already-migrated pages
+
+### Usage
+
+```bash
+# Migrate all spaces
+export $(grep -v '^#' .env | xargs)
+python3 scripts/migrate_confluence.py --space ALL
+
+# Dry run for a single space
+python3 scripts/migrate_confluence.py --space NETOPS --dry-run
+
+# Fix macros in already-migrated pages
+python3 scripts/fix_macros.py
+```
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/icepaule/xwiki-stack.git
-cd xwiki-stack
+git clone https://github.com/icepaule/IceXWiKi.git
+cd IceXWiKi
 cp .env.example .env
-# Edit .env with your actual values
+# Edit .env with your actual values (passwords, IPs, tokens)
 make setup
+# or: docker compose up -d --build
 ```
 
-## API Documentation
+Wait ~2 minutes for XWiki initialization, then access:
+- **XWiki**: `http://YOUR_HOST:8085`
+- **Bridge API**: `http://YOUR_HOST:8090/docs`
+- **AutoDoc**: `http://YOUR_HOST:8091`
+- **AnythingLLM**: `http://YOUR_HOST:3001`
 
-After deployment, Swagger UI is available at:
-- Bridge: `http://YOUR_HOST:8090/docs`
-- AutoDoc: `http://YOUR_HOST:8091/docs`
-
-### Key Endpoints
+## Makefile Targets
 
 ```bash
-# Sync all GitHub repos to XWiki
-curl -X POST http://HOST:8090/api/github/sync
-
-# Sync specific repos
-curl -X POST http://HOST:8090/api/github/sync \
-  -H "Content-Type: application/json" \
-  -d '{"repos": ["repo-name"]}'
-
-# AI summarize
-curl -X POST http://HOST:8090/api/ai/summarize \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Your text here..."}'
-
-# Run Docker scan
-curl -X POST http://HOST:8091/api/scan/docker
-
-# Run all scans
-curl -X POST http://HOST:8091/api/scan/all
+make up           # Start all services
+make down         # Stop all services
+make restart      # Restart all services
+make logs         # Follow logs
+make build        # Build custom images
+make github-sync  # Trigger GitHub repo sync
+make scan-all     # Run all AutoDoc scans
+make scan-docker  # Run Docker scan only
+make clean        # Remove containers and volumes
 ```
 
-## Stack Details
+## Requirements
 
-- **XWiki**: LTS release with PostgreSQL backend
-- **Bridge/AutoDoc**: Python 3.13 + FastAPI + uvicorn
-- **AI Backend**: Ollama (external) with qwen2.5:14b and nomic-embed-text
-- **Scanning**: python-nmap, paramiko (SSH), Docker SDK
-- **Scheduling**: APScheduler for periodic infrastructure scans
+- Docker Engine 24+ with Compose v2
+- Ollama instance with `qwen2.5:14b` and `nomic-embed-text` models
+- ~4 GB RAM for the stack
+- ~10 GB disk for XWiki data, PostgreSQL, and AnythingLLM
 
-## Configuration
+**Optional:** SSH key access to ESXi/Synology (for AutoDoc), Docker TCP API on remote hosts, Confluence server (for migration), GitHub account (for repo sync).
 
-All configuration is done via environment variables in `.env` (not committed). See `.env.example` for all available options.
+## Security
+
+- No secrets in the repository - all credentials are in `.env` (gitignored)
+- XWiki REST API uses Basic Auth
+- SSH scanning uses key-based authentication (keys mounted as volumes)
+- Docker socket is mounted read-only
 
 ---
 
-*Built with Docker Compose, FastAPI, and XWiki LTS*
+*Built with Docker Compose, FastAPI, XWiki LTS, and Ollama AI*
