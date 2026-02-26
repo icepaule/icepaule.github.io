@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-02-26 10:45 UTC*
+*Last updated: 2026-02-26 10:51 UTC*
 
 ---
 
@@ -41,27 +41,27 @@ flowchart LR
 
 ## Documentation Coverage
 
-**35 repos** documented: 19 curated, 13 auto-generated.
+**36 repos** documented: 29 curated, 3 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
 | [adguard-kiosk](https://github.com/icepaule/adguard-kiosk) | My Adguard implementation using a raspberry 3b | Curated | [View](adguard-kiosk.html) |
-| [audiobookshelf-synology](https://github.com/icepaule/audiobookshelf-synology) | Selbst gehosteter Hoerbuch-Server mit KI-Metadaten (Ollama)  | Auto | [View](audiobookshelf-synology.html) |
+| [audiobookshelf-synology](https://github.com/icepaule/audiobookshelf-synology) | Selbst gehosteter Hoerbuch-Server mit KI-Metadaten (Ollama)  | Curated | [View](audiobookshelf-synology.html) |
 | [cuckoo-docker](https://github.com/icepaule/cuckoo-docker) | Creating a docker container hosting a cuckoo sandbox | Auto | [View](cuckoo-docker.html) |
-| [doed_forensics](https://github.com/icepaule/doed_forensics) | doed´s little helpers | Auto | [View](doed_forensics.html) |
+| [doed_forensics](https://github.com/icepaule/doed_forensics) | doed´s little helpers | No README | - |
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | No README | - |
-| [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Auto | [View](ice-github-doku.html) |
+| [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Curated | [View](ice-github-doku.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Curated | [View](ice-mtastik.html) |
-| [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Auto | [View](iceai-tax-2025.html) |
-| [IceBackup](https://github.com/icepaule/IceBackup) |  | Auto | [View](icebackup.html) |
+| [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Curated | [View](iceai-tax-2025.html) |
+| [IceBackup](https://github.com/icepaule/IceBackup) |  | Curated | [View](icebackup.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Curated | [View](icedataemphasise.html) |
 | [IceHomeAssist](https://github.com/icepaule/IceHomeAssist) | My Home Assistant setup | Curated | [View](icehomeassist.html) |
 | [IceIntelligence](https://github.com/icepaule/IceIntelligence) |  | Curated | [View](iceintelligence.html) |
 | [IceLaborVPN](https://github.com/icepaule/IceLaborVPN) | Secure Zero-Trust Remote Access Gateway for Malware Analysis | Curated | [View](icelaborvpn.html) |
-| [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Auto | [View](icemailarchive.html) |
-| [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Auto | [View](icematrix.html) |
+| [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Curated | [View](icemailarchive.html) |
+| [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Curated | [View](icematrix.html) |
 | [IceMeshCore](https://github.com/icepaule/IceMeshCore) |  | Curated | [View](icemeshcore.html) |
 | [IcePorge](https://github.com/icepaule/IcePorge) | IcePorge - Comprehensive Malware Analysis & Threat Intellige | Curated | [View](iceporge.html) |
 | [IcePorge-CAPE-Feed](https://github.com/icepaule/IcePorge-CAPE-Feed) | MalwareBazaar to CAPE to MISP automated pipeline | Curated | [View](iceporge-cape-feed.html) |
@@ -71,14 +71,15 @@ flowchart LR
 | [IcePorge-Malware-RAG](https://github.com/icepaule/IcePorge-Malware-RAG) | LLM-powered malware analysis using RAG and vector databases | Curated | [View](iceporge-malware-rag.html) |
 | [IcePorge-MWDB-Feeder](https://github.com/icepaule/IcePorge-MWDB-Feeder) | Multi-source malware sample aggregator (URLhaus, ThreatFox,  | Curated | [View](iceporge-mwdb-feeder.html) |
 | [IcePorge-MWDB-Stack](https://github.com/icepaule/IcePorge-MWDB-Stack) | MWDB-core with Karton orchestration for malware sample manag | Curated | [View](iceporge-mwdb-stack.html) |
-| [IceSeller](https://github.com/icepaule/IceSeller) |  | Auto | [View](iceseller.html) |
+| [IceSeller](https://github.com/icepaule/IceSeller) |  | Curated | [View](iceseller.html) |
 | [IceTimereport](https://github.com/icepaule/IceTimereport) |  | Curated | [View](icetimereport.html) |
 | [IceWiFi](https://github.com/icepaule/IceWiFi) | My Home-WiFi setup using UniFi equipment | Curated | [View](icewifi.html) |
-| [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Auto | [View](icexwiki.html) |
+| [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Curated | [View](icexwiki.html) |
 | [no-telemetry](https://github.com/icepaule/no-telemetry) | Win10 Telemetry blocklist for piHole | Auto | [View](no-telemetry.html) |
-| [secintel](https://github.com/icepaule/secintel) | A security intel project powered by Django | Auto | [View](secintel.html) |
+| [nospy](https://github.com/icepaule/nospy) | All the relevant nospy files need by the service to block Wi | Auto | [View](nospy.html) |
+| [secintel](https://github.com/icepaule/secintel) | A security intel project powered by Django | Curated | [View](secintel.html) |
 | [tibberampel](https://github.com/icepaule/tibberampel) | Meine Tibberampel mit einem ESP8266 | Curated | [View](tibberampel.html) |
-| [Torlinks](https://github.com/icepaule/Torlinks) | Tor Links Database. This repository contains 2 files contain | Auto | [View](torlinks.html) |
+| [Torlinks](https://github.com/icepaule/Torlinks) | Tor Links Database. This repository contains 2 files contain | Curated | [View](torlinks.html) |
 | [xwiki-stack](https://github.com/icepaule/xwiki-stack) |  | Curated | [View](xwiki-stack.html) |
 
 ---
