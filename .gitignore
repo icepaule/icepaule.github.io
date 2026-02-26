@@ -2,9 +2,8 @@
 .env
 .env.*
 
-# Local data
+# Local data (scan_results contains finding details - never publish)
 _data/scan_results.json
-_data/previous_findings.json
 
 # Jekyll build
 _site/

@@ -34,4 +34,3 @@ exclude:
   - Gemfile.lock
   - scripts/
   - _data/scan_results.json
-  - _data/previous_findings.json
