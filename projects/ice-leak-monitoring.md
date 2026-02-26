@@ -17,16 +17,35 @@ Automatisierte GitHub Data Leak Detection mit OSINT-Aufklaerung und KI-Bewertung
 
 ---
 
+## Management Summary
+
+Ice-Leak-Monitor ueberwacht kontinuierlich die oeffentliche Code-Plattform GitHub auf unbeabsichtigt veroeffentlichte Unternehmensdaten. Das System sucht automatisiert nach Firmennamen, Domains, E-Mail-Adressen und weiteren konfigurierbaren Suchbegriffen in oeffentlichem Quellcode und bewertet Funde hinsichtlich ihrer Relevanz und ihres Risikopotenzials.
+
+**Warum ist das relevant?** Mitarbeiter, Dienstleister oder ehemalige Beschaeftigte laden regelmaessig — meist versehentlich — interne Konfigurationen, Zugangsdaten oder vertrauliche Dokumente auf GitHub hoch. Solche Datenlecks koennen Angreifern direkten Zugang zu internen Systemen verschaffen und stellen ein erhebliches operationelles Risiko dar.
+
+**Was leistet das System?**
+
+- **Proaktive Erkennung** — Taegliche automatisierte Durchsuchung von GitHub nach Unternehmensbezuegen, ergaenzt durch OSINT-Aufklaerung (Subdomain-Enumeration, E-Mail-Harvesting, LinkedIn-Recherche, Datenleck-Abgleich)
+- **KI-gestuetzte Triage** — Ein lokales Sprachmodell (Ollama) bewertet jeden Fund auf Relevanz und ordnet ihn in MITRE ATT&CK, DORA- und BaFin-Kontext ein, um False Positives zu minimieren und die Priorisierung zu unterstuetzen
+- **Inkrementelle Analyse** — Bereits gescannte Repositories werden nur bei Aenderungen erneut geprueft; per Repo koennen Scans manuell erzwungen oder gesperrt werden
+- **Sofortige Alarmierung** — Bei neuen Findings werden Verantwortliche per Pushover und E-Mail benachrichtigt; Ergebnisse sind in Echtzeit im Web-Dashboard sichtbar
+- **Regulatorische Einordnung** — Findings werden automatisch auf DORA-Relevanz (Digital Operational Resilience Act) und BaFin-Anforderungen (BAIT/VAIT) geprueft
+
+Das System laeuft als Docker-Container im internen Netzwerk, speichert Daten lokal in einer SQLite-Datenbank und benoetigt lediglich einen GitHub API-Token als externe Abhaengigkeit. Alle KI-Analysen laufen lokal ueber Ollama — es werden keine Daten an externe KI-Dienste uebermittelt.
+
+---
+
 ## Uebersicht
 
 Ice-Leak-Monitor ist ein vollautomatisches System zur Erkennung von Datenlecks auf GitHub. Es durchsucht GitHub Code Search nach sensiblen Informationen (Firmennamen, Domains, E-Mail-Adressen), fuehrt OSINT-Aufklaerung durch und bewertet Funde mittels KI-Analyse.
 
 ### Kernfunktionen
 
-- **7-Stage Scan-Pipeline** mit Live-Monitoring im Web-Dashboard
+- **5-Stage Scan-Pipeline** mit Per-Repo-Verarbeitung und Live-Monitoring im Web-Dashboard
 - **7 OSINT-Module** (Blackbird, Subfinder, theHarvester, CrossLinked, Hunter.io, GitDorker, LeakCheck)
 - **Multi-Scanner Deep Scan** (TruffleHog, Gitleaks, Custom Patterns)
 - **KI-Relevanzpruefung** mit Ollama/LLM (MITRE ATT&CK, DORA, BaFin)
+- **Skip-Logik** — Unveraenderte Repos werden uebersprungen, AI-Override pro Repo (Erzwingen/Sperren)
 - **Automatischer Tages-Scan** mit Pushover und E-Mail-Benachrichtigungen
 - **Dark-Mode Web-UI** mit Echtzeit-Fortschrittsanzeige
 
@@ -44,15 +63,21 @@ graph TB
     end
 
     subgraph "Scan Pipeline"
-        S0[Stage 0: Keywords laden]
+        S0[Stage 0: Vorbereitung]
         S1[Stage 1: OSINT-Aufklaerung]
         S2[Stage 2: GitHub Code Search]
-        S3[Stage 3: AI-Relevanzpruefung]
-        S4[Stage 4: Deep Scan]
-        S5[Stage 5: AI-Assessment]
-        S6[Stage 6: Notifications]
+        S3[Stage 3: Repo-Analyse - Per Repo]
+        S4[Stage 4: Abschluss]
 
-        S0 --> S1 --> S2 --> S3 --> S4 --> S5 --> S6
+        S0 --> S1 --> S2 --> S3 --> S4
+    end
+
+    subgraph "Stage 3: Per-Repo-Ablauf"
+        R1[Skip-Check] --> R2[AI-Relevanzpruefung]
+        R2 --> R3[Unchanged-Check]
+        R3 --> R4[Deep Scan]
+        R4 --> R5[AI Finding-Assessment]
+        R5 --> R6[DB Commit - sofort sichtbar]
     end
 
     subgraph "OSINT Module"
@@ -72,9 +97,10 @@ graph TB
     end
 
     S1 --> O1 & O2 & O3 & O4 & O5 & O6 & O7
-    S4 --> T1 & T2 & T3
-    S3 & S5 --> AI[Ollama LLM]
-    S6 --> N1[Pushover] & N2[E-Mail]
+    S3 --> R1
+    R4 --> T1 & T2 & T3
+    R2 & R5 --> AI[Ollama LLM]
+    S4 --> N1[Pushover] & N2[E-Mail]
 ```
 
 ---
@@ -85,7 +111,7 @@ graph TB
 
 ![Dashboard](../assets/images/ice-leak-monitoring/dashboard.png)
 
-Das Dashboard zeigt Statistiken, den Live Scan Monitor mit 7-Stage-Fortschritt, letzte Scans und Aktivitaeten.
+Das Dashboard zeigt Statistiken, den Live Scan Monitor mit 5-Stage-Fortschritt, letzte Scans und Aktivitaeten.
 
 ### OSINT-Modul Einstellungen
 
@@ -131,17 +157,31 @@ OSINT-Ergebnisse (neue E-Mails, Subdomains, Personennamen) fliessen automatisch 
 
 ## Scan-Pipeline
 
-### 7-Stage Ablauf
+### 5-Stage Ablauf mit Per-Repo-Verarbeitung
 
 | Stage | Name | Beschreibung |
 |:------|:-----|:-------------|
 | 0 | **Vorbereitung** | Aktive Keywords aus DB laden |
 | 1 | **OSINT** | Alle aktivierten OSINT-Module ausfuehren |
-| 2 | **GitHub-Suche** | GitHub Code Search fuer alle Keywords |
-| 3 | **AI-Relevanz** | KI-Bewertung der Repos (Ollama) |
-| 4 | **Deep Scan** | TruffleHog + Gitleaks + Custom Patterns |
-| 5 | **AI-Assessment** | KI-Bewertung der Findings (MITRE/DORA/BaFin) |
-| 6 | **Abschluss** | Benachrichtigungen, Scan finalisieren |
+| 2 | **GitHub-Suche** | GitHub Code Search fuer alle Keywords, Repo-Details inkl. pushed_at |
+| 3 | **Repo-Analyse** | Per Repo: Skip-Check, AI-Relevanz, Deep Scan, AI-Assessment, DB-Commit |
+| 4 | **Abschluss** | Benachrichtigungen senden, Scan finalisieren |
+
+In Stage 3 wird jedes Repository vollstaendig abgearbeitet, bevor das naechste beginnt. Findings erscheinen sofort im Dashboard — man muss nicht warten bis alle Repos durch sind.
+
+### Skip-Logik pro Repo (Stage 3)
+
+Jedes Repo durchlaeuft folgenden Entscheidungsbaum:
+
+| Pruefung | Ergebnis |
+|:---------|:---------|
+| Repo dismissed? | Uebersprungen |
+| Repo zu gross (> max_repo_size_mb)? | Uebersprungen (skipped) |
+| User hat Scan gesperrt (ai_scan_enabled=0)? | Uebersprungen |
+| User hat Scan erzwungen (ai_scan_enabled=1)? | Scan ohne AI-Check |
+| Ollama AI-Score < 0.3? | Uebersprungen (low_relevance) |
+| Repo seit letztem Scan unveraendert (pushed_at <= last_scanned_at)? | Uebersprungen (unchanged) |
+| Alle Checks bestanden | Deep Scan + AI-Assessment |
 
 ### Scanner
 
@@ -225,6 +265,7 @@ Vollstaendige Dokumentation: [Installationsanleitung](https://github.com/icepaul
 | POST | `/api/scans/cancel` | Scan abbrechen |
 | GET | `/api/scans/progress` | Live-Fortschritt |
 | GET | `/api/stats` | Statistiken |
+| POST | `/repos/{id}/ai-override` | AI-Scan-Override pro Repo (0=sperren, 1=erzwingen, null=auto) |
 | POST | `/settings/modules/{key}/toggle` | OSINT-Modul an/aus |
 | POST | `/settings/modules/{key}/config` | API-Key speichern |
 
