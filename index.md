@@ -33,6 +33,7 @@ Open-Source Projekte rund um Security, Home Automation, IoT und mehr.
 | [IceCrow](projects/icecrow.html) | IceCrow |
 | [IceMatrix](projects/icematrix.html) | IceMatrix |
 | [IceBackup](projects/icebackup.html) | IceBackup |
+| [Ice-Leak-Monitoring](projects/ice-leak-monitoring.html) | Automated GitHub Data Leak Detection with OSINT & AI |
 
 ### Home Automation & Networking
 {: .text-green-300 }
