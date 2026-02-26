@@ -53,6 +53,13 @@ Dieses Tool liest Zeiteinträge aus einer lokalen Solidtime-Installation (Postgr
 - Überstunden werden jahresübergreifend seit `START_DATE` kumuliert
 - Jeder Jahresbericht enthält: Jahres-Overtime + Übertrag Vorjahre + Gesamtkonto
 - Automatische Berechnung aller Vorjahre beim Generieren
+- **Stichtag-Berechnung:** Aktuelles Jahr wird nur bis heute berechnet (keine falschen Minusstunden durch zukünftige Tage)
+
+### Urlaubsübertrag
+
+- Urlaubsperioden, die im Vorjahr beginnen und im neuen Jahr fortgesetzt werden, zählen gegen den Vorjahresanspruch
+- Automatische Erkennung zusammenhängender Urlaubs-Blöcke über den Jahreswechsel
+- Hinweis im Zusammenfassungs-Sheet: "(X Tage aus Vorjahr)"
 
 ### Korrektur-Algorithmus (Büro-Version)
 
@@ -67,9 +74,11 @@ Dieses Tool liest Zeiteinträge aus einer lokalen Solidtime-Installation (Postgr
 
 - **Multi-Client-Unterstützung:** Alle Solidtime-Einträge zählen standardmäßig, mit konfigurierbaren Ausschlüssen (z.B. private Projekte, ehrenamtliche Wochenendarbeit)
 - **Kumulatives Überstundenkonto:** Jahresübergreifender Übertrag seit Vertragsstart (`START_DATE`)
+- **Stichtag-Berechnung:** Aktuelles Jahr nur bis heute berechnet, keine falschen Minusstunden
+- **Urlaubsübertrag:** Automatische Zuordnung jahresübergreifender Urlaubsperioden
 - Automatische Feiertagsberechnung für alle 16 Bundesländer
 - Erkennung von Urlaub/Krank/Gleittagen aus Projekt-Namen
-- Zusammenfassungs-Sheet mit Jahres-Overtime, Vorjahresübertrag und Gesamtkonto
+- Zusammenfassungs-Sheet mit Überstundenkonto, Urlaubskonto und Krankheitstagen
 - Monatliche E-Mail mit Zusammenfassung + Excel-Anhang + Google Drive Link
 - ArbZG-Compliance-Bestätigung in der E-Mail (§3, §4, §5, §9)
 - Google Drive Sync via rclone
