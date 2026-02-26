@@ -31,6 +31,8 @@ Open-Source Projekte rund um Security, Home Automation, IoT und mehr.
 | [IceLaborVPN](projects/icelaborvpn.html) | Secure Zero-Trust Remote Access Gateway for Malware Labs |
 | [IceIntelligence](projects/iceintelligence.html) | Threat Intelligence |
 | [IceCrow](projects/icecrow.html) | IceCrow |
+| [IceMatrix](projects/icematrix.html) | IceMatrix |
+| [IceBackup](projects/icebackup.html) | IceBackup |
 
 ### Home Automation & Networking
 {: .text-green-300 }
@@ -41,6 +43,8 @@ Open-Source Projekte rund um Security, Home Automation, IoT und mehr.
 | [IceWiFi](projects/icewifi.html) | Home-WiFi setup using UniFi equipment |
 | [adguard-kiosk](projects/adguard-kiosk.html) | Adguard implementation using a Raspberry Pi 3B |
 | [tibberampel](projects/tibberampel.html) | Tibberampel mit einem ESP8266 |
+| [IceXWiKi](projects/xwiki-stack.html) | Self-Hosted Knowledge Stack |
+| [IceMailArchive](projects/icemailarchive.html) | IceMailArchive |
 
 ### Mesh & Communication
 {: .text-blue-300 }
@@ -57,6 +61,8 @@ Open-Source Projekte rund um Security, Home Automation, IoT und mehr.
 |:--------|:-------------|
 | [IceDataEmphasise](projects/icedataemphasise.html) | Data Emphasise |
 | [IceTimereport](projects/icetimereport.html) | Time Reporting |
+| [IceAI-tax-2025](projects/iceai-tax-2025.html) | IceAI-tax-2025 |
+| [IceSeller](projects/iceseller.html) | IceSeller |
 
 ### Hardware & ESP32
 {: .text-red-300 }
@@ -65,3 +71,14 @@ Open-Source Projekte rund um Security, Home Automation, IoT und mehr.
 |:--------|:-------------|
 | [esp32cam-dataset-firmware](projects/esp32cam-dataset-firmware.html) | AI Edge - Postbox mail detection |
 | [followmysun](projects/followmysun.html) | Single axis adjustment for solar panel |
+
+### Cloud & Infrastructure
+{: .text-grey-dk-100 }
+
+| Projekt | Beschreibung |
+|:--------|:-------------|
+| [IceHetzner](projects/icehetzner.html) | Cloud & Infrastructure |
+
+---
+
+[Status Dashboard](projects/status.html){: .btn .btn-outline .fs-5 .mb-4 .mb-md-0 } - Automated documentation & security scanning status

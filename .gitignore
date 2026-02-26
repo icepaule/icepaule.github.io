@@ -1,0 +1,13 @@
+# Secrets - NEVER publish
+.env
+.env.*
+
+# Local data
+_data/scan_results.json
+_data/previous_findings.json
+
+# Jekyll build
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/

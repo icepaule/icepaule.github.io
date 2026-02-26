@@ -9,6 +9,9 @@ aux_links:
   GitHub Profile:
     - "https://github.com/icepaule"
 
+mermaid:
+  version: "10.9.0"
+
 nav_sort: case_insensitive
 search_enabled: true
 search.heading_level: 3
@@ -29,3 +32,6 @@ exclude:
   - LICENSE
   - Gemfile
   - Gemfile.lock
+  - scripts/
+  - _data/scan_results.json
+  - _data/previous_findings.json
