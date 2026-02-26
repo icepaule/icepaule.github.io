@@ -42,6 +42,18 @@ Dieses Tool liest Zeiteinträge aus einer lokalen Solidtime-Installation (Postgr
 | **Leerer Werktag** | 0 | hours_per_day | Überstundenabbau (Brückentag) |
 | **Wochenende/Feiertag** | Tatsächliche Arbeitszeit | 0 | Vollständig als Überstunden |
 
+### Multi-Client-Filterung
+
+- Standardmäßig werden alle Zeiteinträge des Members ausgewertet
+- `EXCLUDE_CLIENTS`: Bestimmte Clients komplett ausschließen (z.B. private Projekte)
+- `THW_CLIENT_ID`: Ehrenamtliche Wochenendarbeit ausschließen, Werktage zählen als Freistellung
+
+### Kumulatives Überstundenkonto
+
+- Überstunden werden jahresübergreifend seit `START_DATE` kumuliert
+- Jeder Jahresbericht enthält: Jahres-Overtime + Übertrag Vorjahre + Gesamtkonto
+- Automatische Berechnung aller Vorjahre beim Generieren
+
 ### Korrektur-Algorithmus (Büro-Version)
 
 - Wochenend-/Feiertagsstunden → auf nächsten Werktag verschoben
@@ -53,9 +65,11 @@ Dieses Tool liest Zeiteinträge aus einer lokalen Solidtime-Installation (Postgr
 
 ## Features
 
+- **Multi-Client-Unterstützung:** Alle Solidtime-Einträge zählen standardmäßig, mit konfigurierbaren Ausschlüssen (z.B. private Projekte, ehrenamtliche Wochenendarbeit)
+- **Kumulatives Überstundenkonto:** Jahresübergreifender Übertrag seit Vertragsstart (`START_DATE`)
 - Automatische Feiertagsberechnung für alle 16 Bundesländer
 - Erkennung von Urlaub/Krank/Gleittagen aus Projekt-Namen
-- Urlaubs- und Überstundenkonto (kumulativ seit Vertragsstart)
+- Zusammenfassungs-Sheet mit Jahres-Overtime, Vorjahresübertrag und Gesamtkonto
 - Monatliche E-Mail mit Zusammenfassung + Excel-Anhang + Google Drive Link
 - ArbZG-Compliance-Bestätigung in der E-Mail (§3, §4, §5, §9)
 - Google Drive Sync via rclone
