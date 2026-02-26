@@ -221,7 +221,7 @@
     "description": "All the relevant nospy files need by the service to block Windows Telemetry communication",
     "pushed_at": "2019-01-15T14:07:37Z",
     "doc_file": "nospy.md",
-    "status": "auto_created"
+    "status": "auto_updated"
   },
   {
     "name": "secintel",

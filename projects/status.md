@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-02-26 10:51 UTC*
+*Last updated: 2026-02-26 10:54 UTC*
 
 ---
 
@@ -86,9 +86,21 @@ flowchart LR
 
 ## Security Scan Summary
 
-*No scan results available. Run scan_secrets.py first.*
+| Metric | Value |
+|:-------|:------|
+| Last Scan | 2026-02-26 |
+| Repos Scanned | 36 |
+| Clean Repos | 34 |
+| Repos with Findings | 2 |
+| Total Findings | 9 |
+| Verified Findings | 0 |
+| New Findings (last scan) | 9 |
 
-
+```mermaid
+pie title Repository Security Status
+    "Clean" : 34
+    "Findings" : 2
+```
 
 ---
 
