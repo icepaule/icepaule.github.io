@@ -97,7 +97,10 @@ def scan_repo(repo_name):
         except json.JSONDecodeError:
             continue
 
-        detector = raw.get("DetectorName", raw.get("DetectorType", {}).get("name", "Unknown"))
+        detector_type = raw.get("DetectorType", "Unknown")
+        if isinstance(detector_type, dict):
+            detector_type = detector_type.get("name", "Unknown")
+        detector = raw.get("DetectorName", str(detector_type))
         verified = raw.get("Verified", False)
         finding_hash = compute_finding_hash(detector, repo_name, raw)
 
