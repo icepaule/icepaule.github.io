@@ -28,7 +28,9 @@ Ice-Leak-Monitor ueberwacht kontinuierlich die oeffentliche Code-Plattform GitHu
 - **Proaktive Erkennung** — Taegliche automatisierte Durchsuchung von GitHub nach Unternehmensbezuegen, ergaenzt durch OSINT-Aufklaerung (Subdomain-Enumeration, E-Mail-Harvesting, LinkedIn-Recherche, Datenleck-Abgleich)
 - **KI-gestuetzte Triage** — Ein lokales Sprachmodell (Ollama) bewertet jeden Fund auf Relevanz und ordnet ihn in MITRE ATT&CK, DORA- und BaFin-Kontext ein, um False Positives zu minimieren und die Priorisierung zu unterstuetzen
 - **Inkrementelle Analyse** — Bereits gescannte Repositories werden nur bei Aenderungen erneut geprueft; per Repo koennen Scans manuell erzwungen oder gesperrt werden
-- **Sofortige Alarmierung** — Bei neuen Findings werden Verantwortliche per Pushover und E-Mail benachrichtigt; Ergebnisse sind in Echtzeit im Web-Dashboard sichtbar
+- **Sofortige Alarmierung** — Bei neuen Findings werden Verantwortliche per Pushover und E-Mail benachrichtigt; Empfaenger koennen direkt in der Web-UI konfiguriert werden; Ergebnisse sind in Echtzeit im Dashboard sichtbar
+- **Anpassbarer AI-Prompt** — Der Bewertungsprompt fuer Findings kann in der UI editiert werden, mit Platzhaltern fuer Scanner, Detektor, Dateipfad, Repo-Kontext und Keyword-Kette
+- **Manueller Finding-Report** — Einzelne Findings koennen per Checkbox ausgewaehlt und als CISO-konformer HTML-Mail-Report versendet werden
 - **Regulatorische Einordnung** — Findings werden automatisch auf DORA-Relevanz (Digital Operational Resilience Act) und BaFin-Anforderungen (BAIT/VAIT) geprueft
 
 Das System laeuft als Docker-Container im internen Netzwerk, speichert Daten lokal in einer SQLite-Datenbank und benoetigt lediglich einen GitHub API-Token als externe Abhaengigkeit. Alle KI-Analysen laufen lokal ueber Ollama — es werden keine Daten an externe KI-Dienste uebermittelt.
@@ -59,7 +61,10 @@ graph TB
         A[Dashboard] --> B[Live Scan Monitor]
         C[Keywords] --> D[Keyword Management]
         E[Settings] --> F[OSINT Module Toggle]
+        E --> F2[E-Mail-Empfaenger]
+        E --> F3[AI-Prompt-Editor]
         G[Repositories] --> H[Findings]
+        H --> H2[Mail-Report Button]
     end
 
     subgraph "Scan Pipeline"
@@ -101,6 +106,21 @@ graph TB
     R4 --> T1 & T2 & T3
     R2 & R5 --> AI[Ollama LLM]
     S4 --> N1[Pushover] & N2[E-Mail]
+    H2 --> N2
+    F2 --> N2
+```
+
+### Keyword-Erkennungskette
+
+```mermaid
+graph LR
+    K[Keyword] -->|GitHub Code Search| R[Repository gefunden]
+    R -->|AI-Relevanzpruefung| S{Score >= 30%?}
+    S -->|Ja| D[Deep Scan]
+    S -->|Nein| LR[Low Relevance]
+    D -->|TruffleHog + Gitleaks| F[Finding entdeckt]
+    F -->|AI-Assessment mit Keyword-Kontext| B[CISO-Bewertung]
+    B -->|MITRE / DORA / BaFin| R2[Report]
 ```
 
 ---
@@ -113,11 +133,17 @@ graph TB
 
 Das Dashboard zeigt Statistiken, den Live Scan Monitor mit 5-Stage-Fortschritt, letzte Scans und Aktivitaeten.
 
-### OSINT-Modul Einstellungen
+### Einstellungen: E-Mail-Empfaenger & OSINT-Module
 
 ![Settings](../assets/images/ice-leak-monitoring/settings.png)
 
-Alle 7 OSINT-Module koennen per Toggle-Schalter aktiviert/deaktiviert werden. Fuer Hunter.io und LeakCheck werden API-Keys konfiguriert.
+E-Mail-Empfaenger fuer Scan-Berichte koennen direkt in der UI konfiguriert werden. Alle 7 OSINT-Module koennen per Toggle-Schalter aktiviert/deaktiviert werden. Fuer Hunter.io und LeakCheck werden API-Keys konfiguriert.
+
+### AI-Bewertungsprompt Editor
+
+![Settings Prompt](../assets/images/ice-leak-monitoring/settings_prompt.png)
+
+Der Prompt fuer die KI-Bewertung von Findings kann direkt in der UI bearbeitet werden. Platzhalter wie `{scanner}`, `{repo_name}` und `{keyword_context}` werden automatisch ersetzt.
 
 ### Keyword-Verwaltung
 
@@ -125,17 +151,29 @@ Alle 7 OSINT-Module koennen per Toggle-Schalter aktiviert/deaktiviert werden. Fu
 
 Keywords werden nach Kategorie (Company, Domain, E-Mail, Supplier, Custom) verwaltet und koennen aktiviert/deaktiviert werden.
 
+### Repositories mit Keyword-Matches
+
+![Repos](../assets/images/ice-leak-monitoring/repos.png)
+
+Gefundene Repositories mit AI-Override-Steuerung (Auto/Erzwungen/Gesperrt), Keyword-Bezug und AI-Score.
+
+### Repository-Detailseite
+
+![Repo Detail](../assets/images/ice-leak-monitoring/repo_detail.png)
+
+Detailansicht mit allen Keyword-Matches, Datei-Bezuegen, AI-Bewertung und zugehoerigen Findings.
+
 ### Scan-Verlauf
 
 ![Scans](../assets/images/ice-leak-monitoring/scans.png)
 
 Vollstaendige Scan-Historie mit Status, Repos, Findings und Dauer.
 
-### Findings
+### Findings mit Mail-Report
 
 ![Findings](../assets/images/ice-leak-monitoring/findings.png)
 
-Security-Findings mit Severity-Level, Scanner-Typ und KI-Bewertung.
+Security-Findings mit Severity-Level, Scanner-Typ, KI-Bewertung und Checkbox-Auswahl fuer den Mail-Report.
 
 ---
 
@@ -263,11 +301,17 @@ Vollstaendige Dokumentation: [Installationsanleitung](https://github.com/icepaul
 |:--------|:-----|:-------------|
 | POST | `/api/scans/trigger` | Scan starten |
 | POST | `/api/scans/cancel` | Scan abbrechen |
+| POST | `/api/scans/reassess` | AI-Reassessment aller offenen Findings |
 | GET | `/api/scans/progress` | Live-Fortschritt |
 | GET | `/api/stats` | Statistiken |
 | POST | `/repos/{id}/ai-override` | AI-Scan-Override pro Repo (0=sperren, 1=erzwingen, null=auto) |
 | POST | `/settings/modules/{key}/toggle` | OSINT-Modul an/aus |
 | POST | `/settings/modules/{key}/config` | API-Key speichern |
+| POST | `/settings/email-recipients` | E-Mail-Empfaenger speichern |
+| POST | `/settings/prompts/finding` | AI-Bewertungsprompt speichern |
+| POST | `/settings/prompts/finding/reset` | AI-Prompt auf Standard zuruecksetzen |
+| POST | `/api/findings/email-report` | Finding-Mail-Report senden |
+| POST | `/api/findings/{id}/rescan` | Einzelnes Finding re-scannen |
 
 ---
 
