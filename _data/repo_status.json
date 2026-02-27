@@ -49,6 +49,13 @@
     "status": "curated"
   },
   {
+    "name": "Ice-Leak-Monitoring",
+    "description": "",
+    "pushed_at": "2026-02-26T17:05:21Z",
+    "doc_file": "ice-leak-monitoring.md",
+    "status": "curated"
+  },
+  {
     "name": "Ice-MTastik",
     "description": "My Meshtastik setup",
     "pushed_at": "2026-02-14T14:12:36Z",
@@ -191,7 +198,7 @@
   {
     "name": "IceTimereport",
     "description": "",
-    "pushed_at": "2026-02-21T23:10:39Z",
+    "pushed_at": "2026-02-26T17:50:09Z",
     "doc_file": "icetimereport.md",
     "status": "curated"
   },

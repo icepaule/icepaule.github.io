@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-02-26 10:54 UTC*
+*Last updated: 2026-02-27 03:46 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**36 repos** documented: 29 curated, 3 auto-generated.
+**37 repos** documented: 30 curated, 3 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -52,6 +52,7 @@ flowchart LR
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | No README | - |
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Curated | [View](ice-github-doku.html) |
+| [Ice-Leak-Monitoring](https://github.com/icepaule/Ice-Leak-Monitoring) |  | Curated | [View](ice-leak-monitoring.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Curated | [View](ice-mtastik.html) |
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Curated | [View](iceai-tax-2025.html) |
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Curated | [View](icebackup.html) |
@@ -88,17 +89,17 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-02-26 |
-| Repos Scanned | 36 |
-| Clean Repos | 34 |
+| Last Scan | 2026-02-27 |
+| Repos Scanned | 37 |
+| Clean Repos | 35 |
 | Repos with Findings | 2 |
 | Total Findings | 9 |
 | Verified Findings | 0 |
-| New Findings (last scan) | 9 |
+| New Findings (last scan) | 0 |
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 34
+    "Clean" : 35
     "Findings" : 2
 ```
 
