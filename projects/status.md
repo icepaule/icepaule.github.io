@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-03-14 03:45 UTC*
+*Last updated: 2026-03-15 03:57 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**38 repos** documented: 30 curated, 4 auto-generated.
+**38 repos** documented: 31 curated, 3 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -74,7 +74,7 @@ flowchart LR
 | [IcePorge-MWDB-Stack](https://github.com/icepaule/IcePorge-MWDB-Stack) | MWDB-core with Karton orchestration for malware sample manag | Curated | [View](iceporge-mwdb-stack.html) |
 | [IceSeller](https://github.com/icepaule/IceSeller) |  | Curated | [View](iceseller.html) |
 | [IceTimereport](https://github.com/icepaule/IceTimereport) |  | Curated | [View](icetimereport.html) |
-| [IceUseCaseTesting](https://github.com/icepaule/IceUseCaseTesting) |  | Auto | [View](iceusecasetesting.html) |
+| [IceUseCaseTesting](https://github.com/icepaule/IceUseCaseTesting) |  | Curated | [View](iceusecasetesting.html) |
 | [IceWiFi](https://github.com/icepaule/IceWiFi) | My Home-WiFi setup using UniFi equipment | Curated | [View](icewifi.html) |
 | [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Curated | [View](icexwiki.html) |
 | [no-telemetry](https://github.com/icepaule/no-telemetry) | Win10 Telemetry blocklist for piHole | Auto | [View](no-telemetry.html) |
@@ -90,7 +90,7 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-03-14 |
+| Last Scan | 2026-03-15 |
 | Repos Scanned | 38 |
 | Clean Repos | 36 |
 | Repos with Findings | 2 |
