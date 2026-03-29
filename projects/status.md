@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-03-28 03:48 UTC*
+*Last updated: 2026-03-29 03:59 UTC*
 
 ---
 
@@ -64,6 +64,7 @@ flowchart LR
 | [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Curated | [View](icemailarchive.html) |
 | [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Curated | [View](icematrix.html) |
 | [IceMeshCore](https://github.com/icepaule/IceMeshCore) |  | Curated | [View](icemeshcore.html) |
+| [IcePhotos](https://github.com/icepaule/IcePhotos) |  | Auto | [View](icephotos.html) |
 | [IcePorge](https://github.com/icepaule/IcePorge) | IcePorge - Comprehensive Malware Analysis & Threat Intellige | Curated | [View](iceporge.html) |
 | [IcePorge-CAPE-Feed](https://github.com/icepaule/IcePorge-CAPE-Feed) | MalwareBazaar to CAPE to MISP automated pipeline | Curated | [View](iceporge-cape-feed.html) |
 | [IcePorge-CAPE-Mailer](https://github.com/icepaule/IcePorge-CAPE-Mailer) | CAPE Sandbox Email Integration - Automated malware analysis  | Curated | [View](iceporge-cape-mailer.html) |
@@ -78,7 +79,6 @@ flowchart LR
 | [IceWiFi](https://github.com/icepaule/IceWiFi) | My Home-WiFi setup using UniFi equipment | Curated | [View](icewifi.html) |
 | [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Curated | [View](icexwiki.html) |
 | [no-telemetry](https://github.com/icepaule/no-telemetry) | Win10 Telemetry blocklist for piHole | Auto | [View](no-telemetry.html) |
-| [nospy](https://github.com/icepaule/nospy) | All the relevant nospy files need by the service to block Wi | Auto | [View](nospy.html) |
 | [secintel](https://github.com/icepaule/secintel) | A security intel project powered by Django | Curated | [View](secintel.html) |
 | [tibberampel](https://github.com/icepaule/tibberampel) | Meine Tibberampel mit einem ESP8266 | Curated | [View](tibberampel.html) |
 | [Torlinks](https://github.com/icepaule/Torlinks) | Tor Links Database. This repository contains 2 files contain | Curated | [View](torlinks.html) |
@@ -90,7 +90,7 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-03-28 |
+| Last Scan | 2026-03-29 |
 | Repos Scanned | 38 |
 | Clean Repos | 36 |
 | Repos with Findings | 2 |

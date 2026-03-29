@@ -133,6 +133,13 @@
     "status": "curated"
   },
   {
+    "name": "IcePhotos",
+    "description": "",
+    "pushed_at": "2026-03-28T19:44:26Z",
+    "doc_file": "icephotos.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IcePorge",
     "description": "IcePorge - Comprehensive Malware Analysis & Threat Intelligence Stack",
     "pushed_at": "2026-01-23T17:19:19Z",
@@ -228,13 +235,6 @@
     "description": "Win10 Telemetry blocklist for piHole",
     "pushed_at": "2020-01-09T22:03:06Z",
     "doc_file": "no-telemetry.md",
-    "status": "auto_updated"
-  },
-  {
-    "name": "nospy",
-    "description": "All the relevant nospy files need by the service to block Windows Telemetry communication",
-    "pushed_at": "2019-01-15T14:07:37Z",
-    "doc_file": "nospy.md",
     "status": "auto_updated"
   },
   {
