@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-03-30 04:00 UTC*
+*Last updated: 2026-04-01 04:01 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**38 repos** documented: 32 curated, 2 auto-generated.
+**41 repos** documented: 32 curated, 5 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -52,8 +52,10 @@ flowchart LR
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | No README | - |
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Curated | [View](ice-github-doku.html) |
+| [Ice-Kubernetes](https://github.com/icepaule/Ice-Kubernetes) |  | Auto | [View](ice-kubernetes.html) |
 | [Ice-Leak-Monitoring](https://github.com/icepaule/Ice-Leak-Monitoring) |  | Curated | [View](ice-leak-monitoring.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Curated | [View](ice-mtastik.html) |
+| [Ice-SEC-cli](https://github.com/icepaule/Ice-SEC-cli) |  | Auto | [View](ice-sec-cli.html) |
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Curated | [View](iceai-tax-2025.html) |
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Curated | [View](icebackup.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
@@ -74,6 +76,7 @@ flowchart LR
 | [IcePorge-MWDB-Feeder](https://github.com/icepaule/IcePorge-MWDB-Feeder) | Multi-source malware sample aggregator (URLhaus, ThreatFox,  | Curated | [View](iceporge-mwdb-feeder.html) |
 | [IcePorge-MWDB-Stack](https://github.com/icepaule/IcePorge-MWDB-Stack) | MWDB-core with Karton orchestration for malware sample manag | Curated | [View](iceporge-mwdb-stack.html) |
 | [IceSeller](https://github.com/icepaule/IceSeller) |  | Curated | [View](iceseller.html) |
+| [IceSpider](https://github.com/icepaule/IceSpider) |  | Auto | [View](icespider.html) |
 | [IceTimereport](https://github.com/icepaule/IceTimereport) |  | Curated | [View](icetimereport.html) |
 | [IceUseCaseTesting](https://github.com/icepaule/IceUseCaseTesting) |  | Curated | [View](iceusecasetesting.html) |
 | [IceWiFi](https://github.com/icepaule/IceWiFi) | My Home-WiFi setup using UniFi equipment | Curated | [View](icewifi.html) |
@@ -90,9 +93,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-03-30 |
-| Repos Scanned | 38 |
-| Clean Repos | 36 |
+| Last Scan | 2026-04-01 |
+| Repos Scanned | 41 |
+| Clean Repos | 39 |
 | Repos with Findings | 2 |
 | Total Findings | 9 |
 | Verified Findings | 0 |
@@ -100,7 +103,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 36
+    "Clean" : 39
     "Findings" : 2
 ```
 
