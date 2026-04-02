@@ -51,9 +51,9 @@
   {
     "name": "Ice-Kubernetes",
     "description": "",
-    "pushed_at": "2026-03-31T17:36:34Z",
+    "pushed_at": "2026-04-01T16:30:59Z",
     "doc_file": "ice-kubernetes.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "Ice-Leak-Monitoring",
@@ -74,7 +74,7 @@
     "description": "",
     "pushed_at": "2026-03-31T17:05:32Z",
     "doc_file": "ice-sec-cli.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceAI-tax-2025",
@@ -221,7 +221,7 @@
     "description": "",
     "pushed_at": "2026-03-31T17:37:20Z",
     "doc_file": "icespider.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceTimereport",
