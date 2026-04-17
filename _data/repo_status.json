@@ -140,6 +140,20 @@
     "status": "curated"
   },
   {
+    "name": "IceMeshCore",
+    "description": "",
+    "pushed_at": "2026-02-10T11:57:24Z",
+    "doc_file": "icemeshcore.md",
+    "status": "curated"
+  },
+  {
+    "name": "IcePhotos",
+    "description": "",
+    "pushed_at": "2026-03-28T19:44:26Z",
+    "doc_file": "icephotos.md",
+    "status": "curated"
+  },
+  {
     "name": "IcePorge",
     "description": "IcePorge - Comprehensive Malware Analysis & Threat Intelligence Stack",
     "pushed_at": "2026-01-23T17:19:19Z",
