@@ -105,6 +105,13 @@
     "status": "curated"
   },
   {
+    "name": "IceDHCP",
+    "description": "",
+    "pushed_at": "2026-04-24T17:49:41Z",
+    "doc_file": "icedhcp.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
     "pushed_at": "2026-03-05T17:46:33Z",
@@ -229,6 +236,13 @@
     "pushed_at": "2026-02-26T17:50:09Z",
     "doc_file": "icetimereport.md",
     "status": "curated"
+  },
+  {
+    "name": "IceTravelAP",
+    "description": "",
+    "pushed_at": "2026-04-24T07:48:03Z",
+    "doc_file": "icetravelap.md",
+    "status": "auto_created"
   },
   {
     "name": "IceUseCaseTesting",

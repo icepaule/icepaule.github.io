@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-04-24 04:04 UTC*
+*Last updated: 2026-04-25 03:58 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**41 repos** documented: 35 curated, 2 auto-generated.
+**43 repos** documented: 35 curated, 4 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -60,6 +60,7 @@ flowchart LR
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Curated | [View](icebackup.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Curated | [View](icedataemphasise.html) |
+| [IceDHCP](https://github.com/icepaule/IceDHCP) |  | Auto | [View](icedhcp.html) |
 | [IceHomeAssist](https://github.com/icepaule/IceHomeAssist) | My Home Assistant setup | Curated | [View](icehomeassist.html) |
 | [IceIntelligence](https://github.com/icepaule/IceIntelligence) |  | Curated | [View](iceintelligence.html) |
 | [IceLaborVPN](https://github.com/icepaule/IceLaborVPN) | Secure Zero-Trust Remote Access Gateway for Malware Analysis | Curated | [View](icelaborvpn.html) |
@@ -78,6 +79,7 @@ flowchart LR
 | [IceSeller](https://github.com/icepaule/IceSeller) |  | Curated | [View](iceseller.html) |
 | [IceSpider](https://github.com/icepaule/IceSpider) |  | Curated | [View](icespider.html) |
 | [IceTimereport](https://github.com/icepaule/IceTimereport) |  | Curated | [View](icetimereport.html) |
+| [IceTravelAP](https://github.com/icepaule/IceTravelAP) |  | Auto | [View](icetravelap.html) |
 | [IceUseCaseTesting](https://github.com/icepaule/IceUseCaseTesting) |  | Curated | [View](iceusecasetesting.html) |
 | [IceWiFi](https://github.com/icepaule/IceWiFi) | My Home-WiFi setup using UniFi equipment | Curated | [View](icewifi.html) |
 | [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Curated | [View](icexwiki.html) |
@@ -93,9 +95,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-04-24 |
-| Repos Scanned | 41 |
-| Clean Repos | 39 |
+| Last Scan | 2026-04-25 |
+| Repos Scanned | 43 |
+| Clean Repos | 41 |
 | Repos with Findings | 2 |
 | Total Findings | 9 |
 | Verified Findings | 0 |
@@ -103,7 +105,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 39
+    "Clean" : 41
     "Findings" : 2
 ```
 
