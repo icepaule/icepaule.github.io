@@ -107,9 +107,9 @@
   {
     "name": "IceDHCP",
     "description": "",
-    "pushed_at": "2026-04-24T17:49:41Z",
+    "pushed_at": "2026-04-25T07:16:06Z",
     "doc_file": "icedhcp.md",
-    "status": "auto_created"
+    "status": "no_readme"
   },
   {
     "name": "IceHomeAssist",
@@ -242,7 +242,7 @@
     "description": "",
     "pushed_at": "2026-04-24T07:48:03Z",
     "doc_file": "icetravelap.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceUseCaseTesting",
