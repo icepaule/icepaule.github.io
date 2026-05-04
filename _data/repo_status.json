@@ -128,7 +128,7 @@
   {
     "name": "IceLaborVPN",
     "description": "Secure Zero-Trust Remote Access Gateway for Malware Analysis Labs - DORA/MITRE Compliant",
-    "pushed_at": "2026-05-02T09:05:22Z",
+    "pushed_at": "2026-05-03T07:15:38Z",
     "doc_file": "icelaborvpn.md",
     "status": "curated"
   },
