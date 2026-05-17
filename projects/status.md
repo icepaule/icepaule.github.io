@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-05-16 04:12 UTC*
+*Last updated: 2026-05-17 04:23 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**43 repos** documented: 36 curated, 2 auto-generated.
+**43 repos** documented: 36 curated, 3 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -50,7 +50,7 @@ flowchart LR
 | [cuckoo-docker](https://github.com/icepaule/cuckoo-docker) | Creating a docker container hosting a cuckoo sandbox | Auto | [View](cuckoo-docker.html) |
 | [doed_forensics](https://github.com/icepaule/doed_forensics) | doed´s little helpers | No README | - |
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
-| [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | No README | - |
+| [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | Auto | [View](followmysun.html) |
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Curated | [View](ice-github-doku.html) |
 | [Ice-Kubernetes](https://github.com/icepaule/Ice-Kubernetes) |  | Curated | [View](ice-kubernetes.html) |
 | [Ice-Leak-Monitoring](https://github.com/icepaule/Ice-Leak-Monitoring) |  | Curated | [View](ice-leak-monitoring.html) |
@@ -95,7 +95,7 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-05-16 |
+| Last Scan | 2026-05-17 |
 | Repos Scanned | 43 |
 | Clean Repos | 41 |
 | Repos with Findings | 2 |
