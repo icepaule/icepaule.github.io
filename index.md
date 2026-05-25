@@ -46,6 +46,7 @@ Open-Source Projekte rund um Security, Home Automation, IoT und mehr.
 | [tibberampel](projects/tibberampel.html) | Tibberampel mit einem ESP8266 |
 | [IceXWiKi](projects/xwiki-stack.html) | Self-Hosted Knowledge Stack |
 | [IceMailArchive](projects/icemailarchive.html) | IceMailArchive |
+| [esxi2proxmox](projects/esxi2proxmox.html) | DL380 → UM790 Migration mit ~87% Stromersparnis |
 
 ### Mesh & Communication
 {: .text-blue-300 }
