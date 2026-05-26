@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-05-25 04:29 UTC*
+*Last updated: 2026-05-26 04:25 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**43 repos** documented: 37 curated, 2 auto-generated.
+**44 repos** documented: 38 curated, 2 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -50,6 +50,7 @@ flowchart LR
 | [cuckoo-docker](https://github.com/icepaule/cuckoo-docker) | Creating a docker container hosting a cuckoo sandbox | Auto | [View](cuckoo-docker.html) |
 | [doed_forensics](https://github.com/icepaule/doed_forensics) | doed´s little helpers | No README | - |
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
+| [esxi2proxmox](https://github.com/icepaule/esxi2proxmox) |  | Curated | [View](esxi2proxmox.html) |
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | Curated | [View](followmysun.html) |
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Curated | [View](ice-github-doku.html) |
 | [Ice-Kubernetes](https://github.com/icepaule/Ice-Kubernetes) |  | Curated | [View](ice-kubernetes.html) |
@@ -95,9 +96,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-05-25 |
-| Repos Scanned | 43 |
-| Clean Repos | 41 |
+| Last Scan | 2026-05-26 |
+| Repos Scanned | 44 |
+| Clean Repos | 42 |
 | Repos with Findings | 2 |
 | Total Findings | 9 |
 | Verified Findings | 0 |
@@ -105,7 +106,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 41
+    "Clean" : 42
     "Findings" : 2
 ```
 

@@ -35,6 +35,13 @@
     "status": "no_readme"
   },
   {
+    "name": "esxi2proxmox",
+    "description": "",
+    "pushed_at": "2026-05-25T13:00:48Z",
+    "doc_file": "esxi2proxmox.md",
+    "status": "curated"
+  },
+  {
     "name": "followmysun",
     "description": "Single axis adjustment for my solar panel",
     "pushed_at": "2026-05-16T20:33:39Z",
