@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-06-02 04:30 UTC*
+*Last updated: 2026-06-03 04:30 UTC*
 
 ---
 
@@ -96,13 +96,13 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-06-02 |
+| Last Scan | 2026-06-03 |
 | Repos Scanned | 44 |
 | Clean Repos | 42 |
 | Repos with Findings | 2 |
-| Total Findings | 9 |
+| Total Findings | 12 |
 | Verified Findings | 0 |
-| New Findings (last scan) | 0 |
+| New Findings (last scan) | 3 |
 
 ```mermaid
 pie title Repository Security Status
