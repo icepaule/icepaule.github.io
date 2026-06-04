@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-06-03 04:30 UTC*
+*Last updated: 2026-06-04 04:30 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**44 repos** documented: 38 curated, 2 auto-generated.
+**45 repos** documented: 38 curated, 3 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -68,6 +68,7 @@ flowchart LR
 | [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Curated | [View](icemailarchive.html) |
 | [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Curated | [View](icematrix.html) |
 | [IceMeshCore](https://github.com/icepaule/IceMeshCore) |  | Curated | [View](icemeshcore.html) |
+| [IceOSINT](https://github.com/icepaule/IceOSINT) |  | Auto | [View](iceosint.html) |
 | [IcePhotos](https://github.com/icepaule/IcePhotos) |  | Curated | [View](icephotos.html) |
 | [IcePorge](https://github.com/icepaule/IcePorge) | IcePorge - Comprehensive Malware Analysis & Threat Intellige | Curated | [View](iceporge.html) |
 | [IcePorge-CAPE-Feed](https://github.com/icepaule/IcePorge-CAPE-Feed) | MalwareBazaar to CAPE to MISP automated pipeline | Curated | [View](iceporge-cape-feed.html) |
@@ -96,17 +97,17 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-06-03 |
-| Repos Scanned | 44 |
-| Clean Repos | 42 |
+| Last Scan | 2026-06-04 |
+| Repos Scanned | 45 |
+| Clean Repos | 43 |
 | Repos with Findings | 2 |
 | Total Findings | 12 |
 | Verified Findings | 0 |
-| New Findings (last scan) | 3 |
+| New Findings (last scan) | 0 |
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 42
+    "Clean" : 43
     "Findings" : 2
 ```
 
