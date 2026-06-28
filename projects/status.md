@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-06-27 04:21 UTC*
+*Last updated: 2026-06-28 04:29 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**45 repos** documented: 39 curated, 2 auto-generated.
+**47 repos** documented: 39 curated, 4 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -64,10 +64,12 @@ flowchart LR
 | [IceDHCP](https://github.com/icepaule/IceDHCP) |  | No README | - |
 | [IceHomeAssist](https://github.com/icepaule/IceHomeAssist) | My Home Assistant setup | Curated | [View](icehomeassist.html) |
 | [IceIntelligence](https://github.com/icepaule/IceIntelligence) |  | Curated | [View](iceintelligence.html) |
+| [IceITSOAI](https://github.com/icepaule/IceITSOAI) |  | Auto | [View](iceitsoai.html) |
 | [IceLaborVPN](https://github.com/icepaule/IceLaborVPN) | Secure Zero-Trust Remote Access Gateway for Malware Analysis | Curated | [View](icelaborvpn.html) |
 | [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Curated | [View](icemailarchive.html) |
 | [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Curated | [View](icematrix.html) |
 | [IceMeshCore](https://github.com/icepaule/IceMeshCore) |  | Curated | [View](icemeshcore.html) |
+| [IceMultiGPUAI](https://github.com/icepaule/IceMultiGPUAI) |  | Auto | [View](icemultigpuai.html) |
 | [IceOSINT](https://github.com/icepaule/IceOSINT) |  | Curated | [View](iceosint.html) |
 | [IcePhotos](https://github.com/icepaule/IcePhotos) |  | Curated | [View](icephotos.html) |
 | [IcePorge](https://github.com/icepaule/IcePorge) | IcePorge - Comprehensive Malware Analysis & Threat Intellige | Curated | [View](iceporge.html) |
@@ -97,9 +99,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-06-27 |
-| Repos Scanned | 45 |
-| Clean Repos | 43 |
+| Last Scan | 2026-06-28 |
+| Repos Scanned | 47 |
+| Clean Repos | 45 |
 | Repos with Findings | 2 |
 | Total Findings | 12 |
 | Verified Findings | 0 |
@@ -107,7 +109,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 43
+    "Clean" : 45
     "Findings" : 2
 ```
 

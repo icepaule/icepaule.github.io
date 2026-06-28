@@ -121,7 +121,7 @@
   {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
-    "pushed_at": "2026-06-07T09:36:50Z",
+    "pushed_at": "2026-06-27T13:12:12Z",
     "doc_file": "icehomeassist.md",
     "status": "curated"
   },
@@ -131,6 +131,13 @@
     "pushed_at": "2026-02-16T16:39:16Z",
     "doc_file": "iceintelligence.md",
     "status": "curated"
+  },
+  {
+    "name": "IceITSOAI",
+    "description": "",
+    "pushed_at": "2026-06-27T14:22:50Z",
+    "doc_file": "iceitsoai.md",
+    "status": "auto_created"
   },
   {
     "name": "IceLaborVPN",
@@ -159,6 +166,13 @@
     "pushed_at": "2026-02-10T11:57:24Z",
     "doc_file": "icemeshcore.md",
     "status": "curated"
+  },
+  {
+    "name": "IceMultiGPUAI",
+    "description": "",
+    "pushed_at": "2026-06-27T13:32:12Z",
+    "doc_file": "icemultigpuai.md",
+    "status": "auto_created"
   },
   {
     "name": "IceOSINT",
