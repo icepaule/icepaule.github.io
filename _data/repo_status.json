@@ -135,9 +135,9 @@
   {
     "name": "IceITSOAI",
     "description": "",
-    "pushed_at": "2026-06-27T14:22:50Z",
+    "pushed_at": "2026-06-28T10:13:39Z",
     "doc_file": "iceitsoai.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceLaborVPN",
@@ -172,7 +172,7 @@
     "description": "",
     "pushed_at": "2026-06-27T13:32:12Z",
     "doc_file": "icemultigpuai.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceOSINT",
