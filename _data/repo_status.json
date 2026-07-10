@@ -93,9 +93,16 @@
   {
     "name": "IceBackup",
     "description": "",
-    "pushed_at": "2026-02-25T14:39:23Z",
+    "pushed_at": "2026-07-09T14:58:42Z",
     "doc_file": "icebackup.md",
     "status": "curated"
+  },
+  {
+    "name": "IceBewerkungsAssistent",
+    "description": "",
+    "pushed_at": "2026-07-09T14:44:59Z",
+    "doc_file": "icebewerkungsassistent.md",
+    "status": "auto_created"
   },
   {
     "name": "IceCrow",
@@ -182,6 +189,13 @@
     "status": "curated"
   },
   {
+    "name": "IcePaperlessAI",
+    "description": "",
+    "pushed_at": "2026-07-09T17:32:05Z",
+    "doc_file": "icepaperlessai.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IcePhotos",
     "description": "",
     "pushed_at": "2026-03-28T19:44:26Z",
@@ -243,6 +257,13 @@
     "pushed_at": "2026-01-23T16:05:07Z",
     "doc_file": "iceporge-mwdb-stack.md",
     "status": "curated"
+  },
+  {
+    "name": "IceProxmoxBackup",
+    "description": "",
+    "pushed_at": "2026-07-09T15:02:30Z",
+    "doc_file": "iceproxmoxbackup.md",
+    "status": "auto_created"
   },
   {
     "name": "IceSeller",
