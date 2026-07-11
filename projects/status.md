@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-10 06:31 UTC*
+*Last updated: 2026-07-11 05:31 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**50 repos** documented: 41 curated, 5 auto-generated.
+**50 repos** documented: 43 curated, 2 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -59,7 +59,7 @@ flowchart LR
 | [Ice-SEC-cli](https://github.com/icepaule/Ice-SEC-cli) |  | Curated | [View](ice-sec-cli.html) |
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Curated | [View](iceai-tax-2025.html) |
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Curated | [View](icebackup.html) |
-| [IceBewerkungsAssistent](https://github.com/icepaule/IceBewerkungsAssistent) |  | Auto | [View](icebewerkungsassistent.html) |
+| [IceBewerkungsAssistent](https://github.com/icepaule/IceBewerkungsAssistent) |  | No README | - |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Curated | [View](icedataemphasise.html) |
 | [IceDHCP](https://github.com/icepaule/IceDHCP) |  | No README | - |
@@ -72,7 +72,7 @@ flowchart LR
 | [IceMeshCore](https://github.com/icepaule/IceMeshCore) |  | Curated | [View](icemeshcore.html) |
 | [IceMultiGPUAI](https://github.com/icepaule/IceMultiGPUAI) |  | Curated | [View](icemultigpuai.html) |
 | [IceOSINT](https://github.com/icepaule/IceOSINT) |  | Curated | [View](iceosint.html) |
-| [IcePaperlessAI](https://github.com/icepaule/IcePaperlessAI) |  | Auto | [View](icepaperlessai.html) |
+| [IcePaperlessAI](https://github.com/icepaule/IcePaperlessAI) |  | Curated | [View](icepaperlessai.html) |
 | [IcePhotos](https://github.com/icepaule/IcePhotos) |  | Curated | [View](icephotos.html) |
 | [IcePorge](https://github.com/icepaule/IcePorge) | IcePorge - Comprehensive Malware Analysis & Threat Intellige | Curated | [View](iceporge.html) |
 | [IcePorge-CAPE-Feed](https://github.com/icepaule/IcePorge-CAPE-Feed) | MalwareBazaar to CAPE to MISP automated pipeline | Curated | [View](iceporge-cape-feed.html) |
@@ -82,7 +82,7 @@ flowchart LR
 | [IcePorge-Malware-RAG](https://github.com/icepaule/IcePorge-Malware-RAG) | LLM-powered malware analysis using RAG and vector databases | Curated | [View](iceporge-malware-rag.html) |
 | [IcePorge-MWDB-Feeder](https://github.com/icepaule/IcePorge-MWDB-Feeder) | Multi-source malware sample aggregator (URLhaus, ThreatFox,  | Curated | [View](iceporge-mwdb-feeder.html) |
 | [IcePorge-MWDB-Stack](https://github.com/icepaule/IcePorge-MWDB-Stack) | MWDB-core with Karton orchestration for malware sample manag | Curated | [View](iceporge-mwdb-stack.html) |
-| [IceProxmoxBackup](https://github.com/icepaule/IceProxmoxBackup) |  | Auto | [View](iceproxmoxbackup.html) |
+| [IceProxmoxBackup](https://github.com/icepaule/IceProxmoxBackup) |  | Curated | [View](iceproxmoxbackup.html) |
 | [IceSeller](https://github.com/icepaule/IceSeller) |  | Curated | [View](iceseller.html) |
 | [IceSpider](https://github.com/icepaule/IceSpider) |  | Curated | [View](icespider.html) |
 | [IceTimereport](https://github.com/icepaule/IceTimereport) |  | Curated | [View](icetimereport.html) |
@@ -102,7 +102,7 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-07-10 |
+| Last Scan | 2026-07-11 |
 | Repos Scanned | 50 |
 | Clean Repos | 48 |
 | Repos with Findings | 2 |

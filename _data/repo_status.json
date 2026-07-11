@@ -102,7 +102,7 @@
     "description": "",
     "pushed_at": "2026-07-09T14:44:59Z",
     "doc_file": "icebewerkungsassistent.md",
-    "status": "auto_created"
+    "status": "no_readme"
   },
   {
     "name": "IceCrow",
@@ -193,7 +193,7 @@
     "description": "",
     "pushed_at": "2026-07-09T17:32:05Z",
     "doc_file": "icepaperlessai.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IcePhotos",
@@ -263,7 +263,7 @@
     "description": "",
     "pushed_at": "2026-07-09T15:02:30Z",
     "doc_file": "iceproxmoxbackup.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceSeller",
