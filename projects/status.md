@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-15 05:21 UTC*
+*Last updated: 2026-07-16 05:30 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**50 repos** documented: 43 curated, 2 auto-generated.
+**51 repos** documented: 43 curated, 3 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -88,6 +88,7 @@ flowchart LR
 | [IceTimereport](https://github.com/icepaule/IceTimereport) |  | Curated | [View](icetimereport.html) |
 | [IceTravelAP](https://github.com/icepaule/IceTravelAP) |  | Curated | [View](icetravelap.html) |
 | [IceUseCaseTesting](https://github.com/icepaule/IceUseCaseTesting) |  | Curated | [View](iceusecasetesting.html) |
+| [IceWeatherstation](https://github.com/icepaule/IceWeatherstation) |  | Auto | [View](iceweatherstation.html) |
 | [IceWiFi](https://github.com/icepaule/IceWiFi) | My Home-WiFi setup using UniFi equipment | Curated | [View](icewifi.html) |
 | [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Curated | [View](icexwiki.html) |
 | [no-telemetry](https://github.com/icepaule/no-telemetry) | Win10 Telemetry blocklist for piHole | Auto | [View](no-telemetry.html) |
@@ -102,9 +103,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-07-15 |
-| Repos Scanned | 50 |
-| Clean Repos | 48 |
+| Last Scan | 2026-07-16 |
+| Repos Scanned | 51 |
+| Clean Repos | 49 |
 | Repos with Findings | 2 |
 | Total Findings | 12 |
 | Verified Findings | 0 |
@@ -112,7 +113,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 48
+    "Clean" : 49
     "Findings" : 2
 ```
 
