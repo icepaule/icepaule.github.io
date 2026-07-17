@@ -164,6 +164,37 @@ def sanitize_content(text):
     return text
 
 
+def rewrite_relative_links(text, repo_name, branch):
+    """Rewrite repo-relative image/link paths to absolute GitHub URLs.
+
+    READMEs use paths relative to the repo root (correct on github.com),
+    but on icepaule.github.io the page lives under /projects/ - relative
+    paths there resolve to nonexistent /projects/docs/... URLs (404).
+    """
+    base_raw = f"https://raw.githubusercontent.com/{GITHUB_USER}/{repo_name}/{branch}/"
+    base_blob = f"https://github.com/{GITHUB_USER}/{repo_name}/blob/{branch}/"
+
+    def is_relative(path):
+        return not re.match(r'^(https?:)?//|^#|^mailto:', path)
+
+    def repl_image(m):
+        alt, path = m.group(1), m.group(2)
+        if is_relative(path):
+            path = base_raw + path.lstrip('/')
+        return f"![{alt}]({path})"
+
+    def repl_link(m):
+        text_, path = m.group(1), m.group(2)
+        if is_relative(path):
+            path = base_blob + path.lstrip('/')
+        return f"[{text_}]({path})"
+
+    # Bilder zuerst (![...](...)), sonst matcht der Link-Regex faelschlich mit
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', repl_image, text)
+    text = re.sub(r'(?<!!)\[([^\]]*)\]\(([^)]+)\)', repl_link, text)
+    return text
+
+
 def strip_readme_title(text, repo_name):
     """Remove the first H1 heading if it matches the repo name (we add our own)."""
     lines = text.split('\n')
@@ -244,6 +275,8 @@ def generate_page(repo, readme_content):
     if readme_content:
         readme_content = sanitize_content(readme_content)
         readme_content = strip_readme_title(readme_content, name)
+        branch = (repo.get("defaultBranchRef") or {}).get("name") or "main"
+        readme_content = rewrite_relative_links(readme_content, name, branch)
 
     page = f"""---
 layout: default
