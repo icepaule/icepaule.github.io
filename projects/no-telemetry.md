@@ -2,7 +2,7 @@
 layout: default
 title: no-telemetry
 parent: Data & Tools
-nav_order: 31
+nav_order: 27
 ---
 
 # no-telemetry
@@ -13,6 +13,8 @@ nav_order: 31
 
 **Win10 Telemetry blocklist for piHole**
 
+{% raw %}
 Win10 Telemetry blocklist for piHole
 
 Use at own risk ;-)
+{% endraw %}

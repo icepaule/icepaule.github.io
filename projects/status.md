@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-17 19:47 UTC*
+*Last updated: 2026-07-17 19:55 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**55 repos** documented: 47 curated, 3 auto-generated.
+**55 repos** documented: 48 curated, 2 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -56,7 +56,7 @@ flowchart LR
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Curated | [View](ice-github-doku.html) |
 | [Ice-Kubernetes](https://github.com/icepaule/Ice-Kubernetes) |  | Curated | [View](ice-kubernetes.html) |
 | [Ice-Leak-Monitoring](https://github.com/icepaule/Ice-Leak-Monitoring) |  | Curated | [View](ice-leak-monitoring.html) |
-| [Ice-LLM-router](https://github.com/icepaule/Ice-LLM-router) |  | Auto | [View](ice-llm-router.html) |
+| [Ice-LLM-router](https://github.com/icepaule/Ice-LLM-router) |  | Curated | [View](ice-llm-router.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Curated | [View](ice-mtastik.html) |
 | [Ice-SEC-cli](https://github.com/icepaule/Ice-SEC-cli) |  | Curated | [View](ice-sec-cli.html) |
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Curated | [View](iceai-tax-2025.html) |
@@ -113,7 +113,7 @@ flowchart LR
 | Repos with Findings | 3 |
 | Total Findings | 13 |
 | Verified Findings | 0 |
-| New Findings (last scan) | 1 |
+| New Findings (last scan) | 0 |
 
 ```mermaid
 pie title Repository Security Status
