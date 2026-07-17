@@ -38,6 +38,7 @@ CATEGORY_MAP = {
     "icebackup": "Security & Malware Analysis",
     # Home Automation & Networking
     "icehomeassist": "Home Automation & Networking",
+    "icebirdwatch": "Home Automation & Networking",
     "icewifi": "Home Automation & Networking",
     "adguard-kiosk": "Home Automation & Networking",
     "tibberampel": "Home Automation & Networking",
