@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-Ghidra-Orchestrator
 parent: Security & Malware Analysis
-nav_order: 7
+nav_order: 2
 ---
 
 # IcePorge-Ghidra-Orchestrator
@@ -11,13 +11,16 @@ nav_order: 7
 
 ***
 
+**Automated Ghidra reverse engineering with LLM enhancement**
+
+{% raw %}
 **Automated Malware Reverse Engineering with AI-Powered Deobfuscation**
 
 Part of the [IcePorge](https://github.com/icepaule/IcePorge) Malware Analysis Stack.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-***
+---
 
 ## Overview
 
@@ -31,7 +34,7 @@ The Ghidra Orchestrator automates static malware analysis using Ghidra's headles
 - **Forensic Logging** - Complete audit trail of all analysis actions
 - **Knowledge Base** - Malware pattern recognition from curated datasets
 
-***
+---
 
 ## Architecture
 
@@ -68,7 +71,7 @@ The Ghidra Orchestrator automates static malware analysis using Ghidra's headles
            /mnt/cape-data/ghidra/results/
 ```
 
-***
+---
 
 ## Components
 
@@ -81,7 +84,7 @@ The Ghidra Orchestrator automates static malware analysis using Ghidra's headles
 | `gpu_monitor.py` | GPU utilization monitoring for Ollama |
 | `scripts/ExportAnalysis.py` | Ghidra script for data extraction |
 
-***
+---
 
 ## Installation
 
@@ -113,7 +116,7 @@ cp config/malware_knowledge.yaml.example config/malware_knowledge.yaml
 python api_server.py
 ```
 
-***
+---
 
 ## API Endpoints
 
@@ -145,7 +148,7 @@ curl -X POST http://localhost:5000/analyze \
 curl http://localhost:5000/results/12345
 ```
 
-***
+---
 
 ## Configuration
 
@@ -164,7 +167,7 @@ The `config/malware_knowledge.yaml` contains:
 - Malware family indicators
 - Obfuscation patterns
 
-***
+---
 
 ## Integration with CAPE
 
@@ -182,7 +185,7 @@ def process_with_ghidra(file_path, task_id):
     return response.json()
 ```
 
-***
+---
 
 ## Output
 
@@ -198,7 +201,7 @@ Analysis results are stored in `/mnt/cape-data/ghidra/results/<task_id>/`:
 └── forensic.log            # Complete audit trail
 ```
 
-***
+---
 
 ## Forensic Logging
 
@@ -214,7 +217,7 @@ Every analysis action is documented:
 [2026-01-22T10:31:00] FINDING [HIGH]: [obfuscation] RC4 decryption detected
 ```
 
-***
+---
 
 ## Service Management
 
@@ -229,12 +232,13 @@ sudo journalctl -u ghidra-orchestrator -f
 sudo systemctl status ghidra-orchestrator
 ```
 
-***
+---
 
 ## License
 
-MIT License - See [LICENSE](LICENSE)
+MIT License - See [LICENSE](https://github.com/icepaule/IcePorge-Ghidra-Orchestrator/blob/main/LICENSE)
 
 **Author:** Michael Pauli
 - GitHub: [@icepaule](https://github.com/icepaule)
-- Email: info@mpauli.de
+- Email: ****@****.***
+{% endraw %}

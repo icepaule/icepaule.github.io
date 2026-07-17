@@ -2,7 +2,7 @@
 layout: default
 title: Ice-GitHub-Doku
 parent: Data & Tools
-nav_order: 6
+nav_order: 15
 ---
 
 # Ice-GitHub-Doku
@@ -13,6 +13,7 @@ nav_order: 6
 
 **Ice-GitHub-Doku**
 
+{% raw %}
 Portable Build-Script for automated GitHub Pages generation with integrated TruffleHog security scanning.
 
 Scans all public repositories for leaked secrets, fetches README content, and generates a complete Jekyll site (just-the-docs theme) — ready to push to `<username>.github.io`.
@@ -236,3 +237,4 @@ Note: In non-interactive mode (cron), the script aborts if TruffleHog finds veri
 ## License
 
 MIT
+{% endraw %}

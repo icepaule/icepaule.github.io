@@ -2,7 +2,7 @@
 layout: default
 title: IceWiFi
 parent: Home Automation & Networking
-nav_order: 2
+nav_order: 5
 ---
 
 # IceWiFi
@@ -11,6 +11,9 @@ nav_order: 2
 
 ***
 
+**My Home-WiFi setup using UniFi equipment**
+
+{% raw %}
 **Enterprise-grade home network with UniFi, VLAN segmentation, Tor transparent proxy, and Home Assistant integration.**
 
 ## Overview
@@ -216,6 +219,7 @@ This project documents a personal home network setup. Feel free to use the archi
 
 Marcus Pauli - [mpauli.de](https://www.mpauli.de/icewifi/)
 
-***
+---
 
 *Built with UniFi, MikroTik SwOS, Sophos XG, Home Assistant, and Tor.*
+{% endraw %}

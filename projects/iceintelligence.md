@@ -2,7 +2,7 @@
 layout: default
 title: IceIntelligence
 parent: Security & Malware Analysis
-nav_order: 10
+nav_order: 12
 ---
 
 # IceIntelligence
@@ -11,6 +11,9 @@ nav_order: 10
 
 ***
 
+**IceIntelligence**
+
+{% raw %}
 ## Project Overview
 
 IceIntelligence is a powerful, self-hosted AI orchestration platform designed to enhance your productivity and insights, especially in sensitive domains like cybersecurity and financial document management. Built with a focus on data privacy and local processing, it leverages Large Language Models (LLMs) via Ollama, integrates with your personal documents (RAG), performs controlled internet research, and automates document classification and tagging with Paperless-NGX.
@@ -98,7 +101,7 @@ Before you begin, ensure you have the following installed on your system:
 
     # Paperless-NGX Configuration
     PAPERLESS_URL=http://192.168.178.108:8010 # Your Paperless-NGX instance URL
-    PAPERLESS_API_TOKEN=YOUR_PAPERLESS_API_TOKEN # <<< CRITICAL: REPLACE WITH YOUR ACTUAL PAPERLESS API TOKEN >>>
+    PAPERLESS_API_TOKEN=**** # <<< CRITICAL: REPLACE WITH YOUR ACTUAL PAPERLESS API TOKEN >>>
 
     # Worker ID (optional, will be generated if not provided)
     # WORKER_ID=my-ollama-worker
@@ -183,3 +186,4 @@ Interact with the API using the `/docs` endpoint for a user-friendly interface o
 -   **Dynamic Ollama Model Management:** API endpoints to list, pull, and manage Ollama models dynamically.
 -   **User Authentication/Authorization:** For multi-user environments.
 -   **Document Upload to Paperless-NGX:** Directly upload files to Paperless-NGX through the API.
+{% endraw %}

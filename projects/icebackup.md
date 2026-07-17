@@ -2,7 +2,7 @@
 layout: default
 title: IceBackup
 parent: Security & Malware Analysis
-nav_order: 12
+nav_order: 15
 ---
 
 # IceBackup
@@ -13,6 +13,7 @@ nav_order: 12
 
 **IceBackup**
 
+{% raw %}
 A multi-tier backup strategy using Synology Active Backup for Business (ABB) for both **Proxmox VE** hypervisors (with PBS) and **bare-metal Linux** hosts, backed by a Synology NAS.
 
 ## Architecture
@@ -97,18 +98,31 @@ flowchart LR
 
 ### Proxmox PBS + ABB
 
-- [Setup Guide](docs/01-setup.md) - Complete installation from scratch
-- [Daily Operations](docs/02-operations.md) - Start, stop, monitor, manual backups
-- [VM Restore](docs/03-restore-vm.md) - Restore individual VMs from PBS
-- [Bare-Metal Restore](docs/04-restore-baremetal.md) - Full host recovery
-- [ABB Integration](docs/05-abb-integration.md) - Active Backup for Business setup
-- [Best Practices](docs/06-best-practices.md) - Retention, verification, secondary destinations
-- [Troubleshooting](docs/07-troubleshooting.md) - Common issues and fixes
-- [docker-compose.yml Reference](docs/08-docker-compose-reference.md) - Annotated compose file
+- [Setup Guide](https://github.com/icepaule/IceBackup/blob/main/docs/01-setup.md) - Complete installation from scratch
+- [Daily Operations](https://github.com/icepaule/IceBackup/blob/main/docs/02-operations.md) - Start, stop, monitor, manual backups
+- [VM Restore](https://github.com/icepaule/IceBackup/blob/main/docs/03-restore-vm.md) - Restore individual VMs from PBS
+- [Bare-Metal Restore](https://github.com/icepaule/IceBackup/blob/main/docs/04-restore-baremetal.md) - Full host recovery
+- [ABB Integration](https://github.com/icepaule/IceBackup/blob/main/docs/05-abb-integration.md) - Active Backup for Business setup
+- [Best Practices](https://github.com/icepaule/IceBackup/blob/main/docs/06-best-practices.md) - Retention, verification, secondary destinations
+- [Troubleshooting](https://github.com/icepaule/IceBackup/blob/main/docs/07-troubleshooting.md) - Common issues and fixes
+- [docker-compose.yml Reference](https://github.com/icepaule/IceBackup/blob/main/docs/08-docker-compose-reference.md) - Annotated compose file
 
 ### Bare-Metal Linux Agent
 
-- [Linux Agent Setup](docs/09-linux-agent-bare-metal.md) - ABB on Debian/Ubuntu with synosnap, LVM, kernel 6.12+ support (Peppershade patch)
+- [Linux Agent Setup](https://github.com/icepaule/IceBackup/blob/main/docs/09-linux-agent-bare-metal.md) - ABB on Debian/Ubuntu with synosnap, LVM, kernel 6.12+ support (Peppershade patch)
+
+## Additional backup sources
+
+Not everything worth backing up lives in a Proxmox VM. **Docker workloads running directly
+on the Synology** are pushed into the same PBS datastore (`vm-backups`) from a small
+`proxmox-backup-client` container, each in its own namespace:
+
+| Source | Namespace | Mechanism | Documented in |
+|--------|-----------|-----------|---------------|
+| Immich (photo originals + DB dumps) | `synology` | `proxmox-backup-client` file backup (pxar), daily | **[IceProxmoxBackup](https://github.com/icepaule/IceProxmoxBackup)** |
+
+This keeps VM-level and file-level backups side by side in one datastore, sharing its GC
+and offsite sync. See [IceProxmoxBackup › PBS File Backup Setup](https://github.com/icepaule/IceProxmoxBackup/blob/main/docs/02-pbs-file-backup-setup.md).
 
 ## Quick Start
 
@@ -152,3 +166,4 @@ cd IceBackup
 ## License
 
 MIT
+{% endraw %}

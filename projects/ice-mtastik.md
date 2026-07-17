@@ -2,7 +2,7 @@
 layout: default
 title: Ice-MTastik
 parent: Mesh & Communication
-nav_order: 1
+nav_order: 3
 ---
 
 # Ice-MTastik
@@ -11,6 +11,9 @@ nav_order: 1
 
 ***
 
+**My Meshtastik setup**
+
+{% raw %}
 Meshtastic-basiertes LoRa-Mesh-Netzwerk mit vollstaendiger Home Assistant Integration ueber MQTT. Migration von MeshCore auf Meshtastic mit 3 Geraeten, lokaler Mosquitto-MQTT-Anbindung und dediziertem THW-Kanal fuer den Katastrophenschutz.
 
 ## Architektur
@@ -222,12 +225,13 @@ Dieses Projekt ersetzt die vorherige MeshCore-basierte Loesung (`IceMeshCore`). 
 
 ## Lizenz
 
-MIT License - siehe [LICENSE](LICENSE)
+MIT License - siehe [LICENSE](https://github.com/icepaule/Ice-MTastik/blob/main/LICENSE)
 
 ## Autor
 
 **icepaule** - [github.com/icepaule](https://github.com/icepaule)
 
-***
+---
 
 *Ice-MTastik - Meshtastic LoRa Mesh fuer Home Assistant*
+{% endraw %}

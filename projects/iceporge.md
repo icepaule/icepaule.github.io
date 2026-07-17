@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge
 parent: Security & Malware Analysis
-nav_order: 1
+nav_order: 13
 ---
 
 # IcePorge
@@ -11,6 +11,9 @@ nav_order: 1
 
 ***
 
+**IcePorge - Comprehensive Malware Analysis & Threat Intelligence Stack**
+
+{% raw %}
 **Comprehensive Malware Analysis & Threat Intelligence Stack**
 
 IcePorge is a modular, enterprise-grade malware analysis ecosystem that integrates dynamic sandboxing, static reverse engineering, threat intelligence feeds, and LLM-powered analysis into a cohesive workflow.
@@ -18,32 +21,55 @@ IcePorge is a modular, enterprise-grade malware analysis ecosystem that integrat
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub](https://img.shields.io/badge/GitHub-icepaule-blue.svg)](https://github.com/icepaule)
 
-***
+---
 
 ## Quick Start
 
-### Clone Everything
+### Option 1: AWS CloudShell Deployment (Recommended)
+
+Deploy IcePorge on AWS Ubuntu with a single command sequence:
+
+```bash
+# From AWS CloudShell - creates EC2 instance with full IcePorge stack
+# See docs/aws/AWS-CLOUDSHELL-DEPLOY.md for complete guide
+
+# 1. Create EC2 Instance
+export INSTANCE_TYPE="t3.2xlarge" VOLUME_SIZE="500"
+# ... (see full script in docs/aws/)
+
+# 2. SSH and install
+ssh -i ~/.ssh/iceporge-key.pem ubuntu@$PUBLIC_IP
+sudo git clone https://github.com/icepaule/IcePorge.git /opt/iceporge
+cd /opt/iceporge && sudo ./install/install-iceporge.sh
+```
+
+**Full AWS deployment guide:** [docs/aws/AWS-CLOUDSHELL-DEPLOY.md](https://github.com/icepaule/IcePorge/blob/main/docs/aws/AWS-CLOUDSHELL-DEPLOY.md)
+
+### Option 2: On-Premise Installation
 
 ```bash
 # Clone main repository
-git clone https://github.com/icepaule/IcePorge.git
-cd IcePorge
+git clone https://github.com/icepaule/IcePorge.git /opt/iceporge
+cd /opt/iceporge
 
-# Clone all component repositories
+# Configure
+cp install/config.env.example install/config.env
+nano install/config.env
+
+# Install
+sudo ./install/install-iceporge.sh --config install/config.env
+```
+
+### Clone All Component Repositories
+
+```bash
 ./scripts/clone-all.sh
 
 # For HTTPS instead of SSH:
 ./scripts/clone-all.sh --https
 ```
 
-### Update All Repositories
-
-```bash
-# Pull latest from all repos
-./scripts/clone-all.sh
-```
-
-***
+---
 
 ## Architecture Overview
 
@@ -93,9 +119,9 @@ flowchart TB
     RAG --> OLLAMA
 ```
 
-![Architecture Diagram](docs/screenshots/iceporge-architecture.svg)
+![Architecture Diagram](https://raw.githubusercontent.com/icepaule/IcePorge/main/docs/screenshots/iceporge-architecture.svg)
 
-***
+---
 
 ## Components
 
@@ -109,7 +135,7 @@ flowchart TB
 | [IcePorge-Ghidra-Orchestrator](https://github.com/icepaule/IcePorge-Ghidra-Orchestrator) | Automated reverse engineering | GPU |
 | [IcePorge-Malware-RAG](https://github.com/icepaule/IcePorge-Malware-RAG) | LLM-powered RAG analysis | GPU |
 
-***
+---
 
 ## Features
 
@@ -132,10 +158,52 @@ flowchart TB
 
 ### AI-Enhanced Analysis
 - **Ollama Integration** - Local LLM inference (privacy-focused)
+- **AWS Bedrock** - Cloud-based Claude analysis (enterprise)
 - **RAG Pipeline** - Context-aware malware analysis
 - **Vector Search** - Semantic similarity with Qdrant
 
-***
+### Web Dashboard
+- **Phishing Reports** - Interactive report browser with filtering
+- **SMTP Header Analysis** - Mail routing chain, authentication status
+- **Security Recommendations** - Actionable guidance for mail gateway hardening
+- **System Status** - Real-time health monitoring
+
+---
+
+## AWS Deployment
+
+### CloudShell Quick Deploy
+
+Full deployment from AWS CloudShell in under 30 minutes:
+
+| Phase | Description | Time |
+|-------|-------------|------|
+| 1 | EC2 Instance erstellen | 5 min |
+| 2 | IcePorge installieren | 15 min |
+| 3 | WireGuard für Ollama | 5 min |
+| 4 | Bedrock aktivieren | 5 min |
+
+**Documentation:**
+- [AWS CloudShell Deployment](https://github.com/icepaule/IcePorge/blob/main/docs/aws/AWS-CLOUDSHELL-DEPLOY.md) - Complete step-by-step guide
+- [WireGuard Ollama Connection](https://github.com/icepaule/IcePorge/blob/main/docs/aws/WIREGUARD-OLLAMA.md) - Secure on-premise LLM access
+- [Configuration Reference](https://github.com/icepaule/IcePorge/blob/main/install/config.env.example) - All configuration options
+
+### AI Backend Options
+
+| Backend | Use Case | Latency | Cost |
+|---------|----------|---------|------|
+| Ollama (On-Prem) | Privacy-sensitive, low latency | ~2s | Hardware only |
+| AWS Bedrock | Enterprise, high accuracy | ~3s | Pay-per-token |
+| Both | Fallback/comparison | Varies | Combined |
+
+```bash
+# In config.env:
+AI_BACKEND="both"  # ollama, bedrock, or both
+OLLAMA_API_URL="http://10.10.0.210:11434"  # via WireGuard
+BEDROCK_MODEL_ID="anthropic.claude-3-sonnet-20240229-v1:0"
+```
+
+---
 
 ## Configuration
 
@@ -149,7 +217,7 @@ All sensitive data (API keys, passwords) is stored in `.env` files which are **n
 | Hybrid Analysis | https://www.hybrid-analysis.com/signup | MWDB-Feeder |
 | MISP | Your instance | CAPE-Feed |
 
-***
+---
 
 ## Automatic Sync
 
@@ -171,34 +239,71 @@ Features:
 - **Screenshot capture** - Documents web interfaces
 - **Multi-server support** - Works on capev2 and ki01
 
-***
+---
 
-## Management UI
+## Web Dashboard
+
+IcePorge includes a built-in web dashboard for phishing report management and system monitoring.
+
+**Access:** `http://your-server:8085`
+
+### Features
+
+| Page | Function |
+|------|----------|
+| `/` | Dashboard with statistics and system health |
+| `/reports` | Phishing reports with filtering (time, verdict, score) |
+| `/report/<id>/analysis` | Detailed SMTP header analysis |
+| `/cape` | CAPE sandbox analyses overview |
+| `/status` | System component health status |
+
+### SMTP Header Analysis
+
+The report analysis view provides:
+- **Sender Information** - Real email vs display name (spoofing detection)
+- **Authentication** - SPF/DKIM/DMARC validation results
+- **Mail Routing Chain** - Complete path through all servers with TLS status
+- **IP Geolocation** - Origin countries with high-risk warnings
+- **Security Systems** - Detected gateways (Sophos, Barracuda, etc.)
+- **Recommendations** - Actionable steps for mail security improvement
+
+### API Endpoints
+
+```bash
+GET /api/reports          # All phishing reports (JSON)
+GET /api/report/<id>/headers  # Header analysis (JSON)
+GET /api/statistics       # Report statistics
+GET /api/status          # System health
+```
+
+---
+
+## Management UI (Cockpit)
 
 Access via Cockpit at `https://your-server:9090/`:
 - **CAPE Sandbox** - Service status, VM management
 - **MWDB Stack** - Container status, Karton pipeline
 
-***
+---
 
 ## Screenshots
 
 ### MWDB Web Interface
-![MWDB Web Interface](docs/screenshots/mwdb-webui.png)
+![MWDB Web Interface](https://raw.githubusercontent.com/icepaule/IcePorge/main/docs/screenshots/mwdb-webui.png)
 
 *Central malware sample repository with tagging, relationships, and Karton integration.*
 
 ### MWDB Stack Manager (Cockpit)
-![MWDB Stack Manager](docs/screenshots/mwdb-manager.png)
+![MWDB Stack Manager](https://raw.githubusercontent.com/icepaule/IcePorge/main/docs/screenshots/mwdb-manager.png)
 
 *Manage MWDB services, Karton pipeline, and container health from Cockpit.*
 
 ### CAPE Sandbox Manager (Cockpit)
-![CAPE Sandbox Manager](docs/screenshots/cape-manager.png)
+![CAPE Sandbox Manager](https://raw.githubusercontent.com/icepaule/IcePorge/main/docs/screenshots/cape-manager.png)
 
 *Monitor CAPE services, VMs, and external service connectivity.*
 
-***
+---
 
 ## License
 
@@ -206,11 +311,11 @@ MIT License with Attribution
 
 **Author:** Michael Pauli
 - GitHub: [@icepaule](https://github.com/icepaule)
-- Email: info@mpauli.de
+- Email: ****@****.***
 
 When using this software, please maintain attribution to the original author.
 
-***
+---
 
 ## Contributing
 
@@ -222,4 +327,5 @@ Contributions welcome! Please:
 ## Support
 
 - Open an issue in the relevant repository
-- Email: info@mpauli.de
+- Email: ****@****.***
+{% endraw %}

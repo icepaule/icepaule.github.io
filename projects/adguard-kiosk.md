@@ -2,7 +2,7 @@
 layout: default
 title: adguard-kiosk
 parent: Home Automation & Networking
-nav_order: 3
+nav_order: 8
 ---
 
 # adguard-kiosk
@@ -11,6 +11,9 @@ nav_order: 3
 
 ***
 
+**My Adguard implementation using a raspberry 3b**
+
+{% raw %}
 **Status:** Enterprise-Grade Home-Office Security Implementation  
 **Kontext:** Compliance-gerechte Absicherung privater Infrastruktur im Bankenumfeld.
 
@@ -43,7 +46,8 @@ Das System bietet aktive Mitigation gegen folgende Techniken:
 * **Pushover:** Incident Notification API.
 * **Pygame/Flask:** Frameworks für UI und Captive Portal.
 
-***
+---
 
 ## 💾 Log-Management (SD-Karten Schutz)
 Um die Lebensdauer der SD-Karte zu maximieren, ist ein `logrotate` eingerichtet, der Logs nach 7 Tagen oder Erreichen von 10MB rotiert und komprimiert.
+{% endraw %}

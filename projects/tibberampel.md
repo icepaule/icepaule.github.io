@@ -2,7 +2,7 @@
 layout: default
 title: tibberampel
 parent: Home Automation & Networking
-nav_order: 4
+nav_order: 6
 ---
 
 # tibberampel
@@ -11,6 +11,9 @@ nav_order: 4
 
 ***
 
+**Meine Tibberampel mit einem ESP8266**
+
+{% raw %}
 Eine physische LED-Ampel die den aktuellen Strompreis von [Tibber](https://tibber.com/) visualisiert. Guenstiger Strom? Gruen. Normal? Gelb. Teuer? Rot. So einfach.
 
 ## Ueberblick
@@ -84,7 +87,7 @@ Die Schwellwerte koennen im HA Template-Sensor angepasst werden (siehe `homeassi
 
 ## Node-RED Flow
 
-Die Ampel-Steuerung laeuft als Node-RED Flow im Home Assistant. Detaillierte Dokumentation und den importierbaren Flow findest du in [`nodered/`](nodered/).
+Die Ampel-Steuerung laeuft als Node-RED Flow im Home Assistant. Detaillierte Dokumentation und den importierbaren Flow findest du in [`nodered/`](https://github.com/icepaule/tibberampel/blob/main/nodered/).
 
 ### Flow-Diagramm
 
@@ -143,20 +146,20 @@ Ueber die Tasmota-Konsole (Web-UI oder Serial):
 Backlog Hostname Tibber-Ampel-01; Module 0; Gpio12 224; Gpio13 225; Gpio15 226; PowerOnState 0; MqttHost <BROKER_IP>; MqttPort 1883; Topic tibber-ampel
 ```
 
-Vollstaendige Konfiguration: siehe [`tasmota/tasmota_config.txt`](tasmota/tasmota_config.txt)
+Vollstaendige Konfiguration: siehe [`tasmota/tasmota_config.txt`](https://github.com/icepaule/tibberampel/blob/main/tasmota/tasmota_config.txt)
 
 ### 3. Home Assistant Template-Sensor
 
-Der Sensor `sensor.tibber_preis_status` muss in HA existieren. Beispiel-Konfiguration in [`homeassistant/`](homeassistant/).
+Der Sensor `sensor.tibber_preis_status` muss in HA existieren. Beispiel-Konfiguration in [`homeassistant/`](https://github.com/icepaule/tibberampel/blob/main/homeassistant/).
 
 ### 4. Node-RED Flow importieren
 
 1. Node-RED in HA oeffnen
-2. **Import** > Inhalt von [`nodered/tibber_ampel_flow.json`](nodered/tibber_ampel_flow.json) einfuegen
+2. **Import** > Inhalt von [`nodered/tibber_ampel_flow.json`](https://github.com/icepaule/tibberampel/blob/main/nodered/tibber_ampel_flow.json) einfuegen
 3. MQTT-Broker und HA-Server Nodes auf lokale Konfiguration setzen
 4. **Deploy**
 
-Detaillierte Anleitung: siehe [`nodered/README.md`](nodered/README.md)
+Detaillierte Anleitung: siehe [`nodered/README.md`](https://github.com/icepaule/tibberampel/blob/main/nodered/README.md)
 
 ## MQTT Topics
 
@@ -201,7 +204,7 @@ Um eine zweite identische Ampel aufzusetzen:
 
 ## Legacy: MicroPython
 
-Die alte MicroPython-Version liegt in [`micropython-legacy/`](micropython-legacy/). Sie wurde durch die Tasmota + Node-RED Loesung ersetzt, da:
+Die alte MicroPython-Version liegt in [`micropython-legacy/`](https://github.com/icepaule/tibberampel/blob/main/micropython-legacy/). Sie wurde durch die Tasmota + Node-RED Loesung ersetzt, da:
 
 - Der ESP8266 mit MicroPython die Tibber-API-Abfrage und LED-Steuerung gleichzeitig machen musste → langsam und instabil
 - Kein MQTT-Broker noetig war, aber dafuer ein ioBroker tibberlink Adapter
@@ -211,4 +214,5 @@ Die neue Architektur trennt die Logik sauber: HA + Node-RED machen die smarte Ar
 
 ## Lizenz
 
-Siehe [LICENSE](LICENSE).
+Siehe [LICENSE](https://github.com/icepaule/tibberampel/blob/main/LICENSE).
+{% endraw %}

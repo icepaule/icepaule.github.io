@@ -2,7 +2,7 @@
 layout: default
 title: followmysun
 parent: Hardware & ESP32
-nav_order: 3
+nav_order: 2
 ---
 
 # followmysun
@@ -13,9 +13,10 @@ nav_order: 3
 
 **Single axis adjustment for my solar panel**
 
+{% raw %}
 > Astronomisch geführte Sonnenstand-Nachführung für ein einzelnes PV-Modul auf einem Gartenhaus-Dach. Basierend auf ESP8266 (ESP12F-Relay-X4), MPU-6050-Beschleunigungssensor und einem 12 V Linear-Aktuator – mit MQTT-Anbindung an Home Assistant inkl. Sturm-Notfallmodus.
 
-![Gesamtansicht – Gartenhaus mit aufgestelltem PV-Panel](docs/img/gartenhaus-gesamtansicht.jpeg)
+![Gesamtansicht – Gartenhaus mit aufgestelltem PV-Panel](https://raw.githubusercontent.com/icepaule/followmysun/main/docs/img/gartenhaus-gesamtansicht.jpeg)
 
 ---
 
@@ -48,26 +49,26 @@ Alle Werte werden per MQTT an einen Broker geschickt – damit baut sich in Home
 
 ### Steuerung im Gartenhaus
 
-![ESP12F-Relay-X4 Controller im Gehäuse](docs/img/controller-esp12f-relay-x4.jpeg)
+![ESP12F-Relay-X4 Controller im Gehäuse](https://raw.githubusercontent.com/icepaule/followmysun/main/docs/img/controller-esp12f-relay-x4.jpeg)
 
 Der Controller hängt geschützt unter der Dachschräge. Die zwei roten LEDs zeigen, welches Relais gerade aktiv ist.
 
 ### Stromversorgung
 
-![DC/DC-Stepdown-Wandler 12V→5V](docs/img/stromversorgung-dcdc.jpeg)
+![DC/DC-Stepdown-Wandler 12V→5V](https://raw.githubusercontent.com/icepaule/followmysun/main/docs/img/stromversorgung-dcdc.jpeg)
 
 Ein einstellbarer Stepdown-Wandler erzeugt die 5 V für den ESP aus der 12 V Aktuator-Versorgung – ein Netzteil reicht für alles.
 
 ### MPU-Sensor am Panel
 
-![MPU-6050 am Panel-Rahmen](docs/img/mpu-sensor-am-panel.jpeg)
+![MPU-6050 am Panel-Rahmen](https://raw.githubusercontent.com/icepaule/followmysun/main/docs/img/mpu-sensor-am-panel.jpeg)
 
 Der MPU-6050 sitzt in einem 3D-gedruckten Gehäuse direkt am PV-Rahmen und misst die Neigung gegen die Schwerkraft. Verkabelt mit CAT5 zum Controller.
 
 ## Schnellstart
 
-1. **Hardware nach Pinbelegung verdrahten** (siehe [docs/hardware.md](docs/hardware.md))
-2. **MicroPython auf ESP12F flashen** ([docs/installation.md](docs/installation.md))
+1. **Hardware nach Pinbelegung verdrahten** (siehe [docs/hardware.md](https://github.com/icepaule/followmysun/blob/main/docs/hardware.md))
+2. **MicroPython auf ESP12F flashen** ([docs/installation.md](https://github.com/icepaule/followmysun/blob/main/docs/installation.md))
 3. **`src/env.example.py` → `env.py` kopieren** und Werte einfüllen (WLAN, MQTT, Sensor-Achsen)
 4. **Code als `.mpy` kompilieren** (sonst MemoryError beim Parsen):
    ```bash
@@ -76,7 +77,7 @@ Der MPU-6050 sitzt in einem 3D-gedruckten Gehäuse direkt am PV-Rahmen und misst
 5. **Dateien hochladen** (USB oder WebREPL): `boot.py`, `main.py`, `env.py`, `mpu6050.mpy`, `solar_main.mpy`
 6. **Strom an** – fertig. Webseite unter `http://<esp-ip>/`, MQTT-Topics unter `tele/solar/...`
 
-Detaillierte Anleitung: **[docs/installation.md](docs/installation.md)**
+Detaillierte Anleitung: **[docs/installation.md](https://github.com/icepaule/followmysun/blob/main/docs/installation.md)**
 
 ## MQTT-Topics für Home Assistant
 
@@ -92,7 +93,7 @@ Detaillierte Anleitung: **[docs/installation.md](docs/installation.md)**
 | `tele/solar/SENSOR/Emergency` | ESP→ | `false` | Notfall-Status |
 | `cmnd/solar/EMERGENCY` | →ESP | `on` / `off` | Notfall an/aus (retained!) |
 
-Vollständig: **[docs/mqtt.md](docs/mqtt.md)** · NodeRED-Sturm-Automatik: **[docs/nodered-stormwatch.md](docs/nodered-stormwatch.md)**
+Vollständig: **[docs/mqtt.md](https://github.com/icepaule/followmysun/blob/main/docs/mqtt.md)** · NodeRED-Sturm-Automatik: **[docs/nodered-stormwatch.md](https://github.com/icepaule/followmysun/blob/main/docs/nodered-stormwatch.md)**
 
 ## Notfall-Modus für Sturmwarnung
 
@@ -136,7 +137,7 @@ followmysun/
 - **MPU-6050** mit `atan2`-basierter Roll-Berechnung
 - **SoftI2C @ 100 kHz** (wegen 2,5 m CAT5-Strecke)
 
-Details siehe [docs/software.md](docs/software.md).
+Details siehe [docs/software.md](https://github.com/icepaule/followmysun/blob/main/docs/software.md).
 
 ## Lessons Learned
 
@@ -148,4 +149,5 @@ Drei Sachen, die mich am meisten Zeit gekostet haben:
 
 ## Lizenz
 
-MIT – siehe [LICENSE](LICENSE).
+MIT – siehe [LICENSE](https://github.com/icepaule/followmysun/blob/main/LICENSE).
+{% endraw %}

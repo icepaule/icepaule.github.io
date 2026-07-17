@@ -2,7 +2,7 @@
 layout: default
 title: Ice-LLM-router
 parent: Data & Tools
-nav_order: 9
+nav_order: 14
 ---
 
 # Ice-LLM-router
@@ -13,6 +13,7 @@ nav_order: 9
 
 **Ice-LLM-router**
 
+{% raw %}
 Schlanker Modell-Router für Claude Code: erlaubt, innerhalb einer laufenden
 Session per `/model <name>` zwischen echten Claude-Modellen und lokalen
 Ollama-Modellen (auf ki02, `10.10.0.210`) hin- und herzuschalten — **ohne**
@@ -152,3 +153,4 @@ den Wrapper läuft).
 - `claude-router.sh` — Wrapper-Skript, startet `claude` mit gesetztem
   `ANTHROPIC_BASE_URL`
 - `systemd/ice-llm-router.service` — systemd-Unit für den Router-Prozess
+{% endraw %}

@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-Cockpit
 parent: Security & Malware Analysis
-nav_order: 2
+nav_order: 6
 ---
 
 # IcePorge-Cockpit
@@ -11,32 +11,35 @@ nav_order: 2
 
 ***
 
+**Cockpit web management modules for CAPE and MWDB stacks**
+
+{% raw %}
 **Web-based Management Interface for CAPE Sandbox, MWDB Stack and Security Scanning**
 
 Part of the [IcePorge](https://github.com/icepaule/IcePorge) Malware Analysis Stack.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-***
+---
 
 ## Screenshots
 
 ### Security Scanner (TruffleHog)
-![Security Scanner](docs/screenshots/security-scanner.png)
+![Security Scanner](https://raw.githubusercontent.com/icepaule/IcePorge-Cockpit/main/docs/screenshots/security-scanner.png)
 
 *Scan GitHub repositories, local Git repos, and filesystems for secrets with TruffleHog integration.*
 
 ### MWDB Stack Manager
-![MWDB Stack Manager](docs/screenshots/mwdb-manager.png)
+![MWDB Stack Manager](https://raw.githubusercontent.com/icepaule/IcePorge-Cockpit/main/docs/screenshots/mwdb-manager.png)
 
 *Manage MWDB-core services, Karton pipeline, and container health from a single dashboard.*
 
 ### CAPE Sandbox Manager
-![CAPE Sandbox Manager](docs/screenshots/cape-manager.png)
+![CAPE Sandbox Manager](https://raw.githubusercontent.com/icepaule/IcePorge-Cockpit/main/docs/screenshots/cape-manager.png)
 
 *Monitor CAPE services, VMs, and view logs with integrated health checks for external services.*
 
-***
+---
 
 ## Modules
 
@@ -112,8 +115,9 @@ sudo chmod 666 /var/log/iceporge-security.log
 
 ## License
 
-MIT License with Attribution - see [LICENSE](LICENSE)
+MIT License with Attribution - see [LICENSE](https://github.com/icepaule/IcePorge-Cockpit/blob/main/LICENSE)
 
 Copyright (c) 2024-2026 IcePorge Project
 - GitHub: [@icepaule](https://github.com/icepaule)
-- Email: info@mpauli.de
+- Email: ****@****.***
+{% endraw %}

@@ -2,7 +2,7 @@
 layout: default
 title: IceOSINT
 parent: Data & Tools
-nav_order: 20
+nav_order: 22
 ---
 
 # IceOSINT
@@ -13,6 +13,7 @@ nav_order: 20
 
 **IceOSINT**
 
+{% raw %}
 **Production-Ready OSINT System mit Web-GUI, Docker-Stack und AWS Bedrock AI**
 
 ## Features
@@ -70,9 +71,9 @@ Frontend (React) → Backend (FastAPI) → OSINT Tools
 
 ## Documentation
 
-- [Installation Guide](docs/INSTALLATION.md)
-- [API Documentation](docs/API.md)
-- [Deployment Guide](docs/DEPLOYMENT.md)
+- [Installation Guide](https://github.com/icepaule/IceOSINT/blob/main/docs/INSTALLATION.md)
+- [API Documentation](https://github.com/icepaule/IceOSINT/blob/main/docs/API.md)
+- [Deployment Guide](https://github.com/icepaule/IceOSINT/blob/main/docs/DEPLOYMENT.md)
 
 ## License
 
@@ -81,3 +82,4 @@ Internal Use Only - IT Security Lab
 ## Entwickelt von
 
 Claude Code (Sonnet 4.5) - 2026-06-03
+{% endraw %}

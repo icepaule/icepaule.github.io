@@ -2,7 +2,7 @@
 layout: default
 title: IcePaperlessAI
 parent: Data & Tools
-nav_order: 24
+nav_order: 20
 ---
 
 # IcePaperlessAI
@@ -13,6 +13,7 @@ nav_order: 24
 
 **IcePaperlessAI**
 
+{% raw %}
 Betriebsdokumentation und Fixes für eine selbstgehostete Dokumenten-Pipeline aus
 **Netzwerkscanner → Paperless-ngx → paperless-ai → lokales LLM (Ollama)**.
 
@@ -897,3 +898,4 @@ Dokumenttypen-Liste. Derzeit folgenlos, da im Rumpf ungenutzt.
 Die Skripte und der Patch stehen unter der MIT-Lizenz. `patches/restrictionPromptService.js`
 ist eine abgeleitete Fassung einer Datei aus `clusterzx/paperless-ai` und unterliegt der
 Lizenz des Ursprungsprojekts.
+{% endraw %}

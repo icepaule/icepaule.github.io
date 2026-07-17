@@ -4,14 +4,14 @@
     "description": "My Adguard implementation using a raspberry 3b",
     "pushed_at": "2026-01-25T21:23:00Z",
     "doc_file": "adguard-kiosk.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "audiobookshelf-synology",
     "description": "Selbst gehosteter Hoerbuch-Server mit KI-Metadaten (Ollama) fuer Synology NAS",
     "pushed_at": "2026-02-22T09:17:57Z",
     "doc_file": "audiobookshelf-synology.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "cuckoo-docker",
@@ -46,28 +46,28 @@
     "description": "Single axis adjustment for my solar panel",
     "pushed_at": "2026-06-06T10:50:29Z",
     "doc_file": "followmysun.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "ICE-DKMS",
     "description": "",
     "pushed_at": "2026-07-16T15:17:00Z",
     "doc_file": "ice-dkms.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "Ice-GitHub-Doku",
     "description": "",
     "pushed_at": "2026-02-17T08:07:55Z",
     "doc_file": "ice-github-doku.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "Ice-Kubernetes",
     "description": "",
     "pushed_at": "2026-07-17T10:48:56Z",
     "doc_file": "ice-kubernetes.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "Ice-Leak-Monitoring",
@@ -81,35 +81,35 @@
     "description": "",
     "pushed_at": "2026-07-17T16:17:24Z",
     "doc_file": "ice-llm-router.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "Ice-MTastik",
     "description": "My Meshtastik setup",
     "pushed_at": "2026-02-14T14:12:36Z",
     "doc_file": "ice-mtastik.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "Ice-SEC-cli",
     "description": "",
     "pushed_at": "2026-03-31T17:05:32Z",
     "doc_file": "ice-sec-cli.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceAI-tax-2025",
     "description": "",
     "pushed_at": "2026-02-25T15:46:21Z",
     "doc_file": "iceai-tax-2025.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceBackup",
     "description": "",
     "pushed_at": "2026-07-09T14:58:42Z",
     "doc_file": "icebackup.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceBewerkungsAssistent",
@@ -123,7 +123,7 @@
     "description": "",
     "pushed_at": "2026-07-17T19:39:54Z",
     "doc_file": "icebirdwatch.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceCrow",
@@ -137,7 +137,7 @@
     "description": "",
     "pushed_at": "2026-03-04T18:47:36Z",
     "doc_file": "icedataemphasise.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceDHCP",
@@ -151,203 +151,203 @@
     "description": "My Home Assistant setup",
     "pushed_at": "2026-07-16T14:20:56Z",
     "doc_file": "icehomeassist.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceIntelligence",
     "description": "",
     "pushed_at": "2026-02-16T16:39:16Z",
     "doc_file": "iceintelligence.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceITSOAI",
     "description": "",
     "pushed_at": "2026-06-28T10:13:39Z",
     "doc_file": "iceitsoai.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceLaborVPN",
     "description": "Secure Zero-Trust Remote Access Gateway for Malware Analysis Labs - DORA/MITRE Compliant",
     "pushed_at": "2026-05-03T07:15:38Z",
     "doc_file": "icelaborvpn.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceMailArchive",
     "description": "Self-hosted Email-Archivierung mit OpenArchiver, Proton Bridge, Maildrop und Windows-Integration",
     "pushed_at": "2026-02-21T11:46:20Z",
     "doc_file": "icemailarchive.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceMatrix",
     "description": "",
     "pushed_at": "2026-02-28T07:59:33Z",
     "doc_file": "icematrix.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceMeshCore",
     "description": "",
     "pushed_at": "2026-02-10T11:57:24Z",
     "doc_file": "icemeshcore.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceMultiGPUAI",
     "description": "",
     "pushed_at": "2026-06-27T13:32:12Z",
     "doc_file": "icemultigpuai.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceOSINT",
     "description": "",
     "pushed_at": "2026-06-03T16:08:02Z",
     "doc_file": "iceosint.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePaperlessAI",
     "description": "",
     "pushed_at": "2026-07-09T17:32:05Z",
     "doc_file": "icepaperlessai.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePhotos",
     "description": "",
     "pushed_at": "2026-03-28T19:44:26Z",
     "doc_file": "icephotos.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge",
     "description": "IcePorge - Comprehensive Malware Analysis & Threat Intelligence Stack",
     "pushed_at": "2026-04-19T12:42:00Z",
     "doc_file": "iceporge.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge-CAPE-Feed",
     "description": "MalwareBazaar to CAPE to MISP automated pipeline",
     "pushed_at": "2026-01-23T16:05:01Z",
     "doc_file": "iceporge-cape-feed.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge-CAPE-Mailer",
     "description": "CAPE Sandbox Email Integration - Automated malware analysis via email submission",
     "pushed_at": "2026-01-23T10:23:04Z",
     "doc_file": "iceporge-cape-mailer.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge-Cockpit",
     "description": "Cockpit web management modules for CAPE and MWDB stacks",
     "pushed_at": "2026-01-23T16:05:10Z",
     "doc_file": "iceporge-cockpit.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge-Ghidra-Orchestrator",
     "description": "Automated Ghidra reverse engineering with LLM enhancement",
     "pushed_at": "2026-01-22T17:26:08Z",
     "doc_file": "iceporge-ghidra-orchestrator.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge-Malware-RAG",
     "description": "LLM-powered malware analysis using RAG and vector databases",
     "pushed_at": "2026-01-22T17:26:05Z",
     "doc_file": "iceporge-malware-rag.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge-MWDB-Feeder",
     "description": "Multi-source malware sample aggregator (URLhaus, ThreatFox, Hybrid Analysis)",
     "pushed_at": "2026-01-23T16:05:04Z",
     "doc_file": "iceporge-mwdb-feeder.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IcePorge-MWDB-Stack",
     "description": "MWDB-core with Karton orchestration for malware sample management",
     "pushed_at": "2026-01-23T16:05:07Z",
     "doc_file": "iceporge-mwdb-stack.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceProxmoxBackup",
     "description": "",
     "pushed_at": "2026-07-09T15:02:30Z",
     "doc_file": "iceproxmoxbackup.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceSeller",
     "description": "",
     "pushed_at": "2026-02-23T21:40:53Z",
     "doc_file": "iceseller.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceSpider",
     "description": "",
     "pushed_at": "2026-03-31T17:37:20Z",
     "doc_file": "icespider.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceSSO",
     "description": "",
     "pushed_at": "2026-07-16T13:13:37Z",
     "doc_file": "icesso.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceTimereport",
     "description": "",
     "pushed_at": "2026-06-03T08:15:49Z",
     "doc_file": "icetimereport.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceTravelAP",
     "description": "",
     "pushed_at": "2026-04-26T12:35:19Z",
     "doc_file": "icetravelap.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceUseCaseTesting",
     "description": "",
     "pushed_at": "2026-03-15T21:36:03Z",
     "doc_file": "iceusecasetesting.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceWeatherstation",
     "description": "",
     "pushed_at": "2026-07-15T15:25:58Z",
     "doc_file": "iceweatherstation.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceWiFi",
     "description": "My Home-WiFi setup using UniFi equipment",
     "pushed_at": "2026-02-02T12:53:28Z",
     "doc_file": "icewifi.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "IceXWiKi",
     "description": "",
     "pushed_at": "2026-02-25T17:29:12Z",
     "doc_file": "icexwiki.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "no-telemetry",
@@ -361,27 +361,27 @@
     "description": "A security intel project powered by Django",
     "pushed_at": "2020-06-06T08:58:10Z",
     "doc_file": "secintel.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "tibberampel",
     "description": "Meine Tibberampel mit einem ESP8266",
     "pushed_at": "2026-02-13T12:16:33Z",
     "doc_file": "tibberampel.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "Torlinks",
     "description": "Tor Links Database. This repository contains 2 files containing all '.onion' urls indexed by Crawler.",
     "pushed_at": "2020-05-12T23:03:13Z",
     "doc_file": "torlinks.md",
-    "status": "curated"
+    "status": "auto_updated"
   },
   {
     "name": "xwiki-stack",
     "description": "",
     "pushed_at": "2026-02-21T15:05:26Z",
     "doc_file": "xwiki-stack.md",
-    "status": "curated"
+    "status": "no_readme"
   }
 ]
