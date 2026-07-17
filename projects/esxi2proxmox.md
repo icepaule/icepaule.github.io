@@ -4,6 +4,7 @@ title: esxi2proxmox
 parent: Home Automation & Networking
 nav_order: 12
 ---
+<!-- manually-curated -->
 
 # esxi2proxmox — DL380 Gen9 zu Proxmox UM790 Migration
 

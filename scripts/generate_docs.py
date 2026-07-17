@@ -18,7 +18,6 @@ PROJECTS_DIR = REPO_ROOT / "projects"
 DATA_DIR = REPO_ROOT / "_data"
 GITHUB_USER = "icepaule"
 MANUALLY_CURATED_MARKER = "<!-- manually-curated -->"
-STUB_THRESHOLD = 500  # bytes
 
 # Category mapping: repo name (lowercase) -> parent category title
 CATEGORY_MAP = {
@@ -238,20 +237,22 @@ def next_nav_order(category):
 
 
 def is_manually_curated(file_path):
-    """Check if a file is manually curated and should not be overwritten."""
+    """Check if a file is manually curated and should not be overwritten.
+
+    Nur noch der explizite Marker zaehlt. Die fruehere Groessen-Heuristik
+    (>500 Bytes = "curated") sperrte jede Seite mit einer normal langen
+    README dauerhaft gegen Updates, sobald sie einmal generiert wurde -
+    das widerspricht dem Zweck der Automatisierung (Repo-Aenderungen
+    sollen auf der Seite ankommen). Wer eine Seite bewusst von der
+    Automatik ausnehmen will, setzt den Marker explizit in die Datei.
+    """
     if not file_path.exists():
         return False
     try:
         content = file_path.read_text(encoding="utf-8")
     except Exception:
         return False
-    # Explicit marker
-    if MANUALLY_CURATED_MARKER in content:
-        return True
-    # Size check: files > STUB_THRESHOLD are considered curated
-    if file_path.stat().st_size > STUB_THRESHOLD:
-        return True
-    return False
+    return MANUALLY_CURATED_MARKER in content
 
 
 def repo_to_filename(repo_name):
