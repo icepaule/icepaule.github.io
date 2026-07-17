@@ -53,7 +53,7 @@
     "description": "",
     "pushed_at": "2026-07-16T15:17:00Z",
     "doc_file": "ice-dkms.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "Ice-GitHub-Doku",
@@ -65,7 +65,7 @@
   {
     "name": "Ice-Kubernetes",
     "description": "",
-    "pushed_at": "2026-07-16T13:37:01Z",
+    "pushed_at": "2026-07-17T10:48:56Z",
     "doc_file": "ice-kubernetes.md",
     "status": "curated"
   },
@@ -75,6 +75,13 @@
     "pushed_at": "2026-02-27T07:38:19Z",
     "doc_file": "ice-leak-monitoring.md",
     "status": "curated"
+  },
+  {
+    "name": "Ice-LLM-router",
+    "description": "",
+    "pushed_at": "2026-07-17T16:17:24Z",
+    "doc_file": "ice-llm-router.md",
+    "status": "auto_created"
   },
   {
     "name": "Ice-MTastik",
@@ -114,9 +121,9 @@
   {
     "name": "IceBirdwatch",
     "description": "",
-    "pushed_at": "2026-07-16T13:16:23Z",
+    "pushed_at": "2026-07-17T19:39:54Z",
     "doc_file": "icebirdwatch.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceCrow",
@@ -298,7 +305,7 @@
     "description": "",
     "pushed_at": "2026-07-16T13:13:37Z",
     "doc_file": "icesso.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceTimereport",
