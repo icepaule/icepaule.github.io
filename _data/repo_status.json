@@ -49,6 +49,13 @@
     "status": "curated"
   },
   {
+    "name": "ICE-DKMS",
+    "description": "",
+    "pushed_at": "2026-07-16T15:17:00Z",
+    "doc_file": "ice-dkms.md",
+    "status": "auto_created"
+  },
+  {
     "name": "Ice-GitHub-Doku",
     "description": "",
     "pushed_at": "2026-02-17T08:07:55Z",
@@ -58,7 +65,7 @@
   {
     "name": "Ice-Kubernetes",
     "description": "",
-    "pushed_at": "2026-07-15T14:21:40Z",
+    "pushed_at": "2026-07-16T13:37:01Z",
     "doc_file": "ice-kubernetes.md",
     "status": "curated"
   },
@@ -105,6 +112,13 @@
     "status": "no_readme"
   },
   {
+    "name": "IceBirdwatch",
+    "description": "",
+    "pushed_at": "2026-07-16T13:16:23Z",
+    "doc_file": "icebirdwatch.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceCrow",
     "description": "",
     "pushed_at": "2026-02-03T11:00:47Z",
@@ -128,7 +142,7 @@
   {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
-    "pushed_at": "2026-07-15T08:14:05Z",
+    "pushed_at": "2026-07-16T14:20:56Z",
     "doc_file": "icehomeassist.md",
     "status": "curated"
   },
@@ -280,6 +294,13 @@
     "status": "curated"
   },
   {
+    "name": "IceSSO",
+    "description": "",
+    "pushed_at": "2026-07-16T13:13:37Z",
+    "doc_file": "icesso.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceTimereport",
     "description": "",
     "pushed_at": "2026-06-03T08:15:49Z",
@@ -305,7 +326,7 @@
     "description": "",
     "pushed_at": "2026-07-15T15:25:58Z",
     "doc_file": "iceweatherstation.md",
-    "status": "auto_created"
+    "status": "curated"
   },
   {
     "name": "IceWiFi",

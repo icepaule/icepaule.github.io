@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-16 05:30 UTC*
+*Last updated: 2026-07-17 05:32 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**51 repos** documented: 43 curated, 3 auto-generated.
+**54 repos** documented: 44 curated, 5 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -52,6 +52,7 @@ flowchart LR
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
 | [esxi2proxmox](https://github.com/icepaule/esxi2proxmox) |  | Curated | [View](esxi2proxmox.html) |
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | Curated | [View](followmysun.html) |
+| [ICE-DKMS](https://github.com/icepaule/ICE-DKMS) |  | Auto | [View](ice-dkms.html) |
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Curated | [View](ice-github-doku.html) |
 | [Ice-Kubernetes](https://github.com/icepaule/Ice-Kubernetes) |  | Curated | [View](ice-kubernetes.html) |
 | [Ice-Leak-Monitoring](https://github.com/icepaule/Ice-Leak-Monitoring) |  | Curated | [View](ice-leak-monitoring.html) |
@@ -60,6 +61,7 @@ flowchart LR
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Curated | [View](iceai-tax-2025.html) |
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Curated | [View](icebackup.html) |
 | [IceBewerkungsAssistent](https://github.com/icepaule/IceBewerkungsAssistent) |  | No README | - |
+| [IceBirdwatch](https://github.com/icepaule/IceBirdwatch) |  | Auto | [View](icebirdwatch.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Curated | [View](icedataemphasise.html) |
 | [IceDHCP](https://github.com/icepaule/IceDHCP) |  | No README | - |
@@ -85,10 +87,11 @@ flowchart LR
 | [IceProxmoxBackup](https://github.com/icepaule/IceProxmoxBackup) |  | Curated | [View](iceproxmoxbackup.html) |
 | [IceSeller](https://github.com/icepaule/IceSeller) |  | Curated | [View](iceseller.html) |
 | [IceSpider](https://github.com/icepaule/IceSpider) |  | Curated | [View](icespider.html) |
+| [IceSSO](https://github.com/icepaule/IceSSO) |  | Auto | [View](icesso.html) |
 | [IceTimereport](https://github.com/icepaule/IceTimereport) |  | Curated | [View](icetimereport.html) |
 | [IceTravelAP](https://github.com/icepaule/IceTravelAP) |  | Curated | [View](icetravelap.html) |
 | [IceUseCaseTesting](https://github.com/icepaule/IceUseCaseTesting) |  | Curated | [View](iceusecasetesting.html) |
-| [IceWeatherstation](https://github.com/icepaule/IceWeatherstation) |  | Auto | [View](iceweatherstation.html) |
+| [IceWeatherstation](https://github.com/icepaule/IceWeatherstation) |  | Curated | [View](iceweatherstation.html) |
 | [IceWiFi](https://github.com/icepaule/IceWiFi) | My Home-WiFi setup using UniFi equipment | Curated | [View](icewifi.html) |
 | [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Curated | [View](icexwiki.html) |
 | [no-telemetry](https://github.com/icepaule/no-telemetry) | Win10 Telemetry blocklist for piHole | Auto | [View](no-telemetry.html) |
@@ -103,9 +106,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-07-16 |
-| Repos Scanned | 51 |
-| Clean Repos | 49 |
+| Last Scan | 2026-07-17 |
+| Repos Scanned | 54 |
+| Clean Repos | 52 |
 | Repos with Findings | 2 |
 | Total Findings | 12 |
 | Verified Findings | 0 |
@@ -113,7 +116,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 49
+    "Clean" : 52
     "Findings" : 2
 ```
 
