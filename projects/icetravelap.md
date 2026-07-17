@@ -13,6 +13,7 @@ nav_order: 19
 
 **IceTravelAP**
 
+{% raw %}
 ![IceTravelAP Systemablauf](icetravelap_ablaufbeschreibung.svg)
 Systemablauf
 1. Boot & Hotspot-Start
@@ -1046,3 +1047,4 @@ pivpn add -n travelpi
 # DuckDNS-Updater (Cronjob auf Heim-Pi)
 # */5 * * * * curl -s "https://www.duckdns.org/update?domains=DEINNAME&token=TOKEN&ip=" > /dev/null
 ```
+{% endraw %}

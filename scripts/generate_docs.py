@@ -263,7 +263,11 @@ nav_order: {nav_order}
 """
 
     if readme_content and readme_content.strip():
-        page += readme_content + "\n"
+        # README-Inhalt kann beliebige {% %}/{{ }}-Sequenzen enthalten (Jinja2,
+        # Go-Templates, Ansible etc. in Code-Beispielen) - ohne {% raw %}
+        # versucht Jekylls Liquid-Engine das als eigenes Template zu parsen
+        # und bricht mit einem Syntax-Error den kompletten Seiten-Build ab.
+        page += "{% raw %}\n" + readme_content + "\n{% endraw %}\n"
     else:
         page += f"*No README available. Visit the [GitHub repository](https://github.com/{GITHUB_USER}/{name}) for more information.*\n"
 
