@@ -2,7 +2,7 @@
 layout: default
 title: IceSpider
 parent: Data & Tools
-nav_order: 8
+nav_order: 25
 ---
 
 # IceSpider
