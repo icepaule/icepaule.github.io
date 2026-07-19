@@ -149,7 +149,7 @@
   {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
-    "pushed_at": "2026-07-16T14:20:56Z",
+    "pushed_at": "2026-07-18T18:05:52Z",
     "doc_file": "icehomeassist.md",
     "status": "auto_updated"
   },
@@ -331,7 +331,7 @@
   {
     "name": "IceWeatherstation",
     "description": "",
-    "pushed_at": "2026-07-15T15:25:58Z",
+    "pushed_at": "2026-07-18T18:33:28Z",
     "doc_file": "iceweatherstation.md",
     "status": "auto_updated"
   },
