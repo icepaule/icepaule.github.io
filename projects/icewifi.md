@@ -2,7 +2,7 @@
 layout: default
 title: IceWiFi
 parent: Home Automation & Networking
-nav_order: 7
+nav_order: 3
 ---
 
 # IceWiFi

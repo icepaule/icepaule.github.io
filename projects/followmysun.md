@@ -2,7 +2,7 @@
 layout: default
 title: followmysun
 parent: Hardware & ESP32
-nav_order: 2
+nav_order: 3
 ---
 
 # followmysun
@@ -78,6 +78,13 @@ Der MPU-6050 sitzt in einem 3D-gedruckten Gehäuse direkt am PV-Rahmen und misst
 6. **Strom an** – fertig. Webseite unter `http://<esp-ip>/`, MQTT-Topics unter `tele/solar/...`
 
 Detaillierte Anleitung: **[docs/installation.md](https://github.com/icepaule/followmysun/blob/main/docs/installation.md)**
+
+> **Migration auf ESP32 mit externer Antenne:** Wenn ihr das Setup an einem
+> WLAN-schwachen Standort betreibt (z. B. Gartenhaus / Schuppen), gibt es eine
+> ausführliche Umbau-Doku vom ESP12F-Relay-X4 auf den **Olimex ESP32-EVB-EA Rev.L**
+> mit IPEX-Externantenne: **[docs/hardware-migration-esp32-evb.md](https://github.com/icepaule/followmysun/blob/main/docs/hardware-migration-esp32-evb.md)** —
+> inkl. Mermaid-Diagrammen für IST- und SOLL-Verkabelung sowie dem korrekten
+> 12 V-Split über einen Mini-360-Buck (das neue Board ist strikt 5 V!).
 
 ## MQTT-Topics für Home Assistant
 

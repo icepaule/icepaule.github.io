@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-MWDB-Feeder
 parent: Security & Malware Analysis
-nav_order: 2
+nav_order: 6
 ---
 
 # IcePorge-MWDB-Feeder
