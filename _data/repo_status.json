@@ -44,7 +44,7 @@
   {
     "name": "followmysun",
     "description": "Single axis adjustment for my solar panel",
-    "pushed_at": "2026-07-19T12:18:04Z",
+    "pushed_at": "2026-07-20T11:13:47Z",
     "doc_file": "followmysun.md",
     "status": "auto_updated"
   },
@@ -61,6 +61,13 @@
     "pushed_at": "2026-02-17T08:07:55Z",
     "doc_file": "ice-github-doku.md",
     "status": "auto_updated"
+  },
+  {
+    "name": "Ice-IR-Plattform",
+    "description": "",
+    "pushed_at": "2026-07-21T05:03:03Z",
+    "doc_file": "ice-ir-plattform.md",
+    "status": "auto_created"
   },
   {
     "name": "Ice-Kubernetes",
@@ -103,6 +110,13 @@
     "pushed_at": "2026-02-25T15:46:21Z",
     "doc_file": "iceai-tax-2025.md",
     "status": "auto_updated"
+  },
+  {
+    "name": "IceAlexaSecure",
+    "description": "",
+    "pushed_at": "2026-07-20T18:24:49Z",
+    "doc_file": "icealexasecure.md",
+    "status": "auto_created"
   },
   {
     "name": "IceBackup",
@@ -331,7 +345,7 @@
   {
     "name": "IceWeatherstation",
     "description": "",
-    "pushed_at": "2026-07-19T15:31:35Z",
+    "pushed_at": "2026-07-20T06:06:42Z",
     "doc_file": "iceweatherstation.md",
     "status": "auto_updated"
   },

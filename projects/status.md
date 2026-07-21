@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-20 05:58 UTC*
+*Last updated: 2026-07-21 05:40 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**55 repos** documented: 2 curated, 47 auto-generated.
+**57 repos** documented: 2 curated, 49 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -54,12 +54,14 @@ flowchart LR
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | Auto | [View](followmysun.html) |
 | [ICE-DKMS](https://github.com/icepaule/ICE-DKMS) |  | Auto | [View](ice-dkms.html) |
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Auto | [View](ice-github-doku.html) |
+| [Ice-IR-Plattform](https://github.com/icepaule/Ice-IR-Plattform) |  | Auto | [View](ice-ir-plattform.html) |
 | [Ice-Kubernetes](https://github.com/icepaule/Ice-Kubernetes) |  | Auto | [View](ice-kubernetes.html) |
 | [Ice-Leak-Monitoring](https://github.com/icepaule/Ice-Leak-Monitoring) |  | Curated | [View](ice-leak-monitoring.html) |
 | [Ice-LLM-router](https://github.com/icepaule/Ice-LLM-router) |  | Auto | [View](ice-llm-router.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Auto | [View](ice-mtastik.html) |
 | [Ice-SEC-cli](https://github.com/icepaule/Ice-SEC-cli) |  | Auto | [View](ice-sec-cli.html) |
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Auto | [View](iceai-tax-2025.html) |
+| [IceAlexaSecure](https://github.com/icepaule/IceAlexaSecure) |  | Auto | [View](icealexasecure.html) |
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Auto | [View](icebackup.html) |
 | [IceBewerkungsAssistent](https://github.com/icepaule/IceBewerkungsAssistent) |  | No README | - |
 | [IceBirdwatch](https://github.com/icepaule/IceBirdwatch) |  | Auto | [View](icebirdwatch.html) |
@@ -107,9 +109,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-07-20 |
-| Repos Scanned | 55 |
-| Clean Repos | 52 |
+| Last Scan | 2026-07-21 |
+| Repos Scanned | 57 |
+| Clean Repos | 54 |
 | Repos with Findings | 3 |
 | Total Findings | 13 |
 | Verified Findings | 0 |
@@ -117,7 +119,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 52
+    "Clean" : 54
     "Findings" : 3
 ```
 
