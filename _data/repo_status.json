@@ -44,7 +44,7 @@
   {
     "name": "followmysun",
     "description": "Single axis adjustment for my solar panel",
-    "pushed_at": "2026-07-20T11:13:47Z",
+    "pushed_at": "2026-07-23T16:03:53Z",
     "doc_file": "followmysun.md",
     "status": "auto_updated"
   },
@@ -163,7 +163,7 @@
   {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
-    "pushed_at": "2026-07-19T12:15:39Z",
+    "pushed_at": "2026-07-23T16:06:37Z",
     "doc_file": "icehomeassist.md",
     "status": "auto_updated"
   },
@@ -345,7 +345,7 @@
   {
     "name": "IceWeatherstation",
     "description": "",
-    "pushed_at": "2026-07-20T06:06:42Z",
+    "pushed_at": "2026-07-23T16:06:16Z",
     "doc_file": "iceweatherstation.md",
     "status": "auto_updated"
   },
