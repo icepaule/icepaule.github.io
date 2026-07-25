@@ -2,7 +2,7 @@
 layout: default
 title: Ice-SEC-cli
 parent: Data & Tools
-nav_order: 28
+nav_order: 11
 ---
 
 # Ice-SEC-cli
