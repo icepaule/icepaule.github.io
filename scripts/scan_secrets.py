@@ -18,6 +18,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "_data"
 GITHUB_USER = "icepaule"
 SCAN_TIMEOUT = 300  # 5 minutes per repo
+CUSTOM_DETECTORS_CONFIG = REPO_ROOT / "scripts" / "custom_secret_detectors.yaml"
 SKIP_REPOS = {"icepaule.github.io", "icepaule", ".github"}
 
 
@@ -76,9 +77,13 @@ def scan_repo(repo_name):
     repo_url = f"https://github.com/{GITHUB_USER}/{repo_name}.git"
     print(f"  Scanning {repo_name}...", end=" ", flush=True)
 
+    cmd = ["trufflehog", "git", repo_url, "--json", "--no-update"]
+    if CUSTOM_DETECTORS_CONFIG.exists():
+        cmd += ["--config", str(CUSTOM_DETECTORS_CONFIG)]
+
     try:
         result = subprocess.run(
-            ["trufflehog", "git", repo_url, "--json", "--no-update"],
+            cmd,
             capture_output=True, text=True, timeout=SCAN_TIMEOUT
         )
     except subprocess.TimeoutExpired:
@@ -101,6 +106,10 @@ def scan_repo(repo_name):
         if isinstance(detector_type, dict):
             detector_type = detector_type.get("name", "Unknown")
         detector = raw.get("DetectorName", str(detector_type))
+        if detector == "CustomRegex":
+            # Custom-Regex-Detektoren tragen ihren eigentlichen Namen in
+            # ExtraData.name statt in DetectorName (immer "CustomRegex").
+            detector = raw.get("ExtraData", {}).get("name") or detector
         verified = raw.get("Verified", False)
         finding_hash = compute_finding_hash(detector, repo_name, raw)
 
