@@ -26,7 +26,7 @@ LED-Matrix-Displays fürs Zuhause — von seriellen MAX7219-Dot-Matrix-Anzeigen 
 | Matrix2 | 4x MAX7219 (32x8) | Rot | ESP-12F | Uhrzeit + PV-Leistung |
 | Matrix3 | 8x MAX7219 (64x8) | 4x Rot + 4x Blau | Wemos D1 Mini | Uhrzeit + PV + Alerts |
 | Matrix4 (Strompreis) | 4x MAX7219 (32x8) | Rot | Wemos D1 Mini | Tibber Strompreis + Trend |
-| Matrix5 (2FA-Anzeige) | 2x HUB75 P4-2121-64x32-16S | RGB | ESP32-S3 | TOTP/2FA-Codes, eigene Firmware |
+| Matrix5 (2FA-Anzeige) | 1x HUB75 P4-2121-64x32-16S | RGB | ESP32-S3 | TOTP/2FA-Codes, eigene Firmware |
 
 > ESP-12F (Matrix1/2) und Wemos D1 Mini (Matrix3/4) haben unterschiedliche GPIO-Zuordnungen — Details in der Repo-Doku.
 
