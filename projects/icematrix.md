@@ -49,7 +49,9 @@ flowchart LR
     T1 --> M["MAX7219 Matrix"]
 ```
 
-**Matrix5** läuft komplett unabhängig davon auf eigener C++/PlatformIO-Firmware (kein Tasmota, kein Node-RED) — HUB75-RGB-Panels brauchen eine kontinuierliche DMA-Ansteuerung, die Tasmota nicht unterstützt. Stattdessen: WLAN + NTP-Sync, HMAC-SHA1/TOTP direkt auf dem ESP32-S3, Ausgabe auf zwei gekettete 64x32-Panels.
+**Matrix5** läuft komplett unabhängig davon auf eigener C++/PlatformIO-Firmware (kein Tasmota, kein Node-RED) — HUB75-RGB-Panels brauchen eine kontinuierliche DMA-Ansteuerung, die Tasmota nicht unterstützt. Stattdessen: WLAN + NTP-Sync, HMAC-SHA1/TOTP direkt auf dem ESP32-S3, Ausgabe auf ein 64x32-Panel.
+
+**Stromversorgung mit nur einem Netzteil**: Panel-Strom nicht durchs ESP32-Board leiten (der 5V-Pin eines Dev-Boards/Moduls ist dafür meist nicht ausgelegt) — stattdessen das Netzteil auf einen gemeinsamen 5V/GND-Knotenpunkt führen (z.B. auf dem Perfboard, an dem der ESP32 sitzt) und von dort zwei getrennte Leitungen abgehen lassen: eine zum ESP32, eine direkt zum Panel-Steckverbinder. So läuft der höhere Panel-Strom nie durchs Modul selbst. Details inkl. Leitungsquerschnitt und Dimensionierung in der Repo-Doku.
 
 ## Custom Firmware (Pflicht für Matrix1-4!)
 
