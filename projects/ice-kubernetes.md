@@ -2,7 +2,7 @@
 layout: default
 title: Ice-Kubernetes
 parent: Data & Tools
-nav_order: 14
+nav_order: 27
 ---
 
 # Ice-Kubernetes
@@ -13,6 +13,7 @@ nav_order: 14
 
 **Ice-Kubernetes**
 
+{% raw %}
 Migration from Docker Compose stacks to a centralized K3s Kubernetes cluster with GitOps (ArgoCD) and monitoring (Prometheus/Grafana).
 
 ## Architecture
@@ -83,17 +84,18 @@ Migration from Docker Compose stacks to a centralized K3s Kubernetes cluster wit
 
 ## Quick Start
 
-See [docs/01-prerequisites.md](docs/01-prerequisites.md) to get started.
+See [docs/01-prerequisites.md](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/01-prerequisites.md) to get started.
 
 ## Documentation
 
-1. [Prerequisites](docs/01-prerequisites.md)
-2. [K3s Server Setup](docs/02-k3s-server-setup.md)
-3. [Core Platform](docs/03-core-platform.md)
-4. [Workload Migration](docs/04-workload-migration.md)
-5. [Agent Nodes](docs/05-agent-nodes.md)
-6. [Monitoring](docs/06-monitoring.md)
-7. [GitOps with ArgoCD](docs/07-gitops-argocd.md)
+1. [Prerequisites](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/01-prerequisites.md)
+2. [K3s Server Setup](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/02-k3s-server-setup.md)
+3. [Core Platform](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/03-core-platform.md)
+4. [Workload Migration](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/04-workload-migration.md)
+5. [Agent Nodes](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/05-agent-nodes.md)
+6. [Monitoring](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/06-monitoring.md)
+7. [GitOps with ArgoCD](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/07-gitops-argocd.md)
+8. **[Admin Guide](https://github.com/icepaule/Ice-Kubernetes/blob/main/docs/08-admin-guide.md)** - Day-to-day operations, troubleshooting, deploying new apps
 
 ## Directory Structure
 
@@ -111,3 +113,4 @@ See [docs/01-prerequisites.md](docs/01-prerequisites.md) to get started.
 ## License
 
 MIT
+{% endraw %}

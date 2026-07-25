@@ -2,7 +2,7 @@
 layout: default
 title: IceMultiGPUAI
 parent: Data & Tools
-nav_order: 22
+nav_order: 15
 ---
 
 # IceMultiGPUAI
@@ -13,9 +13,10 @@ nav_order: 22
 
 **IceMultiGPUAI**
 
+{% raw %}
 Vollständige, faktenbasierte Setup‑ und **Disaster‑Recovery‑Dokumentation** des Hosts **KI02**: einer HP Z440 Workstation mit **2× NVIDIA RTX 3060 (24 GB VRAM gesamt)**, die als lokaler Multi‑LLM‑ / Multi‑GPU‑Server (Ollama) plus diverse KI‑Dienste betrieben wird. KI02 hat das alte „KI01" abgelöst und dessen IP `10.10.0.210` übernommen.
 
-> **Zweck:** Aus diesem Repo lässt sich der Host im Katastrophenfall **Schritt für Schritt vollständig wiederherstellen**. Siehe **[docs/07-disaster-recovery.md](docs/07-disaster-recovery.md)**.
+> **Zweck:** Aus diesem Repo lässt sich der Host im Katastrophenfall **Schritt für Schritt vollständig wiederherstellen**. Siehe **[docs/07-disaster-recovery.md](https://github.com/icepaule/IceMultiGPUAI/blob/main/docs/07-disaster-recovery.md)**.
 
 > ⚠️ **Keine Geheimnisse im Repo.** Passwörter, Tokens und Schlüssel sind bewusst **nicht** enthalten und im Text durch `<PLATZHALTER>` ersetzt. Interne RFC‑1918‑IPs sind enthalten, weil sie für die Wiederherstellung benötigt werden.
 
@@ -169,7 +170,8 @@ IceMultiGPUAI/
 
 ## 7. Im Katastrophenfall
 
-➡️ Direkt zu **[docs/07-disaster-recovery.md](docs/07-disaster-recovery.md)** — dort steht die vollständige Reihenfolge: BIOS → Ubuntu → Treiber → Ollama → Docker → Dienste → Daten zurückspielen → Verifikation.
+➡️ Direkt zu **[docs/07-disaster-recovery.md](https://github.com/icepaule/IceMultiGPUAI/blob/main/docs/07-disaster-recovery.md)** — dort steht die vollständige Reihenfolge: BIOS → Ubuntu → Treiber → Ollama → Docker → Dienste → Daten zurückspielen → Verifikation.
 
 ---
 *Erstellt 2026‑06‑27. Alle Werte stammen aus dem laufenden System (live erhoben), nicht aus Annahmen.*
+{% endraw %}

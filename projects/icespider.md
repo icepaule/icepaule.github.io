@@ -2,7 +2,7 @@
 layout: default
 title: IceSpider
 parent: Data & Tools
-nav_order: 17
+nav_order: 7
 ---
 
 # IceSpider
@@ -13,6 +13,7 @@ nav_order: 17
 
 **IceSpider**
 
+{% raw %}
 An enhanced SpiderFoot deployment with Ollama AI integration for intelligent OSINT analysis, automated correlation, and comprehensive reporting.
 
 ## Features
@@ -217,3 +218,4 @@ IceSpider/
 ## License
 
 MIT License - Based on [SpiderFoot](https://github.com/smicallef/spiderfoot)
+{% endraw %}

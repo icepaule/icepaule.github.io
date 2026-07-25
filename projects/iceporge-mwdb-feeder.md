@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-MWDB-Feeder
 parent: Security & Malware Analysis
-nav_order: 4
+nav_order: 10
 ---
 
 # IcePorge-MWDB-Feeder
@@ -11,17 +11,20 @@ nav_order: 4
 
 ***
 
+**Multi-source malware sample aggregator (URLhaus, ThreatFox, Hybrid Analysis)**
+
+{% raw %}
 **Multi-Source Malware Sample Aggregator**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Aggregates malware samples from multiple threat intelligence sources and uploads them to MWDB.
 
-***
+---
 
 # Betriebshandbuch MWDB-Feeder - Multi-Source Malware Aggregator
 
-***
+---
 
 **Dokumenteninformationen**
 
@@ -35,7 +38,7 @@ Aggregates malware samples from multiple threat intelligence sources and uploads
 | Dokumentenverantwortlicher | IT-Sicherheitsbetrieb |
 | Review-Zyklus | Quartalsweise |
 
-***
+---
 
 ## Inhaltsverzeichnis
 
@@ -50,7 +53,7 @@ Aggregates malware samples from multiple threat intelligence sources and uploads
 9. [Sicherheitsaspekte](#9-sicherheitsaspekte)
 10. [Anhänge](#10-anhänge)
 
-***
+---
 
 ## 1. Zweck und Geltungsbereich
 
@@ -87,13 +90,13 @@ MWDB-Feeder automatisiert die kontinuierliche Beschaffung von Malware-Samples au
 
 **Quelle**: `/opt/mwdb-feeder/app/feeder.py:1-14`
 
-***
+---
 
 ## 2. Systemübersicht und Architektur
 
 ### 2.1 Architektur-Diagramm
 
-![MWDB-Feeder Architektur](docs/mwdb-feeder-architecture.svg)
+![MWDB-Feeder Architektur](https://raw.githubusercontent.com/icepaule/IcePorge-MWDB-Feeder/main/docs/mwdb-feeder-architecture.svg)
 
 <details>
 <summary>Mermaid-Diagramm (klicken zum Ausklappen)</summary>
@@ -254,7 +257,7 @@ flowchart TB
 - **API-Key**: https://app.any.run/profile → API & Limits
 - **Hinweis**: Web-Scraping wird von Cloudflare blockiert
 
-***
+---
 
 ## 3. Regulatorische Anforderungen
 
@@ -286,7 +289,7 @@ flowchart TB
 | A.5.7 Threat Intelligence | Multi-Source Feed-Integration |
 | A.12.2 Schutz vor Malware | Proaktive Sample-Analyse via MWDB/Karton |
 
-***
+---
 
 ## 4. Installation und Konfiguration
 
@@ -319,7 +322,7 @@ URLHAUS_ENABLED=true
 URLHAUS_URL=https://urlhaus-api.abuse.ch/v1/
 URLHAUS_AUTH_KEY=b3437fd58ef417...  # abuse.ch Auth-Key
 URLHAUS_POLL_SECONDS=300
-URLHAUS_ZIP_PASSWORD=infected
+URLHAUS_ZIP_PASSWORD=****
 ```
 
 **ThreatFox (abuse.ch)**:
@@ -386,7 +389,7 @@ networks:
 | Hybrid Analysis | https://www.hybrid-analysis.com/signup | Kostenlos (Rate-Limits) |
 | ANY.RUN | https://app.any.run/ → Profile → API | Kostenpflichtig (Searcher Plan) |
 
-***
+---
 
 ## 5. Betriebsverfahren
 
@@ -482,7 +485,7 @@ for source in urlhaus hybrid_analysis anyrun; do
 done
 ```
 
-***
+---
 
 ## 6. Wartungsverfahren
 
@@ -539,7 +542,7 @@ nano /opt/mwdb-feeder/.env
 docker compose restart mwdb-feeder
 ```
 
-***
+---
 
 ## 7. Incident Response Prozeduren
 
@@ -596,7 +599,7 @@ du -sh /opt/mwdb-feeder/work/*
 sqlite3 /opt/mwdb-feeder/work/state.db "VACUUM;"
 ```
 
-***
+---
 
 ## 8. Troubleshooting
 
@@ -638,7 +641,7 @@ docker compose up -d
 
 **Hinweis**: Nach State-Reset werden bereits in MWDB vorhandene Samples erneut verarbeitet, aber mwdblib erkennt Duplikate automatisch.
 
-***
+---
 
 ## 9. Sicherheitsaspekte
 
@@ -677,7 +680,7 @@ Alle Downloads werden vor Upload SHA256-verifiziert:
 - Hybrid Analysis: Nach optionaler GZIP-Dekompression
 - ANY.RUN: Direkt nach Download
 
-***
+---
 
 ## 10. Anhänge
 
@@ -754,8 +757,9 @@ Alle Zugangsdaten sind dokumentiert in:
 |---------|-------|-------|----------|
 | 1.0 | 2026-01-22 | IT-Sicherheit | Initiale Erstellung |
 
-***
+---
 
 **Ende des Dokuments**
 
 *Dieses Dokument unterliegt der Klassifizierung INTERN und darf nur innerhalb des Instituts verwendet werden.*
+{% endraw %}

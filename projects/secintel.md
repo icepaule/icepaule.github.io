@@ -2,7 +2,7 @@
 layout: default
 title: secintel
 parent: Data & Tools
-nav_order: 10
+nav_order: 25
 ---
 
 # secintel
@@ -13,6 +13,7 @@ nav_order: 10
 
 **A security intel project powered by Django**
 
+{% raw %}
 A fun security intel project powered by Django
 
 ### Usage
@@ -29,3 +30,4 @@ with your VirusTotal api key like this
 VT_API_KEY="YOUR KEY GOES HERE"
 
 python manage.py runserver <PORT>
+{% endraw %}

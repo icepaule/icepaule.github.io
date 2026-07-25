@@ -2,7 +2,7 @@
 layout: default
 title: IceProxmoxBackup
 parent: Data & Tools
-nav_order: 25
+nav_order: 9
 ---
 
 # IceProxmoxBackup
@@ -13,6 +13,7 @@ nav_order: 25
 
 **IceProxmoxBackup**
 
+{% raw %}
 Documentation of two related operations on a Synology DS1821+:
 
 1. **Upgrading the self-hosted [Immich](https://immich.app) photo stack from v2.7.5 → v3.0.1** (a major version jump with breaking changes), with zero data loss.
@@ -82,11 +83,11 @@ One PBS snapshot per run (`host/immich`), daily at **03:30**, retained **7 daily
 
 ## Documentation
 
-- [01 — Immich v2.7.5 → v3.0.1 Upgrade](docs/01-immich-v3-upgrade.md) — compatibility analysis, step-by-step, rollback
-- [02 — PBS File Backup Setup](docs/02-pbs-file-backup-setup.md) — the backup action, full step-by-step
-- [03 — Compose & Scripts Reference](docs/03-compose-and-scripts-reference.md) — annotated Dockerfile / compose / scripts
-- [04 — Operations & Restore](docs/04-operations-and-restore.md) — monitor, manual run, list, verify, restore
-- [05 — Troubleshooting](docs/05-troubleshooting.md) — common pitfalls and fixes
+- [01 — Immich v2.7.5 → v3.0.1 Upgrade](https://github.com/icepaule/IceProxmoxBackup/blob/main/docs/01-immich-v3-upgrade.md) — compatibility analysis, step-by-step, rollback
+- [02 — PBS File Backup Setup](https://github.com/icepaule/IceProxmoxBackup/blob/main/docs/02-pbs-file-backup-setup.md) — the backup action, full step-by-step
+- [03 — Compose & Scripts Reference](https://github.com/icepaule/IceProxmoxBackup/blob/main/docs/03-compose-and-scripts-reference.md) — annotated Dockerfile / compose / scripts
+- [04 — Operations & Restore](https://github.com/icepaule/IceProxmoxBackup/blob/main/docs/04-operations-and-restore.md) — monitor, manual run, list, verify, restore
+- [05 — Troubleshooting](https://github.com/icepaule/IceProxmoxBackup/blob/main/docs/05-troubleshooting.md) — common pitfalls and fixes
 
 ## Stack
 
@@ -102,4 +103,5 @@ One PBS snapshot per run (`host/immich`), daily at **03:30**, retained **7 daily
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/icepaule/IceProxmoxBackup/blob/main/LICENSE).
+{% endraw %}

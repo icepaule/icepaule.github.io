@@ -11,6 +11,9 @@ nav_order: 2
 
 ***
 
+**IceMeshCore**
+
+{% raw %}
 Complete step-by-step guide for setting up a [MeshCore](https://meshcore.co.uk/) LoRa mesh network with LilyGo hardware, integrated with Home Assistant for monitoring and messaging from a tablet/dashboard.
 
 ## Architecture Overview
@@ -75,14 +78,14 @@ Complete step-by-step guide for setting up a [MeshCore](https://meshcore.co.uk/)
 
 | Guide | Description |
 |-------|-------------|
-| [docs/setup-guide.md](docs/setup-guide.md) | Complete setup walkthrough (all steps) |
-| [docs/flash-tbeam.md](docs/flash-tbeam.md) | T-Beam SX1276 WiFi companion flashing |
-| [docs/flash-tbeam-supreme.md](docs/flash-tbeam-supreme.md) | T-Beam Supreme SX1262 repeater flashing |
-| [docs/flash-tdeck.md](docs/flash-tdeck.md) | T-Deck MeshOS/Ultra flashing |
-| [docs/homeassistant.md](docs/homeassistant.md) | Home Assistant integration |
-| [docs/radio-settings.md](docs/radio-settings.md) | Radio configuration reference |
-| [docs/oled-status-display.md](docs/oled-status-display.md) | Customizing the repeater OLED display |
-| [docs/benutzerhandbuch-messaging.md](docs/benutzerhandbuch-messaging.md) | User guide for Galaxy Tab messaging (DE) |
+| [docs/setup-guide.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/setup-guide.md) | Complete setup walkthrough (all steps) |
+| [docs/flash-tbeam.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/flash-tbeam.md) | T-Beam SX1276 WiFi companion flashing |
+| [docs/flash-tbeam-supreme.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/flash-tbeam-supreme.md) | T-Beam Supreme SX1262 repeater flashing |
+| [docs/flash-tdeck.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/flash-tdeck.md) | T-Deck MeshOS/Ultra flashing |
+| [docs/homeassistant.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/homeassistant.md) | Home Assistant integration |
+| [docs/radio-settings.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/radio-settings.md) | Radio configuration reference |
+| [docs/oled-status-display.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/oled-status-display.md) | Customizing the repeater OLED display |
+| [docs/benutzerhandbuch-messaging.md](https://github.com/icepaule/IceMeshCore/blob/main/docs/benutzerhandbuch-messaging.md) | User guide for Galaxy Tab messaging (DE) |
 
 ## Directory Structure
 
@@ -135,4 +138,5 @@ IceMeshCore/
 
 ## License
 
-MIT - See [LICENSE](LICENSE)
+MIT - See [LICENSE](https://github.com/icepaule/IceMeshCore/blob/main/LICENSE)
+{% endraw %}

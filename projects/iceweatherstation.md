@@ -2,7 +2,7 @@
 layout: default
 title: IceWeatherstation
 parent: Data & Tools
-nav_order: 26
+nav_order: 24
 ---
 
 # IceWeatherstation
@@ -13,6 +13,7 @@ nav_order: 26
 
 **IceWeatherstation**
 
+{% raw %}
 DIY-Wetterstation auf Basis **ESP32 + Tasmota**: Temperatur, Luftfeuchte, Luftdruck, eine wasserdichte Zusatz-Temperatursonde, Wind (Geschwindigkeit + Richtung), Regenmenge, **Blitzerkennung** (AS3935/Franklin-Sensor) und ein **kalibrierter dBA-Schallpegelmesser**.
 
 ## Warum dieses Projekt?
@@ -24,11 +25,18 @@ Basiert auf dem Konzept des [ampheo.com Blog-Artikels "How to build a smart weat
 - **Zwingend externe WLAN-Antenne** — ESP32-WROOM-32U/32UE-Modulvariante statt der üblichen PCB-Antenne
 - **100% Tasmota-Firmware** statt Arduino/PlatformIO, inklusive eigenständigem Web-UI, das komplett ohne Home Assistant/MQTT funktioniert (für Geräte ohne Smart-Home-Infrastruktur beim Empfänger)
 
-Ursprünglich war angedacht, günstige Fertigsensorik (MISOL "Spare Part Outdoor Unit") zu verwenden — siehe [docs/misol-compatibility.md](docs/misol-compatibility.md), warum das **nicht** ohne Weiteres plug-and-play funktioniert und welche zwei Wege es trotzdem gäbe.
+Ursprünglich war angedacht, günstige Fertigsensorik (MISOL "Spare Part Outdoor Unit") zu verwenden — siehe [docs/misol-compatibility.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/misol-compatibility.md), warum das **nicht** ohne Weiteres plug-and-play funktioniert und welche zwei Wege es trotzdem gäbe.
 
 ## Status
 
-🚧 **Teile bestellt (Stand 2026-07-15), Aufbau und Firmware noch nicht auf echter Hardware getestet.** Diese Doku ist der Bauplan inkl. Firmware-Entwurf — Konfigurationsbeispiele sind bewusst als Entwurf markiert und müssen beim realen Aufbau kalibriert bzw. gegen die dann aktuelle Tasmota-Dokumentation geprüft werden. Rückmeldungen aus dem echten Aufbau fließen hier laufend ein.
+✅ **Erstes Gerät aufgebaut, geflasht und am Schuppen im Betrieb (Stand 2026-07-19).** DS18B20, Regenmesser, Anemometer, Windfahne, dBA-Sensor, AS3935 (Blitz) und OLED-Display sind verkabelt, kalibriert und live verifiziert; MQTT + Home-Assistant-Anbindung läuft. Noch offen: BME280 (Temperatur/Feuchte/Druck) ist bestellt, aber noch nicht geliefert/verbaut. Zweites Gerät (fürs Geschenk) folgt nach demselben Bauplan.
+
+Fotos vom fertigen Aufbau:
+
+<p float="left">
+  <img src="docs/images/aufbau-schuppen-1.jpeg" width="45%" alt="Offenes Gehäuse mit Verkabelung, Windfahne/Anemometer im Hintergrund" />
+  <img src="docs/images/aufbau-schuppen-2.jpeg" width="45%" alt="Montage am Schuppendach, Anemometer/Windfahne auf dem Mast" />
+</p>
 
 Es sind **zwei Geräte** geplant (baugleich): eines für den Eigenbedarf, eines als Geschenk. Das zweite Gerät ist bewusst so ausgelegt, dass es **ohne** Home Assistant/MQTT beim Empfänger funktioniert — die Sensorwerte sind direkt über Tasmotas eingebautes Web-UI abrufbar.
 
@@ -36,15 +44,15 @@ Es sind **zwei Geräte** geplant (baugleich): eines für den Eigenbedarf, eines 
 
 | Datei | Inhalt |
 |---|---|
-| [docs/setup-guide.md](docs/setup-guide.md) | **Schritt-für-Schritt-Anleitung**: Aufbau, Flashen, Konfiguration, Home-Assistant-Einbindung, WebGUI |
-| [docs/bom.md](docs/bom.md) | Vollständige Teileliste mit Bezugsquellen |
-| [docs/wiring.md](docs/wiring.md) | Pinbelegung + Verkabelungskonzept (Diagramm) |
-| [docs/enclosure.md](docs/enclosure.md) | Gehäuse, Mast-Montage, wetterfestes Mikrofongehäuse (DNMS-Design) |
-| [docs/misol-compatibility.md](docs/misol-compatibility.md) | MISOL-Kompatibilitätsanalyse (warum kein Plug-and-Play) |
-| [docs/tasmota-config.md](docs/tasmota-config.md) | Firmware-Konfiguration: Template, Counter, ADC, Rules |
-| [firmware/README.md](firmware/README.md) | Firmware-Bezug (offizielles `tasmota32.bin`, kein Custom-Build nötig) + Flash-Anleitung |
-| [firmware/config/backlog.txt](firmware/config/backlog.txt) | Fertiger Tasmota-Konsolen-Befehlssatz (Counter, ADC, AS3935) |
-| [firmware/berry/autoexec.be](firmware/berry/autoexec.be) | Berry-Skript-Entwurf: Windrichtung-Lookup + Web-UI-Erweiterung |
+| [docs/setup-guide.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/setup-guide.md) | **Schritt-für-Schritt-Anleitung**: Aufbau, Flashen, Konfiguration, Home-Assistant-Einbindung, WebGUI |
+| [docs/bom.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/bom.md) | Vollständige Teileliste mit Bezugsquellen |
+| [docs/wiring.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/wiring.md) | Pinbelegung + Verkabelungskonzept (Diagramm) |
+| [docs/enclosure.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/enclosure.md) | Gehäuse, Mast-Montage, wetterfestes Mikrofongehäuse (DNMS-Design) |
+| [docs/misol-compatibility.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/misol-compatibility.md) | MISOL-Kompatibilitätsanalyse (warum kein Plug-and-Play) |
+| [docs/tasmota-config.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/tasmota-config.md) | Firmware-Konfiguration: Template, Counter, ADC, Rules |
+| [firmware/README.md](https://github.com/icepaule/IceWeatherstation/blob/main/firmware/README.md) | Firmware-Bezug: eigener Custom-Build nötig (AS3935 + OLED-Display sind in keinem offiziellen ESP32-Release kombiniert), inkl. `custom-build/`-Patches + Flash-/OTA-Anleitung |
+| [firmware/config/backlog.txt](https://github.com/icepaule/IceWeatherstation/blob/main/firmware/config/backlog.txt) | Fertiger Tasmota-Konsolen-Befehlssatz (Counter, ADC, AS3935) |
+| [firmware/berry/autoexec.be](https://github.com/icepaule/IceWeatherstation/blob/main/firmware/berry/autoexec.be) | Berry-Skript-Entwurf: Windrichtung-Lookup + Web-UI-Erweiterung |
 
 ## Hardware-Kurzüberblick
 
@@ -57,7 +65,7 @@ Es sind **zwei Geräte** geplant (baugleich): eines für den Eigenbedarf, eines 
 | Blitz | AS3935 / CJMCU-3935 (I2C) | Ereignis, Distanz (km), Energie |
 | Schallpegel | DFRobot Gravity SEN0232 (analog) | dBA, 30–130 dB, A-bewertet |
 
-Details siehe [docs/bom.md](docs/bom.md) und [docs/wiring.md](docs/wiring.md).
+Details siehe [docs/bom.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/bom.md) und [docs/wiring.md](https://github.com/icepaule/IceWeatherstation/blob/main/docs/wiring.md).
 
 ## Quellen / Credits
 
@@ -70,4 +78,5 @@ Details siehe [docs/bom.md](docs/bom.md) und [docs/wiring.md](docs/wiring.md).
 
 ## Lizenz
 
-MIT, siehe [LICENSE](LICENSE). Keine Gewähr — insbesondere die Firmware-Beispiele sind unkalibrierte Entwürfe, siehe Status oben.
+MIT, siehe [LICENSE](https://github.com/icepaule/IceWeatherstation/blob/main/LICENSE). Keine Gewähr — insbesondere die Firmware-Beispiele sind unkalibrierte Entwürfe, siehe Status oben.
+{% endraw %}

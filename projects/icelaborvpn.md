@@ -2,7 +2,7 @@
 layout: default
 title: IceLaborVPN
 parent: Security & Malware Analysis
-nav_order: 9
+nav_order: 6
 ---
 
 # IceLaborVPN
@@ -11,13 +11,16 @@ nav_order: 9
 
 ***
 
+**Secure Zero-Trust Remote Access Gateway for Malware Analysis Labs - DORA/MITRE Compliant**
+
+{% raw %}
 **Secure Zero-Trust Remote Access Gateway for Malware Analysis Labs**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/icepaule/IceLaborVPN/blob/main/LICENSE)
-[![DORA Compliant](https://img.shields.io/badge/DORA-Compliant-blue.svg)](https://github.com/icepaule/IceLaborVPN/blob/main/docs/OPERATIONS-MANUAL.md#4-dora-compliance)
-[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-red.svg)](https://github.com/icepaule/IceLaborVPN/blob/main/docs/OPERATIONS-MANUAL.md#5-mitre-attck-mapping)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![DORA Compliant](https://img.shields.io/badge/DORA-Compliant-blue.svg)](docs/OPERATIONS-MANUAL.md#4-dora-compliance)
+[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-red.svg)](docs/OPERATIONS-MANUAL.md#5-mitre-attck-mapping)
 
-***
+---
 
 ## Overview
 
@@ -33,13 +36,16 @@ IceLaborVPN provides secure, browser-based remote access to isolated malware ana
 - **Session Recording** - Full audit trail for compliance
 - **Progressive Brute-Force Protection** - Multi-layer defense with escalating ban times (5 min → 15 min → 60 min)
 - **Threat Intelligence Blocklists** - Proactive blocking via 6 OSINT feeds (Spamhaus, Tor, Emerging Threats, Blocklist.de, AbuseIPDB)
-- **AbuseIPDB Integration** - All 7 fail2ban jails report malicious IPs to community threat intelligence
+- **AbuseIPDB Integration** - All 11 fail2ban jails report malicious IPs to community threat intelligence
 - **Fail2ban Web Dashboard** - View and manage bans directly from the portal (after login)
-- **Real-time Alerts** - Pushover notifications with anti-flood deduplication
+- **Tailscale Network Dashboard** - Live node status with online/offline indicators
+- **Deployment Checklist** - Interactive deployment tracker with progress bar and audit trail
+- **Real-time Alerts** - Pushover notifications with anti-flood deduplication and per-jail reason messages
 - **Scanner Detection** - Automatic detection and banning of nmap/vulnerability scanners
+- **Attack Detection** - Directory traversal, sensitive file probes, PHP/admin probes, RCE attempts auto-banned
 - **DORA/MITRE Compliant** - Comprehensive documentation for regulators
 
-***
+---
 
 ## Screenshots
 
@@ -59,7 +65,7 @@ IceLaborVPN provides secure, browser-based remote access to isolated malware ana
 ![Pushover Alert](https://raw.githubusercontent.com/icepaule/IceLaborVPN/main/docs/screenshots/pushover-alert.png)
 *Real-time security notifications via Pushover*
 
-***
+---
 
 ## Architecture
 
@@ -67,7 +73,7 @@ IceLaborVPN provides secure, browser-based remote access to isolated malware ana
 
 *Zero-Trust Architecture with WireGuard VPN mesh and HTML5 Remote Access*
 
-***
+---
 
 ## Quick Start
 
@@ -102,7 +108,7 @@ sudo ./scripts/install.sh
 4. Enter 6-digit TOTP code
 5. Access your lab systems!
 
-***
+---
 
 ## Configuration
 
@@ -180,7 +186,7 @@ echo '*/5 * * * * root /usr/bin/python3 /opt/guacamole/headscale-guacamole-sync.
 
 The script scans all online nodes for SSH (22), RDP (3389), VNC (5900) and manages Guacamole connections automatically.
 
-***
+---
 
 ## Security Features
 
@@ -193,9 +199,13 @@ The script scans all online nodes for SSH (22), RDP (3389), VNC (5900) and manag
 | TLS 1.3 | Transport encryption |
 | nginx Rate Limiting | 5 logins/min, 30 req/sec |
 | Guacamole Brute-Force | 5 attempts → 5 min ban |
-| Fail2ban (7 Jails) | Progressive banning: 5 min → 15 min → 60 min → 1 week (recidive) |
+| Fail2ban (11 Jails) | Progressive banning: 5 min → 15 min → 60 min → 1 week (recidive) |
 | Scanner Detection | nmap/vuln scanner auto-ban on all ports |
 | Credential Harvesting Detection | .env/.git probing → instant ban (15 min → 1h → 24h) |
+| Directory Traversal Detection | `../`, `%2e%2e`, `/etc/passwd` → instant 1h ban |
+| Sensitive File Probe Detection | `.env`, `.git/`, `wp-config`, credentials → instant 1h ban |
+| PHP/Admin Panel Detection | `.php`, `phpmyadmin`, `/admin/` → 2 attempts → 1h ban |
+| RCE/Shell Injection Detection | `cgi-bin`, Log4Shell/JNDI, scanner user-agents → instant 1h ban |
 | TOTP/2FA | Mandatory second factor |
 | Session Timeout | 60 minutes inactivity |
 
@@ -207,6 +217,24 @@ After logging in, the portal displays a live Fail2ban status panel:
 - **Per-Jail Details** - Expandable list of banned IPs per jail
 - **Management** - Unban or re-ban IPs directly from the browser
 - **Progressive Banning** - Repeat offenders get escalating ban times (5 min → 15 min → 60 min)
+
+### Tailscale Network Dashboard
+
+Live view of all Headscale/Tailscale nodes:
+
+- **Node Status** - Online/offline indicators with last-seen timestamps
+- **Network Overview** - Total, online, and offline node counts
+- **Auto-Refresh** - Manual refresh button to update status
+
+### Deployment Checklist
+
+Interactive deployment tracker for multi-step infrastructure rollouts:
+
+- **Phases & Groups** - Steps organized by deployment phase and target system
+- **Progress Tracking** - Visual progress bar with done/pending/skipped counters
+- **Status Toggle** - Click checkboxes to mark steps done, skip, or revert
+- **Audit Trail** - Timestamps and usernames for each status change
+- **Collapsible** - Completed phases auto-collapse, active phases stay open
 
 ### Monitoring & Alerting
 
@@ -245,17 +273,21 @@ systemctl list-timers 'icelabor-blocklist*'
 
 ### AbuseIPDB Integration
 
-All 7 fail2ban jails automatically report banned IPs to [AbuseIPDB](https://www.abuseipdb.com/) with appropriate attack categories:
+All 11 fail2ban jails automatically report banned IPs to [AbuseIPDB](https://www.abuseipdb.com/) with appropriate attack categories:
 
-| Jail | AbuseIPDB Categories |
-|------|---------------------|
-| sshd | Brute-Force, SSH |
-| guacamole | Brute-Force, Web App Attack |
-| nginx-limit-req | Web App Attack, Bad Web Bot |
-| nginx-scan | Port Scan, Web App Attack |
-| nginx-cred-harvest | Web App Attack, Hacking |
-| nginx-http-auth | Brute-Force, Web App Attack |
-| recidive | Brute-Force (repeat offender) |
+| Jail | AbuseIPDB Categories | Trigger |
+|------|---------------------|---------|
+| sshd | Brute-Force, SSH | 5 failed attempts |
+| guacamole | Brute-Force, Web App Attack | 5 failed attempts |
+| nginx-limit-req | Web App Attack, Bad Web Bot | 10 rate limit violations |
+| nginx-scan | Port Scan, Web App Attack | 5 suspicious 404/400 responses |
+| nginx-cred-harvest | Web App Attack, Hacking | 2 credential file probes |
+| nginx-http-auth | Brute-Force, Web App Attack | 3 HTTP auth failures |
+| nginx-traversal | Hacking, Web App Attack | 1 directory traversal attempt |
+| nginx-sensitive-files | Hacking, Web App Attack | 1 sensitive file probe |
+| nginx-php-probes | Hacking, Web App Attack | 2 PHP/admin panel probes |
+| nginx-rce-attempts | Hacking, Web App Attack | 1 RCE/shell injection attempt |
+| recidive | Brute-Force (repeat offender) | 3 bans in 12 hours → 1 week ban |
 
 ### Compliance
 
@@ -264,7 +296,7 @@ All 7 fail2ban jails automatically report banned IPs to [AbuseIPDB](https://www.
 - **ISO 27001** - Access control documentation
 - **Audit Trail** - 5-year session recording retention
 
-***
+---
 
 ## Documentation
 
@@ -275,7 +307,7 @@ All 7 fail2ban jails automatically report banned IPs to [AbuseIPDB](https://www.
 | [User Guide](https://github.com/icepaule/IceLaborVPN/blob/main/docs/USER-GUIDE.md) | End-user documentation |
 | [Troubleshooting](https://github.com/icepaule/IceLaborVPN/blob/main/docs/TROUBLESHOOTING.md) | Common issues and solutions |
 
-***
+---
 
 ## Directory Structure
 
@@ -289,7 +321,8 @@ IceLaborVPN/
 │   ├── deploy-tailscale-windows.ps1  # Windows deployment
 │   ├── deploy-tailscale-linux.sh     # Linux deployment
 │   ├── deploy-tailscale-macos.sh     # macOS deployment
-│   └── headscale-guacamole-sync.py   # Auto-sync connections
+│   ├── headscale-guacamole-sync.py   # Auto-sync connections
+│   └── checklist.json.example        # Deployment checklist template
 ├── scripts/
 │   ├── install.sh         # Main installer
 │   ├── backup.sh          # Backup script
@@ -298,10 +331,14 @@ IceLaborVPN/
 │   ├── headscale-onboard.sh # Node onboarding
 │   └── update-blocklists.sh # Threat intelligence blocklist manager
 ├── config/                # Configuration templates
-│   ├── fail2ban-jail.conf.template    # All 7 jails (nftables + AbuseIPDB + Pushover)
-│   ├── fail2ban-filter-nginx-scan.conf # Scanner detection filter
+│   ├── fail2ban-jail.conf.template    # All 11 jails (nftables + AbuseIPDB + Pushover)
+│   ├── fail2ban-filter-nginx-scan.conf         # Scanner detection filter
 │   ├── fail2ban-filter-nginx-cred-harvest.conf # Credential harvesting filter
-│   ├── fail2ban-action-pushover.conf  # Pushover notification action
+│   ├── fail2ban-filter-nginx-traversal.conf    # Directory traversal filter
+│   ├── fail2ban-filter-nginx-sensitive-files.conf # Sensitive file probe filter
+│   ├── fail2ban-filter-nginx-php-probes.conf   # PHP/admin panel probe filter
+│   ├── fail2ban-filter-nginx-rce-attempts.conf # RCE/shell injection filter
+│   ├── fail2ban-action-pushover.conf  # Pushover notification action (configurable reason)
 │   ├── fail2ban-sudoers-webui        # Sudoers for web UI management
 │   ├── blocklist-whitelist.conf.example # Blocklist whitelist template
 │   ├── logrotate-icelaborvpn.conf    # Service log rotation config
@@ -321,7 +358,7 @@ IceLaborVPN/
     └── screenshots/
 ```
 
-***
+---
 
 ## Troubleshooting
 
@@ -346,33 +383,33 @@ tailscale ping <TAILSCALE_IP>
 **Fail2ban blocking legitimate users**
 ```bash
 # Unban IP via CLI
-sudo fail2ban-client set guacamole unbanip 192.0.2.1
+sudo fail2ban-client set guacamole unbanip x.x.x.x
 
 # Or use the web dashboard (after login at https://your-domain.com)
 # The Fail2ban panel shows all banned IPs with Unban/Re-Ban buttons
 ```
 
-***
+---
 
 ## Contributing
 
 Contributions welcome! Please read our [Contributing Guide](https://github.com/icepaule/IceLaborVPN/blob/main/CONTRIBUTING.md).
 
-***
+---
 
 ## License
 
 MIT License - see [LICENSE](https://github.com/icepaule/IceLaborVPN/blob/main/LICENSE)
 
-***
+---
 
 ## Author
 
 **IcePorge Project**
 - GitHub: [@icepaule](https://github.com/icepaule)
-- Email: info@mpauli.de
+- Email: ****@****.***
 
-***
+---
 
 ## Acknowledgments
 
@@ -380,3 +417,4 @@ MIT License - see [LICENSE](https://github.com/icepaule/IceLaborVPN/blob/main/LI
 - [Headscale](https://github.com/juanfont/headscale)
 - [Tailscale](https://tailscale.com/)
 - [MITRE ATT&CK](https://attack.mitre.org/)
+{% endraw %}

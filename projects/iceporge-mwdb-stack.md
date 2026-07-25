@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-MWDB-Stack
 parent: Security & Malware Analysis
-nav_order: 3
+nav_order: 9
 ---
 
 # IcePorge-MWDB-Stack
@@ -11,22 +11,25 @@ nav_order: 3
 
 ***
 
+**MWDB-core with Karton orchestration for malware sample management**
+
+{% raw %}
 **MWDB-core with Karton Orchestration for Malware Sample Management**
 
 Part of the [IcePorge](https://github.com/icepaule/IcePorge) Malware Analysis Stack.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-***
+---
 
 ## Screenshots
 
 ### MWDB Web Interface
-![MWDB Web Interface](docs/screenshots/mwdb-webui.png)
+![MWDB Web Interface](https://raw.githubusercontent.com/icepaule/IcePorge-MWDB-Stack/main/docs/screenshots/mwdb-webui.png)
 
 *MWDB provides a modern web interface for managing malware samples, viewing analysis results, and exploring relationships between samples.*
 
-***
+---
 
 # MWDB + Karton Betriebshandbuch
 
@@ -34,13 +37,13 @@ Part of the [IcePorge](https://github.com/icepaule/IcePorge) Malware Analysis St
 **Stand:** 2026-01-21
 **System:** MWDB-core mit Karton-Orchestrierung und Multi-Source Feeder
 
-***
+---
 
 ## 1. Systemübersicht
 
 ### 1.1 Architektur
 
-![MWDB-Stack Architektur](docs/mwdb-stack-architecture.svg)
+![MWDB-Stack Architektur](https://raw.githubusercontent.com/icepaule/IcePorge-MWDB-Stack/main/docs/mwdb-stack-architecture.svg)
 
 <details>
 <summary>Mermaid-Diagramm (klicken zum Ausklappen)</summary>
@@ -199,7 +202,7 @@ Parallel bestehend (unverändert):
 /mnt/cape-data/mwdb-storage/        # MinIO Sample Storage
 ```
 
-***
+---
 
 ## 2. Zugang und URLs
 
@@ -233,7 +236,7 @@ curl -s http://127.0.0.1:8081/api/file \
   -H "Authorization: Bearer <API-KEY>"
 ```
 
-***
+---
 
 ## 3. Container-Management
 
@@ -291,7 +294,7 @@ docker ps --format "table {{.Names}}\t{{.Status}}" | grep -E "mwdb|karton"
 docker stop $(docker ps -q --filter "name=mwdb") $(docker ps -q --filter "name=karton")
 ```
 
-***
+---
 
 ## 4. Konfiguration
 
@@ -302,12 +305,12 @@ docker stop $(docker ps -q --filter "name=mwdb") $(docker ps -q --filter "name=k
 ```bash
 # PostgreSQL
 POSTGRES_USER=mwdb
-POSTGRES_PASSWORD=<generated>
+POSTGRES_PASSWORD=****
 POSTGRES_DB=mwdb
 
 # MinIO
 MINIO_ROOT_USER=mwdb-minio
-MINIO_ROOT_PASSWORD=<generated>
+MINIO_ROOT_PASSWORD=****
 
 # MWDB
 MWDB_SECRET_KEY=<generated>
@@ -315,7 +318,7 @@ MWDB_POSTGRES_URI=postgresql://...
 MWDB_REDIS_URI=redis://mwdb-redis:6379/0
 MWDB_ENABLE_KARTON=1
 MWDB_ADMIN_LOGIN=admin
-MWDB_ADMIN_PASSWORD=<generated>
+MWDB_ADMIN_PASSWORD=****
 MWDB_STORAGE_PROVIDER=s3
 MWDB_S3_STORAGE_ENDPOINT=mwdb-minio:9000
 MWDB_S3_STORAGE_BUCKET_NAME=mwdb
@@ -369,7 +372,7 @@ THREATFOX_POLL_SECONDS=300
 MAX_MB_PER_FILE=50
 ```
 
-***
+---
 
 ## 5. Feed-Quellen aktivieren
 
@@ -393,7 +396,7 @@ MAX_MB_PER_FILE=50
 1. Registrierung: https://www.hybrid-analysis.com/signup
 2. (Noch nicht implementiert - kann später hinzugefügt werden)
 
-***
+---
 
 ## 6. Datenfluss
 
@@ -426,7 +429,7 @@ MAX_MB_PER_FILE=50
 | sample (unrecognized) | classifier | cape-submitter |
 | config | extractor | mwdb-reporter |
 
-***
+---
 
 ## 7. Monitoring und Logs
 
@@ -468,7 +471,7 @@ curl -s http://127.0.0.1:9000/minio/health/live
 - Queue-Status prüfen
 - Fehlerhafte Tasks identifizieren
 
-***
+---
 
 ## 8. Troubleshooting
 
@@ -540,7 +543,7 @@ curl -s http://127.0.0.1:8081/api/ping
 # Wenn {"status":"ok"} → alles in Ordnung
 ```
 
-***
+---
 
 ## 9. Backup und Recovery
 
@@ -584,7 +587,7 @@ cp /opt/mwdb-feeder/work/state.db $BACKUP_DIR/
 echo "Backup complete: $BACKUP_DIR"
 ```
 
-***
+---
 
 ## 10. Updates
 
@@ -627,7 +630,7 @@ docker compose build
 docker compose up -d
 ```
 
-***
+---
 
 ## 11. Integration mit bestehendem System
 
@@ -707,7 +710,7 @@ server {
 | 8443 | MWDB | HTTPS |
 | 8444 | Karton Dashboard | HTTPS |
 
-***
+---
 
 ## 12. Anhang
 
@@ -758,8 +761,9 @@ docker system df -v | grep mwdb
 - abuse.ch API: https://urlhaus-api.abuse.ch/
 - CERT-Polska GitHub: https://github.com/CERT-Polska/
 
-***
+---
 
 **Erstellt:** 2026-01-21
 **Maintainer:** Automated Pipeline
 **Credentials:** /root/.claude/mwdb-credentials.md
+{% endraw %}

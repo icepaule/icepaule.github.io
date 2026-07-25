@@ -2,7 +2,7 @@
 layout: default
 title: IceHomeAssist
 parent: Home Automation & Networking
-nav_order: 1
+nav_order: 7
 ---
 
 # IceHomeAssist
@@ -11,6 +11,9 @@ nav_order: 1
 
 ***
 
+**My Home Assistant setup**
+
+{% raw %}
 Home Assistant Konfiguration & Dokumentation auf einem Intel NUC.
 
 ## Quick Start - Disaster Recovery
@@ -36,8 +39,8 @@ Die vollständige HTML-Dokumentation (deutsch) ist unter GitHub Pages verfügbar
 | **HA Image** | `ghcr.io/home-assistant/qemux86-64-homeassistant` |
 | **Config-Pfad** | `/var/lib/homeassistant/homeassistant/` (Host) = `/config` (Container) |
 | **Dashboards** | 11 YAML-Dashboards |
-| **Packages** | 11 Konfigurations-Pakete |
-| **Automationen** | 4 YAML-Automationen + Node-RED Flows |
+| **Packages** | 20 Konfigurations-Pakete |
+| **Automationen** | 4 YAML-Automationen + Node-RED Flows (10 Tabs, 188 Nodes) |
 | **Integrationen** | 40+ (davon 12 HACS Custom Components) |
 
 ## Integrationen
@@ -82,6 +85,7 @@ IceHomeAssist/
 │   ├── wifi_buttons.yaml
 │   ├── network_switches.yaml
 │   ├── notifications.yaml
+│   ├── matrix3_notifications.yaml
 │   ├── thw_divera.yaml
 │   ├── thw_nina.yaml
 │   ├── wetter.yaml
@@ -97,12 +101,21 @@ IceHomeAssist/
 │   └── snmp_switch_ports.py    # SNMP Switch Monitoring
 ├── nodered/                    # Node-RED
 │   └── flows.json
+├── projects/                   # Hardware-Projekte (Bauanleitungen)
+│   └── max7219-matrix/         # MAX7219 LED-Matrix Uhr & PV-Anzeige
 └── docs/                       # HTML Dokumentation
     ├── index.html
     ├── css/style.css
     ├── images/
     └── 01-16 HTML Seiten
 ```
+
+## Hardware-Projekte
+
+| Projekt | Beschreibung |
+|---|---|
+| [MAX7219 LED-Matrix](https://github.com/icepaule/IceHomeAssist/blob/main/projects/max7219-matrix/) | 3x ESP8266 + MAX7219 (32x8 & 64x8) als Uhr, PV-Anzeige & HA-Benachrichtigungen (Tasmota + Node-RED) |
+| Tibber Strompreis-Ampel | 2x ESP8266 (Tasmota) mit je 3 LEDs (Rot/Gelb/Gruen) - zeigt Tibber Preisstatus, blinkt bei guenstigster Periode, Rot bei Peak-Preisen |
 
 ## Sicherheit
 
@@ -120,8 +133,9 @@ IceHomeAssist/
 3. `scripts/unifi_radar_data.py` Credentials eintragen
 4. Home Assistant Container starten
 
-Detaillierte Anleitung: [Wiederherstellung](docs/15-wiederherstellung.html)
+Detaillierte Anleitung: [Wiederherstellung](https://github.com/icepaule/IceHomeAssist/blob/main/docs/15-wiederherstellung.html)
 
-***
+---
 
 Erstellt Februar 2026
+{% endraw %}

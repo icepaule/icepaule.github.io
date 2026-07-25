@@ -2,7 +2,7 @@
 layout: default
 title: audiobookshelf-synology
 parent: Data & Tools
-nav_order: 3
+nav_order: 29
 ---
 
 # audiobookshelf-synology
@@ -13,6 +13,7 @@ nav_order: 3
 
 **Selbst gehosteter Hoerbuch-Server mit KI-Metadaten (Ollama) fuer Synology NAS**
 
+{% raw %}
 Selbst gehosteter Hoerbuch-Server mit KI-gestuetzter Metadaten-Anreicherung
 fuer deutsche Hoerbuecher.
 
@@ -53,8 +54,8 @@ python3 enrich_metadata.py             # Ausfuehren
 
 ## Dokumentation
 
-- [Administrationshandbuch](docs/ADMIN_HANDBUCH.md) - Installation, Konfiguration, Bibliotheken, Tailscale, Wartung
-- [Benutzerhandbuch](docs/BENUTZER_HANDBUCH.md) - iPhone-App, Tailscale-Setup, Einschlaf-Timer, Bedienung
+- [Administrationshandbuch](https://github.com/icepaule/audiobookshelf-synology/blob/main/docs/ADMIN_HANDBUCH.md) - Installation, Konfiguration, Bibliotheken, Tailscale, Wartung
+- [Benutzerhandbuch](https://github.com/icepaule/audiobookshelf-synology/blob/main/docs/BENUTZER_HANDBUCH.md) - iPhone-App, Tailscale-Setup, Einschlaf-Timer, Bedienung
 
 ## Dateistruktur
 
@@ -86,3 +87,4 @@ Wichtige Variablen:
 Sensible Daten (API-Tokens, Pfade, IPs) stehen ausschliesslich in der `.env`-Datei,
 die per `.gitignore` vom Repository ausgeschlossen ist. Die `.env.example` enthaelt
 nur Platzhalter wie `<pfad-zur-nas-sammlung>`, keine echten Zugangsdaten oder Pfade.
+{% endraw %}

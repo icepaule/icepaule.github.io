@@ -2,7 +2,7 @@
 layout: default
 title: IceUseCaseTesting
 parent: Data & Tools
-nav_order: 12
+nav_order: 20
 ---
 
 # IceUseCaseTesting
@@ -13,10 +13,11 @@ nav_order: 12
 
 **IceUseCaseTesting**
 
+{% raw %}
 > Automatisierte Adversary-Emulation und SIEM-UseCase-Validierung für mittelständische Banken
 > Basierend auf MITRE Caldera + Splunk | TIBER-EU / DORA konform
 
-![Architecture](docs/images/01_architecture_overview.png)
+![Architecture](https://raw.githubusercontent.com/icepaule/IceUseCaseTesting/main/docs/images/01_architecture_overview.png)
 
 ## Überblick
 
@@ -34,10 +35,10 @@ Dieses Projekt stellt ein vollständiges **Purple Team Testing Framework** berei
 
 | Dokument | Beschreibung |
 |----------|-------------|
-| [Betriebshandbuch](docs/BETRIEBSHANDBUCH.md) | Vollständige Schritt-für-Schritt Installations- und Betriebsanleitung |
-| [SIEM Use Cases](docs/SIEM_USECASES.md) | Detaillierte Dokumentation aller 15 SIEM Use Cases |
-| [Adversary Profile](docs/ADVERSARY_PROFILES.md) | Beschreibung der 6 Banking-Bedrohungsszenarien |
-| [Architektur](docs/ARCHITEKTUR.md) | Systemarchitektur und Datenfluss |
+| [Betriebshandbuch](https://github.com/icepaule/IceUseCaseTesting/blob/main/docs/BETRIEBSHANDBUCH.md) | Vollständige Schritt-für-Schritt Installations- und Betriebsanleitung |
+| [SIEM Use Cases](https://github.com/icepaule/IceUseCaseTesting/blob/main/docs/SIEM_USECASES.md) | Detaillierte Dokumentation aller 15 SIEM Use Cases |
+| [Adversary Profile](https://github.com/icepaule/IceUseCaseTesting/blob/main/docs/ADVERSARY_PROFILES.md) | Beschreibung der 6 Banking-Bedrohungsszenarien |
+| [Architektur](https://github.com/icepaule/IceUseCaseTesting/blob/main/docs/ARCHITEKTUR.md) | Systemarchitektur und Datenfluss |
 
 ## Quick Start
 
@@ -92,6 +93,24 @@ graph LR
 - **BAIT** Abschnitt 5: IT-Sicherheitsmanagement
 - **DSGVO** Art. 33: Meldepflichten
 
+## Splunkbase App
+
+Die Splunk-App kann direkt als Paket installiert werden:
+
+```bash
+# Download und Installation
+tar -xzf splunkbase/caldera_bank_siem-1.0.0.tar.gz -C $SPLUNK_HOME/etc/apps/
+$SPLUNK_HOME/bin/splunk restart
+```
+
+**Enthaltene Komponenten:**
+- 15 SIEM Correlation Rules (Saved Searches)
+- Purple Team Dashboard mit KPIs, MITRE Heatmap, Kill Chain Timeline
+- MITRE ATT&CK Lookup (63 Techniken, DORA-Mapping)
+- Vorkonfigurierte Indexes und Sourcetypes
+
+Das Paket liegt unter [`splunkbase/caldera_bank_siem-1.0.0.tar.gz`](https://github.com/icepaule/IceUseCaseTesting/blob/main/splunkbase/caldera_bank_siem-1.0.0.tar.gz).
+
 ## Lizenz
 
 Dieses Projekt dient ausschließlich zu Bildungs- und Testzwecken in autorisierten Umgebungen.
@@ -104,3 +123,4 @@ MITRE Caldera: [Apache 2.0](https://github.com/mitre/caldera/blob/master/LICENSE
 - [TIBER-EU Framework](https://www.ecb.europa.eu/paym/cyber-resilience/tiber-eu/html/index.en.html)
 - [DORA TLPT RTS](https://tiber.info/blog/2025/06/18/the-dora-threat-led-penetration-testing-rts-has-been-published/)
 - [PT Security Financial Forecast 2025-2026](https://global.ptsecurity.com/en/research/analytics/cyberthreats-to-the-financial-sector--forecast-for-2025-2026/)
+{% endraw %}

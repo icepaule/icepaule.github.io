@@ -2,7 +2,7 @@
 layout: default
 title: IceITSOAI
 parent: Data & Tools
-nav_order: 21
+nav_order: 30
 ---
 
 # IceITSOAI
@@ -13,6 +13,7 @@ nav_order: 21
 
 **IceITSOAI**
 
+{% raw %}
 Selbst-gehostete, nicht-zensierte LLM-Plattform für **autorisiertes internes
 Security-Testing** im Finanzsektor. Erzeugt zu jedem Befund ein Bedrohungsszenario,
 den realen Attack-Path (mit MITRE ATT&CK), einen PoC sowie ein
@@ -21,7 +22,7 @@ den realen Attack-Path (mit MITRE ATT&CK), einen PoC sowie ein
 > **Hinweis:** Dieses Repo ist die **öffentliche Dokumentation** der Architektur und
 > Methodik. Es enthält **keine** internen IPs, Hostnamen, Zugangsdaten, Scope-Daten
 > oder Engagement-Artefakte. Platzhalter wie `<KI02_HOST>` sind beim Eigenbetrieb zu
-> ersetzen. Siehe [Security & Sanitization](docs/07-security-sanitization.md).
+> ersetzen. Siehe [Security & Sanitization](https://github.com/icepaule/IceITSOAI/blob/main/docs/07-security-sanitization.md).
 
 ## Warum self-hosted
 Ein lokales Modell ist **kein ICT-Drittdienstleister** i. S. v. DORA Art. 28–30:
@@ -34,6 +35,9 @@ für PoC-/Exploit-Generierung zudem durch Guardrails beschnitten und meldepflich
 - **Open-WebUI-Sektion** mit Playbooks — nur Ziel/Netz/App eintragen.
 - **RAG-Wissensbasis**: MITRE ATT&CK + regulatorische Dokumente.
 - **NVD-Anreicherung**: automatische CVE-Fakten (CVSS/CWE/Referenzen) aus NIST NVD.
+- **Threat-Intel-/Exploit-Feeds**: täglich aktualisierte lokale Roh-Korpora (Exploit-DB,
+  Nuclei, PoC-in-GitHub, Metasploit) + High-Signal-Indizes (CISA KEV, EPSS, ThreatFox, OTX)
+  — eingebettet ins RAG und vom Operator referenzierbar.
 - **Web-Recherche** über self-hosted SearXNG (keine Cloud-API).
 
 ## Architektur
@@ -47,8 +51,9 @@ flowchart TB
       WUI["Open WebUI<br/>Chat · RAG · Playbooks"]
       QD["Qdrant<br/>Vektor-DB"]
       SX["SearXNG<br/>Web-Recherche"]
-      CAI["CAI-Operator (Kali)<br/>autonome Ausführung · HITL"]
+      CAI["CAI-Operator (Ubuntu 24.04)<br/>autonome Ausführung · HITL"]
     end
+    FEED["Threat-Intel-Feeds<br/>Roh-Korpus + Indizes<br/>(täglich, read-only)"]
   end
   Analyst(["Security-Analyst"]) --> WUI
   WUI --> OLL
@@ -58,19 +63,22 @@ flowchart TB
   CAI --> SX
   CAI -.HITL-Freigabe.-> Targets["autorisierte Test-Ziele"]
   KB[("MITRE ATT&CK · DORA/TIBER/BAIT")] --> QD
+  FEED --> QD
+  FEED -. grep/zitieren .-> CAI
   NVD["NIST NVD CVE-API<br/>CVSS · CWE · Refs"] --> WUI
   NVD --> CAI
 ```
 
 ## Dokumentation
-1. [Architektur](docs/01-architecture.md)
-2. [Setup & Deployment](docs/02-setup.md)
-3. [Modell-Stack & Abliteration](docs/03-models.md)
-4. [Open-WebUI-Sektion & Playbooks](docs/04-openwebui-section.md)
-5. [CAI-Operator & Netz-Isolation](docs/05-cai-operator.md)
-6. [Compliance-Mapping (DORA/TIBER/MITRE)](docs/06-compliance.md)
-7. [Security & Sanitization](docs/07-security-sanitization.md)
-8. [NVD-Anreicherung](docs/08-nvd-enrichment.md)
+1. [Architektur](https://github.com/icepaule/IceITSOAI/blob/main/docs/01-architecture.md)
+2. [Setup & Deployment](https://github.com/icepaule/IceITSOAI/blob/main/docs/02-setup.md)
+3. [Modell-Stack & Abliteration](https://github.com/icepaule/IceITSOAI/blob/main/docs/03-models.md)
+4. [Open-WebUI-Sektion & Playbooks](https://github.com/icepaule/IceITSOAI/blob/main/docs/04-openwebui-section.md)
+5. [CAI-Operator & Netz-Isolation](https://github.com/icepaule/IceITSOAI/blob/main/docs/05-cai-operator.md)
+6. [Compliance-Mapping (DORA/TIBER/MITRE)](https://github.com/icepaule/IceITSOAI/blob/main/docs/06-compliance.md)
+7. [Security & Sanitization](https://github.com/icepaule/IceITSOAI/blob/main/docs/07-security-sanitization.md)
+8. [NVD-Anreicherung](https://github.com/icepaule/IceITSOAI/blob/main/docs/08-nvd-enrichment.md)
+9. [Threat-Intel-/Exploit-Feeds & täglicher Refresh](https://github.com/icepaule/IceITSOAI/blob/main/docs/09-threat-intel-feeds.md)
 
 ## Wichtige Abgrenzung
 Diese Plattform ist ein **Werkzeug** für internes Testing, Scoping und Reporting —
@@ -81,4 +89,5 @@ White-Team. Uncensored-/abliterierte Modelle können falsche CVEs/PoCs erzeugen 
 
 ## Lizenz / Nutzung
 Nur für **autorisiertes, rechtskonformes** Security-Testing eigener bzw. ausdrücklich
-beauftragter Systeme. Siehe [Security & Sanitization](docs/07-security-sanitization.md).
+beauftragter Systeme. Siehe [Security & Sanitization](https://github.com/icepaule/IceITSOAI/blob/main/docs/07-security-sanitization.md).
+{% endraw %}

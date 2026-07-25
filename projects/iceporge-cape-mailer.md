@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-CAPE-Mailer
 parent: Security & Malware Analysis
-nav_order: 6
+nav_order: 4
 ---
 
 # IcePorge-CAPE-Mailer
@@ -11,15 +11,18 @@ nav_order: 6
 
 ***
 
+**CAPE Sandbox Email Integration - Automated malware analysis via email submission**
+
+{% raw %}
 **Email-Triggered CAPE Analysis with Automated Response**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-***
+---
 
 # Betriebshandbuch CAPE Mailer - E-Mail-basierte Malware-Analyse
 
-***
+---
 
 **Dokumenteninformationen**
 
@@ -33,7 +36,7 @@ nav_order: 6
 | Dokumentenverantwortlicher | IT-Sicherheitsbetrieb |
 | Review-Zyklus | Quartalsweise |
 
-***
+---
 
 ## Inhaltsverzeichnis
 
@@ -48,7 +51,7 @@ nav_order: 6
 9. [Sicherheitsaspekte](#9-sicherheitsaspekte)
 10. [Anhänge](#10-anhänge)
 
-***
+---
 
 ## 1. Zweck und Geltungsbereich
 
@@ -60,7 +63,7 @@ Dieses Betriebshandbuch dokumentiert den Betrieb des CAPE Mailers - einer automa
 
 Das Handbuch gilt für:
 - Die CAPE Mailer-Installation unter `/opt/cape-mailer/`
-- Die IMAP/SMTP-Schnittstelle zu `malware@mpauli.de`
+- Die IMAP/SMTP-Schnittstelle zu `****@****.***`
 - Alle integrierten OSINT-Dienste (OTX, AbuseIPDB, VirusTotal, Google Safe Browsing)
 - Die MISP-Anbindung für Threat Intelligence
 
@@ -68,7 +71,7 @@ Das Handbuch gilt für:
 
 CAPE Mailer automatisiert den kompletten Workflow der verdächtigen E-Mail-Analyse:
 
-1. **Eingangsverarbeitung**: IMAP-Abruf von `malware@mpauli.de`
+1. **Eingangsverarbeitung**: IMAP-Abruf von `****@****.***`
 2. **Klassifizierung**: Automatische Erkennung von Malware vs. Phishing
 3. **Analyse**: CAPE Sandbox (Malware) oder Multi-Source OSINT (Phishing)
 4. **Bewertung**: KI-gestützte Risikobewertung via Ollama LLM
@@ -77,13 +80,13 @@ CAPE Mailer automatisiert den kompletten Workflow der verdächtigen E-Mail-Analy
 
 **Quelle**: `/opt/cape-mailer/bin/cape_mailer.py:1-76` (Dokumentation)
 
-***
+---
 
 ## 2. Systemübersicht und Architektur
 
 ### 2.1 Architektur-Diagramm
 
-![CAPE-Mailer Architektur](docs/cape-mailer-architecture.svg)
+![CAPE-Mailer Architektur](https://raw.githubusercontent.com/icepaule/IcePorge-CAPE-Mailer/main/docs/cape-mailer-architecture.svg)
 
 <details>
 <summary>Mermaid-Diagramm (klicken zum Ausklappen)</summary>
@@ -91,7 +94,7 @@ CAPE Mailer automatisiert den kompletten Workflow der verdächtigen E-Mail-Analy
 ```mermaid
 flowchart TB
     subgraph INPUT["EMAIL-EINGABE"]
-        IMAP[IMAP Server<br/>malware@mpauli.de]
+        IMAP[IMAP Server<br/>****@****.***]
         PWD[Passwort-Extraktion<br/>aus Mail-Body]
         ATTACH[Anhänge<br/>EXE, DLL, ZIP, 7z, RAR<br/>DOC, PDF, EML, MSG]
     end
@@ -187,7 +190,7 @@ flowchart TB
 
 **Quelle**: `/opt/cape-mailer/bin/cape_mailer.py:150-152` (EML_EXTENSIONS)
 
-***
+---
 
 ## 3. Regulatorische Anforderungen
 
@@ -223,7 +226,7 @@ flowchart TB
 | A.12.2 Schutz vor Malware | Automatisierte Analyse-Pipeline |
 | A.16.1.4 Incident Assessment | Automatische Risikobewertung (Ampel-System) |
 
-***
+---
 
 ## 4. Installation und Konfiguration
 
@@ -251,8 +254,8 @@ imap:
   ssl: false
   starttls: true
   verify_ssl: false
-  user: "malware@mpauli.de"
-  pass: "onlyinfected"
+  user: "****@****.***"
+  pass: "****
   folder: "INBOX"
 ```
 
@@ -264,9 +267,9 @@ smtp:
   ssl: false
   starttls: true
   verify_ssl: false
-  user: "malware@mpauli.de"
-  pass: "onlyinfected"
-  from: "CAPE Sandbox <malware@mpauli.de>"
+  user: "****@****.***"
+  pass: "****
+  from: "CAPE Sandbox <****@****.***>"
 ```
 
 **Quelle**: `/opt/cape-mailer/config/config.yaml:8-29`
@@ -369,7 +372,7 @@ misp_phishing:
 
 **Quelle**: `/opt/cape-mailer/config/config.yaml:176-258`
 
-***
+---
 
 ## 5. Betriebsverfahren
 
@@ -427,10 +430,10 @@ journalctl -u cape-mailer -f
 **Vorgehensweise für Mitarbeiter**:
 
 1. Verdächtige E-Mail als `.eml` oder `.msg` speichern (oder Anhang extrahieren)
-2. Neue E-Mail an `malware@mpauli.de` erstellen
+2. Neue E-Mail an `****@****.***` erstellen
 3. Verdächtige Datei anhängen
 4. Optional: Passwort für verschlüsselte Archive im Text angeben
-   - Format: `Passwort: infected` oder `Password: malware`
+   - Format: `Passwort: infected` oder `Password: ****
 5. E-Mail absenden
 6. Automatischer Report innerhalb von ~5-30 Minuten
 
@@ -451,7 +454,7 @@ Verarbeitete E-Mails werden automatisch verwaltet:
 | Fehler bei Analyse | Markieren als gelesen | `INBOX` (markiert) |
 | Loop-Detection | Ignorieren | - |
 
-**Loop-Prevention**: E-Mails von `malware@mpauli.de` werden nicht beantwortet (verhindert E-Mail-Loops).
+**Loop-Prevention**: E-Mails von `****@****.***` werden nicht beantwortet (verhindert E-Mail-Loops).
 
 **Quelle**: `/opt/cape-mailer/bin/cape_mailer.py:63` (Changelog v2.3.1)
 
@@ -476,7 +479,7 @@ Der HTML-Report enthält folgende Sektionen:
 - Banking-spezifische Checks (Typosquatting, CEO-Fraud)
 - KI-Bewertung mit Empfehlungen
 
-***
+---
 
 ## 6. Wartungsverfahren
 
@@ -547,7 +550,7 @@ pip install --upgrade requests urllib3 pyopenssl
 /opt/cape-mailer/venv/bin/python3 -c "import cape_mailer; print('OK')"
 ```
 
-***
+---
 
 ## 7. Incident Response Prozeduren
 
@@ -626,7 +629,7 @@ rm /opt/cape-mailer/cape-mailer.lock
 sudo systemctl restart cape-mailer.timer
 ```
 
-***
+---
 
 ## 8. Troubleshooting
 
@@ -661,7 +664,7 @@ grep "Mail #123" /opt/cape-mailer/logs/cape_mailer_*.log
 from imapclient import IMAPClient
 with IMAPClient('10.1.1.11', port=143, ssl=False) as c:
     c.starttls()
-    c.login('malware@mpauli.de', 'onlyinfected')
+    c.login('****@****.***', 'onlyinfected')
     print("Verbindung erfolgreich!")
     print(f"Mails in INBOX: {c.select_folder('INBOX')}")
 EOF
@@ -675,7 +678,7 @@ cd /opt/cape-mailer
 /opt/cape-mailer/venv/bin/python3 /opt/cape-mailer/bin/cape_mailer.py 2>&1 | tee /tmp/cape_mailer_debug.log
 ```
 
-***
+---
 
 ## 9. Sicherheitsaspekte
 
@@ -727,7 +730,7 @@ URLs werden über Tor geprüft, um die IP des Analysten zu schützen:
 TOR_PROXY = "socks5h://127.0.0.1:9050"
 ```
 
-***
+---
 
 ## 10. Anhänge
 
@@ -789,10 +792,10 @@ CEO_FRAUD_KEYWORDS = [
 
 | Rolle | Kontakt |
 |-------|---------|
-| IT-Sicherheitsbetrieb (1st Level) | security-ops@bank.de |
-| CERT/Incident Response (2nd Level) | cert@bank.de |
-| System-Administration (3rd Level) | sysadmin@bank.de |
-| Malware-Analyse-Mailbox | malware@mpauli.de |
+| IT-Sicherheitsbetrieb (1st Level) | ****@****.*** |
+| CERT/Incident Response (2nd Level) | ****@****.*** |
+| System-Administration (3rd Level) | ****@****.*** |
+| Malware-Analyse-Mailbox | ****@****.*** |
 
 ### 10.5 Änderungshistorie
 
@@ -802,8 +805,9 @@ CEO_FRAUD_KEYWORDS = [
 | 1.1 | 2026-01-22 | IcePorge | Secret-Maskierung für GitHub-Push, Git-History-Bereinigung |
 | 1.0 | 2026-01-19 | IT-Sicherheit | Initiale Erstellung |
 
-***
+---
 
 **Ende des Dokuments**
 
 *Dieses Dokument unterliegt der Klassifizierung INTERN und darf nur innerhalb des Instituts verwendet werden.*
+{% endraw %}

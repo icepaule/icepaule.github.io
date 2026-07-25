@@ -2,7 +2,7 @@
 layout: default
 title: IcePhotos
 parent: Data & Tools
-nav_order: 13
+nav_order: 14
 ---
 
 # IcePhotos
@@ -13,6 +13,7 @@ nav_order: 13
 
 **IcePhotos**
 
+{% raw %}
 **Immich on Synology DS1821+ with Remote GPU Acceleration (NVIDIA RTX 3060)**
 
 A production-ready setup for running [Immich](https://immich.app) on a Synology NAS with GPU-accelerated machine learning on a separate server.
@@ -70,3 +71,4 @@ See the full [Setup Guide](https://icepaule.github.io/IcePhotos/) for detailed s
 ## License
 
 MIT
+{% endraw %}

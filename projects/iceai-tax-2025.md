@@ -2,7 +2,7 @@
 layout: default
 title: IceAI-tax-2025
 parent: Data & Tools
-nav_order: 7
+nav_order: 28
 ---
 
 # IceAI-tax-2025
@@ -13,6 +13,7 @@ nav_order: 7
 
 **IceAI-tax-2025**
 
+{% raw %}
 **KI-gestuetzte Steuerbeleg-Pipeline fuer die private Einkommenssteuererklaerung 2025**
 
 > Automatische Erfassung, OCR, Klassifizierung und Archivierung von Steuerbelegen
@@ -32,7 +33,7 @@ von der Belegerfassung bis zur fertigen Steuererklaerung automatisiert:
 5. **Archivieren** - Import nach Paperless-NGX und/oder ecoDMS
 6. **Exportieren** - CSV-Export und E-Mail-Upload an Buhl Steuerbox fuer WISO Steuer
 
-![Status Dashboard](docs/assets/screenshots/01-status-dashboard.png)
+![Status Dashboard](https://raw.githubusercontent.com/icepaule/IceAI-tax-2025/main/docs/assets/screenshots/01-status-dashboard.png)
 
 ---
 
@@ -362,7 +363,7 @@ make migrate-ecodms      # Echter Import
 - Hierarchische Tags (nach Steuerkategorie)
 - Dokumentenvorschau und -download
 
-![Paperless Login](docs/assets/screenshots/02-paperless-login.png)
+![Paperless Login](https://raw.githubusercontent.com/icepaule/IceAI-tax-2025/main/docs/assets/screenshots/02-paperless-login.png)
 
 ### paperless-ai KI-Tagging (Port 3100)
 - Automatische Verschlagwortung neuer Dokumente via Ollama
@@ -370,8 +371,8 @@ make migrate-ecodms      # Echter Import
 - Vergibt Steuerjahr-Tags basierend auf Belegdatum
 - Scan-Intervall: alle 5 Minuten
 
-![paperless-ai Dashboard](docs/assets/screenshots/05-paperless-ai-dashboard.png)
-![paperless-ai Settings](docs/assets/screenshots/07-paperless-ai-settings.png)
+![paperless-ai Dashboard](https://raw.githubusercontent.com/icepaule/IceAI-tax-2025/main/docs/assets/screenshots/05-paperless-ai-dashboard.png)
+![paperless-ai Settings](https://raw.githubusercontent.com/icepaule/IceAI-tax-2025/main/docs/assets/screenshots/07-paperless-ai-settings.png)
 
 ### Selenium noVNC (Port 7900)
 - Interaktiver Browser fuer Portal-Logins
@@ -501,3 +502,4 @@ Privates Projekt fuer die Einkommenssteuererklaerung 2025.
 ---
 
 *Erstellt mit Claude Code (Anthropic) auf einem Intel NUC mit Home Assistant.*
+{% endraw %}

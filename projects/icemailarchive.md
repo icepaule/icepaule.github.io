@@ -2,7 +2,7 @@
 layout: default
 title: IceMailArchive
 parent: Home Automation & Networking
-nav_order: 5
+nav_order: 1
 ---
 
 # IceMailArchive
@@ -13,6 +13,7 @@ nav_order: 5
 
 **Self-hosted Email-Archivierung mit OpenArchiver, Proton Bridge, Maildrop und Windows-Integration**
 
+{% raw %}
 **Self-hosted Email-Archivierung** mit [OpenArchiver](https://github.com/logiclabshq/open-archiver) - alle Emails sicher, durchsuchbar und AES-256-verschluesselt archivieren.
 
 ---
@@ -147,3 +148,4 @@ MIT
 ---
 
 *Erstellt mit [Claude Code](https://claude.com/claude-code) (Anthropic) auf einem Intel NUC mit Home Assistant.*
+{% endraw %}

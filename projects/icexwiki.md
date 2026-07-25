@@ -2,7 +2,7 @@
 layout: default
 title: IceXWiKi
 parent: Home Automation & Networking
-nav_order: 6
+nav_order: 2
 ---
 
 # IceXWiKi
@@ -13,11 +13,12 @@ nav_order: 6
 
 **IceXWiKi**
 
+{% raw %}
 A self-hosted knowledge management platform combining **XWiki** with AI-powered features, infrastructure auto-discovery, GitHub integration, and Confluence migration.
 
 Built as a Docker Compose stack with 5 services, designed for homelab environments.
 
-![XWiki Home](docs/screenshots/xwiki-home.png)
+![XWiki Home](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/xwiki-home.png)
 
 ## Features
 
@@ -45,15 +46,15 @@ External dependency: **Ollama** running on a separate host with `qwen2.5:14b` an
 
 ### Bridge API (Swagger UI)
 
-![Bridge Swagger](docs/screenshots/bridge-swagger.png)
+![Bridge Swagger](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/bridge-swagger.png)
 
 ### AutoDoc Web GUI
 
-![AutoDoc GUI](docs/screenshots/autodoc-gui.png)
+![AutoDoc GUI](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/autodoc-gui.png)
 
 ### AutoDoc API (Swagger UI)
 
-![AutoDoc Swagger](docs/screenshots/autodoc-swagger.png)
+![AutoDoc Swagger](https://raw.githubusercontent.com/icepaule/IceXWiKi/main/docs/screenshots/autodoc-swagger.png)
 
 ## Quick Start
 
@@ -92,7 +93,7 @@ All configuration is via environment variables in `.env` (never committed). Copy
 | `GITHUB_TOKEN` | GitHub personal access token | *(optional, for private repos)* |
 | `CONFLUENCE_URL` | Confluence server URL | `http://confluence:8090` |
 
-See [.env.example](.env.example) for all available options.
+See [.env.example](https://github.com/icepaule/IceXWiKi/blob/main/.env.example) for all available options.
 
 ## Services in Detail
 
@@ -242,3 +243,4 @@ make clean       # Remove containers and volumes
 ## License
 
 MIT
+{% endraw %}

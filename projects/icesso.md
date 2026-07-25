@@ -2,7 +2,7 @@
 layout: default
 title: IceSSO
 parent: Data & Tools
-nav_order: 29
+nav_order: 1
 ---
 
 # IceSSO
@@ -13,6 +13,7 @@ nav_order: 29
 
 **IceSSO**
 
+{% raw %}
 **Ist-Stand: 2026-07-16** · IdP: Authentik `2026.5.3` (`auth.mpauli.de`) · Edge: pfSense-HAProxy (`…154:443`, SNI-Frontend) · Identität: AD `paulis.net` (primär) + lokal (Fallback), 2FA (WebAuthn/TOTP) erzwungen.
 
 > ⚠️ Dieses Dokument enthält **keine** Passwörter/Secrets/Tokens. Interne IPs/Namen sind bewusst enthalten (privates Repo).
@@ -168,3 +169,4 @@ flowchart LR
 - **Home Assistant:** `auth_header` braucht exakten Header-Namen (`X-authentik-username`), sonst eigener Login.
 - **ProxyProvider ist Subklasse von OAuth2Provider** → beim Typ-Check zuerst auf ProxyProvider prüfen.
 - **Mail:** Sophos-MTA war die eigentliche Fehlerquelle (Queue/Relay-ACL) → Direkt-Zustellung + DNAT-Inbound umgeht ihn.
+{% endraw %}

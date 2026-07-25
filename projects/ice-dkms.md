@@ -2,7 +2,7 @@
 layout: default
 title: ICE-DKMS
 parent: Data & Tools
-nav_order: 15
+nav_order: 19
 ---
 
 # ICE-DKMS
@@ -13,6 +13,7 @@ nav_order: 15
 
 **ICE-DKMS**
 
+{% raw %}
 Automatische Verschlagwortung und Ablage neu gescannter Dokumente in einem
 selbst gehosteten [Mayan EDMS](https://www.mayan-edms.com/) mittels eines
 lokalen LLM (Ollama). Dieses Repo dokumentiert Architektur und
@@ -62,12 +63,12 @@ gleichzeitig schreibend auf `state.json` und die Mayan-Cabinets zugreifen.
 
 ## Weiterführende Dokumentation
 
-- [Klassifizierungslogik](docs/classification-logic.md) — wie eine
+- [Klassifizierungslogik](https://github.com/icepaule/ICE-DKMS/blob/main/docs/classification-logic.md) — wie eine
   Cabinet-Entscheidung zustande kommt
-- [Dokument-Lebenszyklus](docs/document-lifecycle.md) — Zustände von OCR-Warten
+- [Dokument-Lebenszyklus](https://github.com/icepaule/ICE-DKMS/blob/main/docs/document-lifecycle.md) — Zustände von OCR-Warten
   bis Ablage, inkl. Timeout- und Recheck-Verhalten
-- [Betriebs-Notizen](docs/operations.md) — gelernte Lektionen aus dem Betrieb
-- [Mayan-Workflow-Machbarkeit](docs/mayan-workflow-machbarkeit.md) — könnte
+- [Betriebs-Notizen](https://github.com/icepaule/ICE-DKMS/blob/main/docs/operations.md) — gelernte Lektionen aus dem Betrieb
+- [Mayan-Workflow-Machbarkeit](https://github.com/icepaule/ICE-DKMS/blob/main/docs/mayan-workflow-machbarkeit.md) — könnte
   Mayan das nativ, ohne dieses externe Skript?
 
 ## Nicht-Ziele / Leitplanken
@@ -81,3 +82,4 @@ gleichzeitig schreibend auf `state.json` und die Mayan-Cabinets zugreifen.
 - **Keine Dubletten-Cabinets** — bevor ein neues Cabinet für einen
   Korrespondenten angelegt wird, wird der gesamte bestehende Baum nach einem
   passenden Blatt durchsucht.
+{% endraw %}

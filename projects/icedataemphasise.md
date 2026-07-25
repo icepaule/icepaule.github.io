@@ -2,7 +2,7 @@
 layout: default
 title: IceDataEmphasise
 parent: Data & Tools
-nav_order: 1
+nav_order: 3
 ---
 
 # IceDataEmphasise
@@ -11,9 +11,73 @@ nav_order: 1
 
 ***
 
-**Cribl Stream & Edge PoC** - Log-Pipeline-Infrastruktur als Alternative zum Splunk Universal Forwarder.
+**IceDataEmphasise**
 
-Evaluierung von Cribl Stream 4.16.0 und Cribl Edge fuer den Einsatz in regulierten Umgebungen (ITSO-konforme Dokumentation fuer deutsche Banken nach MaRisk/BAIT/DORA).
+{% raw %}
+**Cribl Stream & Edge PoC** -- Intelligente Log-Pipeline-Infrastruktur mit lokaler KI-Klassifizierung fuer regulierte Umgebungen.
+
+> **[Live-Dokumentation auf GitHub Pages](https://icepaule.github.io/IceDataEmphasise/)**
+
+---
+
+## Kurzfassung
+
+IceDataEmphasise ist ein Proof of Concept, der zeigt, wie **Cribl Stream & Edge** zusammen mit einer **lokal betriebenen KI (Ollama)** die Log-Analyse in regulierten Bankenumgebungen grundlegend verbessern kann -- bei gleichzeitiger **Reduktion der Splunk-Lizenzkosten um 40--60 %**.
+
+### Das Problem
+
+In regulierten Umgebungen (MaRisk, BAIT, DORA) muessen alle sicherheitsrelevanten Ereignisse lueckenlos erfasst, aufbewahrt und auswertbar sein. Der klassische Ansatz -- Splunk Universal Forwarder schickt *alles* an den Indexer -- fuehrt zu hohen Lizenzkosten, weil auch operationale Massentelemetrie (Health-Checks, Debug-Logs, Container-Noise) das teure Splunk-Lizenzvolumen belastet. Gleichzeitig fehlt eine fruehe Datenklassifizierung: Sicherheitsrelevante Events sind erst nach der Indexierung identifizierbar.
+
+### Die Loesung
+
+IceDataEmphasise setzt eine **dreistufige Verarbeitungskette** vor den Splunk-Indexer:
+
+1. **Cribl Edge** sammelt Logs direkt auf den Endpunkten (Linux + Windows) -- als Drop-in-Ersatz fuer den Splunk Universal Forwarder, mit voller Unterstuetzung fuer Sysmon, auditd, PowerShell Script Block Logging und fail2ban.
+
+2. **Cribl Stream** verarbeitet, normalisiert und klassifiziert die Daten in Echtzeit ueber 7 spezialisierte Pipelines:
+   - **MITRE ATT&CK-Anreicherung** -- SSH Brute-Force (T1110), verdaechtige Prozesse und Netzwerkverbindungen werden automatisch mit ATT&CK-Techniken annotiert
+   - **PII-Maskierung** -- E-Mail-Adressen, IP-Adressen und API-Tokens werden DSGVO-konform reduziert, bevor sie den Endpunkt verlassen
+   - **Intelligentes Sampling** -- 100 % der ERROR/CRITICAL-Events bleiben erhalten, DEBUG-Logs werden auf 10 % reduziert, ohne Informationsverlust bei sicherheitsrelevanten Daten
+   - **Multi-Destination-Routing** -- Sicherheitsdaten gehen an Splunk, operationale Daten an guenstigere Speicher (S3, Elasticsearch)
+
+3. **Lokale KI-Klassifizierung (Ollama)** entscheidet fuer jedes Ereignis: *SIEM-relevant* oder *operativ*?
+   - **Stufe 1 (Regelbasiert):** 40+ Regeln fuer bekannte Muster (Windows Security Event IDs, Sysmon, auditd, SSH) -- unter 1 ms Latenz, 85--95 % Trefferquote
+   - **Stufe 2 (KI-Fallback):** Unbekannte Events werden an ein lokal laufendes **Qwen2.5-14B-Sprachmodell** uebergeben, das den Kontext analysiert und eine Klassifizierung mit Begruendung liefert
+   - **Kein Cloud-Abfluss:** Das KI-Modell laeuft vollstaendig on-premise -- keine Log-Daten verlassen das Netzwerk
+
+### Konkrete Analysefaehigkeiten
+
+| Faehigkeit | Beschreibung |
+|---|---|
+| **Interaktiver Splunk Check & Fix** | Browser-Panel prueft ueber die Splunk REST API automatisch alle Indexes, HEC-Tokens, S2S-Ports und Apps -- fehlende Konfigurationen werden per Klick angelegt |
+| **AI Status Dashboard** | Echtzeit-Visualisierung der KI-Klassifizierung: SIEM/Operational-Verteilung, Regel- vs. Ollama-Anteile, Konfidenzwerte, Durchsatzmetriken |
+| **MITRE ATT&CK Mapping** | Sicherheitsevents werden automatisch mit Technik-IDs und Taktiken annotiert -- direkt in Splunk durchsuchbar |
+| **A/B-Test Regel vs. KI** | Uebung 10 vergleicht systematisch Latenzen und Trefferquoten beider Methoden fuer datenbasierte Entscheidungen |
+| **PII-Compliance-Report** | Nachweis der DSGVO-konformen Datenreduktion vor Indexierung (E-Mail, IP, Token-Redaktion) |
+| **Persistent Queues** | Kein Datenverlust bei Splunk-Ausfaellen -- Events werden gepuffert und nach Wiederherstellung automatisch nachgeliefert |
+| **Fleet Management** | Zentrale Verwaltung von bis zu 100 Edge-Agenten (Windows + Linux) ueber eine Oberflaeche |
+
+### Regulatorischer Mehrwert
+
+Die gesamte Dokumentation (17 HTML-Seiten) ist **ITSO-konform** aufgebaut und adressiert explizit:
+
+- **MaRisk AT 7.2** -- Integritaet, Verfuegbarkeit, Authentizitaet der Log-Daten; Change-Management ueber Git
+- **BAIT** -- IT-Governance (RBAC in Cribl), Informationsrisikomanagement, IT-Betrieb (Monitoring, Alerting, Backup)
+- **DORA** -- IKT-Risikomanagement, IKT-Vorfallmanagement (Log-Daten als forensische Grundlage), Resilienz-Tests (PQ-Ausfallsimulation)
+- **DSGVO** -- Datenminimierung durch Pipeline-Filterung, PII-Maskierung, Aufbewahrungsbegrenzung, Rechenschaftspflicht
+
+### Wirtschaftlichkeit
+
+| Aspekt | Splunk UF (Ist-Zustand) | Cribl Stream + Edge (PoC) |
+|---|---|---|
+| Datenreduktion | Keine (100 % gehen an Indexer) | 40--60 % durch Sampling, Filterung, Routing |
+| Lizenzmodell | Pro GB indexiertes Volumen | Cribl Free Tier: 1 TB/Tag, 100 Edge Nodes |
+| Datenklassifizierung | Erst nach Indexierung (in Splunk ES) | Vor Indexierung (in Pipeline + lokale KI) |
+| MITRE-Anreicherung | Nur mit Splunk Enterprise Security | In Cribl-Pipeline (kostenlos) |
+| Multi-Destination | Nur Splunk | Splunk, S3, Elasticsearch, Kafka, ... |
+| PII-Maskierung | Manuell in Splunk | Automatisch in Pipeline vor Indexierung |
+
+---
 
 ## Architektur
 
@@ -36,7 +100,7 @@ Evaluierung von Cribl Stream 4.16.0 und Cribl Edge fuer den Einsatz in reguliert
 
 ```bash
 # 1. Repository klonen
-git clone git@github.com:icepaule/IceDataEmphasise.git
+git clone ****@****.***:icepaule/IceDataEmphasise.git
 cd IceDataEmphasise
 
 # 2. Umgebung konfigurieren
@@ -95,7 +159,9 @@ IceDataEmphasise/
 ├── windows/
 │   ├── install-cribl-edge.ps1      # Windows Edge Deployment (PowerShell)
 │   └── README-Windows.md           # Windows-Anleitung (deutsch)
-├── docs/                           # ITSO-Dokumentation (14 HTML-Seiten, deutsch)
+├── docs/                           # ITSO-Dokumentation (17 HTML-Seiten, deutsch)
+│   ├── index.html                  # GitHub Pages Landing Page
+│   ├── screenshots/                # Seitenvorschau-Bilder
 │   ├── 01-architektur.html         # Architekturuebersicht
 │   ├── 02-installation.html        # Installationshandbuch
 │   ├── 03-stream-konfiguration.html
@@ -103,13 +169,16 @@ IceDataEmphasise/
 │   ├── 05-quellen.html             # 12 Log-Quellen im Detail
 │   ├── 06-ziele.html               # HEC vs. S2S Destinations
 │   ├── 07-pipelines-routen.html    # Pipelines + Route-Tabelle
-│   ├── 08-splunk-integration.html  # Splunk-Anbindung
+│   ├── 08-splunk-integration.html  # Splunk Check & Fix Panel, Index-Mapping, Apps
 │   ├── 09-betriebshandbuch.html    # Tagesbetrieb, Start/Stop, Backup
 │   ├── 10-sicherheitshandbuch.html # RBAC, TLS, Haertung, DORA
 │   ├── 11-notfallhandbuch.html     # DR, Restore, Eskalation
 │   ├── 12-monitoring.html          # KPIs, Alerting, Dashboards
 │   ├── 13-compliance.html          # MaRisk, BAIT, DORA Mapping
-│   └── 14-troubleshooting.html     # Diagnose, FAQ
+│   ├── 14-troubleshooting.html     # Diagnose, FAQ
+│   ├── 15-phase2-uebungen.html     # Phase 2 Hands-on Uebungen
+│   ├── 16-ai-status-panel.html     # AI Status & Control Panel
+│   └── 17-edge-security-onboarding.html  # Edge Security Onboarding
 ├── .env.example                    # Umgebungsvariablen (Platzhalter)
 ├── .gitignore
 ├── CHANGELOG.md
@@ -142,6 +211,8 @@ IceDataEmphasise/
 | `pipeline_docker_json` | Docker JSON Log Parser | Docker/HA, Mosquitto |
 | `pipeline_security_auth` | SSH-Parser, MITRE ATT&CK Tags | SSH Auth |
 | `pipeline_generic_passthrough` | Minimal-Metadata | Samba, Tor, Default |
+| `pipeline_ollama_classifier` | KI-Klassifizierung (Ollama) | Alle Quellen |
+| `pipeline_universal_classifier` | Regelbasierter Fallback-Klassifizierer | Alle Quellen |
 
 ## Routing-Design
 
@@ -162,5 +233,12 @@ Echte Deployment-Credentials befinden sich ausschliesslich in der internen Confl
 
 ## Dokumentation
 
-Die vollstaendige ITSO-Dokumentation (deutsch, 14 HTML-Seiten) befindet sich im `docs/`-Verzeichnis.
-Oeffnen Sie `docs/01-architektur.html` als Einstiegspunkt.
+Die vollstaendige ITSO-Dokumentation (deutsch, 17 HTML-Seiten) befindet sich im `docs/`-Verzeichnis.
+
+**Online:** [icepaule.github.io/IceDataEmphasise](https://icepaule.github.io/IceDataEmphasise/)
+
+Highlights:
+- **Interaktiver Splunk Check & Fix** (08): Automatische REST-API-Pruefung aller Indexes, HEC-Tokens, S2S-Ports und Apps mit Ein-Klick-Fixes
+- **AI Status & Control Panel** (16): Live-Dashboard fuer KI-basierte Log-Klassifizierung mit Ollama
+- **Edge Security Onboarding** (17): Sysmon, auditd, MITRE ATT&CK Mapping fuer Windows und Linux
+{% endraw %}

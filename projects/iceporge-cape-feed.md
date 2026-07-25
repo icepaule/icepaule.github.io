@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-CAPE-Feed
 parent: Security & Malware Analysis
-nav_order: 5
+nav_order: 8
 ---
 
 # IcePorge-CAPE-Feed
@@ -11,15 +11,18 @@ nav_order: 5
 
 ***
 
+**MalwareBazaar to CAPE to MISP automated pipeline**
+
+{% raw %}
 **MalwareBazaar → CAPE → MISP Automated Pipeline**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-***
+---
 
 # Betriebshandbuch CAPE Feed - Threat Intelligence Feed Integration
 
-***
+---
 
 **Dokumenteninformationen**
 
@@ -33,7 +36,7 @@ nav_order: 5
 | Dokumentenverantwortlicher | IT-Sicherheitsbetrieb |
 | Review-Zyklus | Quartalsweise |
 
-***
+---
 
 ## Inhaltsverzeichnis
 
@@ -48,7 +51,7 @@ nav_order: 5
 9. [Sicherheitsaspekte](#9-sicherheitsaspekte)
 10. [Anhänge](#10-anhänge)
 
-***
+---
 
 ## 1. Zweck und Geltungsbereich
 
@@ -77,13 +80,13 @@ CAPE Feed automatisiert die kontinuierliche Beschaffung und Analyse aktueller Ma
 
 **Quelle**: `/opt/cape-feed/app/feed2cape2misp.py:4-18`
 
-***
+---
 
 ## 2. Systemübersicht und Architektur
 
 ### 2.1 Architektur-Diagramm
 
-![CAPE-Feed Architektur](docs/cape-feed-architecture.svg)
+![CAPE-Feed Architektur](https://raw.githubusercontent.com/icepaule/IcePorge-CAPE-Feed/main/docs/cape-feed-architecture.svg)
 
 <details>
 <summary>Mermaid-Diagramm (klicken zum Ausklappen)</summary>
@@ -199,7 +202,7 @@ flowchart TB
 └── Dockerfile                 # Container-Image-Definition
 ```
 
-***
+---
 
 ## 3. Regulatorische Anforderungen
 
@@ -231,7 +234,7 @@ flowchart TB
 | A.5.7 Threat Intelligence | Automatisierte Feed-Integration |
 | A.12.2 Schutz vor Malware | Proaktive Sample-Analyse |
 
-***
+---
 
 ## 4. Installation und Konfiguration
 
@@ -284,7 +287,7 @@ CAPE_RETRY_BACKOFF_SECONDS=60
 # /opt/cape-feed/.env:28-35
 RWL_ENABLED=true
 RWL_BASE_URL=https://api-pro.ransomware.live
-RWL_API_KEY=b2963856-5ed9-4141-bdd9-93e1a4bb01bc
+RWL_API_KEY=****
 RWL_POLL_SECONDS=900         # Alle 15 Minuten
 RWL_TIMEOUT_SECONDS=20
 RWL_YARA_SYNC=false          # YARA-Sync deaktiviert
@@ -318,7 +321,7 @@ services:
 
 **Quelle**: `/opt/cape-feed/docker-compose.yml`
 
-***
+---
 
 ## 5. Betriebsverfahren
 
@@ -397,7 +400,7 @@ cat /opt/cape-feed/work/reports/feed2cape2misp.jsonl | \
     sort -u | wc -l
 ```
 
-***
+---
 
 ## 6. Wartungsverfahren
 
@@ -457,7 +460,7 @@ docker-compose restart cape-feed
 docker logs --tail 50 cape-feed | grep -i "auth\|error"
 ```
 
-***
+---
 
 ## 7. Incident Response Prozeduren
 
@@ -510,7 +513,7 @@ rm -rf /opt/cape-feed/work/quarantine/*
 sqlite3 /opt/cape-feed/work/state.db "VACUUM;"
 ```
 
-***
+---
 
 ## 8. Troubleshooting
 
@@ -550,7 +553,7 @@ rm -f /opt/cape-feed/work/state.db-journal
 docker-compose up -d
 ```
 
-***
+---
 
 ## 9. Sicherheitsaspekte
 
@@ -578,7 +581,7 @@ Fehlgeschlagene Downloads werden in `/opt/cape-feed/work/quarantine/` isoliert:
 - Automatische Quarantäne bei Download-Fehlern
 - Manuelle Prüfung vor Wiedereinsendung erforderlich
 
-***
+---
 
 ## 10. Anhänge
 
@@ -621,8 +624,9 @@ sqlite3 /opt/cape-feed/work/state.db "SELECT COUNT(*) FROM samples;"
 |---------|-------|-------|----------|
 | 1.0 | 2026-01-19 | IT-Sicherheit | Initiale Erstellung |
 
-***
+---
 
 **Ende des Dokuments**
 
 *Dieses Dokument unterliegt der Klassifizierung INTERN und darf nur innerhalb des Instituts verwendet werden.*
+{% endraw %}

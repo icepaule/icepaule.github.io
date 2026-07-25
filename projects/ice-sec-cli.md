@@ -2,7 +2,7 @@
 layout: default
 title: Ice-SEC-cli
 parent: Data & Tools
-nav_order: 16
+nav_order: 11
 ---
 
 # Ice-SEC-cli
@@ -13,6 +13,7 @@ nav_order: 16
 
 **Ice-SEC-cli**
 
+{% raw %}
 **Security analysis CLI powered by local LLM** - like Claude Code, but self-hosted with [Ollama](https://ollama.com).
 
 An interactive command-line tool for security researchers, penetration testers, and developers. It connects to a local Ollama instance and autonomously uses tools to analyze code, search the web, execute commands, and access remote systems - all driven by natural language.
@@ -185,3 +186,4 @@ ISC License
 ## Author
 
 **IceAgent** ([@icepaule](https://github.com/icepaule))
+{% endraw %}

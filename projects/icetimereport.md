@@ -2,7 +2,7 @@
 layout: default
 title: IceTimereport
 parent: Data & Tools
-nav_order: 2
+nav_order: 21
 ---
 
 # IceTimereport
@@ -11,6 +11,9 @@ nav_order: 2
 
 ***
 
+**IceTimereport**
+
+{% raw %}
 Automatisierte Arbeitszeitnachweise aus [Solidtime](https://www.solidtime.io/) mit ArbZG-Compliance-Prüfung.
 
 ## Was macht dieses Tool?
@@ -32,57 +35,49 @@ Dieses Tool liest Zeiteinträge aus einer lokalen Solidtime-Installation (Postgr
 | §5 | Ruhezeit ≥ 11 Stunden | Ende Tag N → Start Tag N+1 |
 | §9 | Keine Sonn-/Feiertagsarbeit | Datumsprüfung |
 
-### Abwesenheitsbehandlung
-
-| Tagestyp | Ist-Stunden | Soll-Stunden | Effekt auf Überstunden |
-|----------|-------------|-------------|------------------------|
-| **Urlaub** | hours_per_day | hours_per_day | Neutral (bezahlte Abwesenheit) |
-| **Krank** | hours_per_day | hours_per_day | Neutral (Entgeltfortzahlung) |
-| **Gleittag** | 0 | hours_per_day | Überstundenabbau |
-| **Leerer Werktag** | 0 | hours_per_day | Überstundenabbau (Brückentag) |
-| **Wochenende/Feiertag** | Tatsächliche Arbeitszeit | 0 | Vollständig als Überstunden |
-
-### Multi-Client-Filterung
-
-- Standardmäßig werden alle Zeiteinträge des Members ausgewertet
-- `EXCLUDE_CLIENTS`: Bestimmte Clients komplett ausschließen (z.B. private Projekte)
-- `THW_CLIENT_ID`: Ehrenamtliche Wochenendarbeit ausschließen, Werktage zählen als Freistellung
-
-### Kumulatives Überstundenkonto
-
-- Überstunden werden jahresübergreifend seit `START_DATE` kumuliert
-- Jeder Jahresbericht enthält: Jahres-Overtime + Übertrag Vorjahre + Gesamtkonto
-- Automatische Berechnung aller Vorjahre beim Generieren
-- **Stichtag-Berechnung:** Aktuelles Jahr wird nur bis heute berechnet (keine falschen Minusstunden durch zukünftige Tage)
-
-### Urlaubsübertrag
-
-- Urlaubsperioden, die im Vorjahr beginnen und im neuen Jahr fortgesetzt werden, zählen gegen den Vorjahresanspruch
-- Automatische Erkennung zusammenhängender Urlaubs-Blöcke über den Jahreswechsel
-- Hinweis im Zusammenfassungs-Sheet: "(X Tage aus Vorjahr)"
-
 ### Korrektur-Algorithmus (Büro-Version)
 
 - Wochenend-/Feiertagsstunden → auf nächsten Werktag verschoben
 - Max. 10h/Tag, Überschuss → Carry-Over auf Folgetage
 - Fiktive Start-/End-/Pausenzeiten (Start 08:00)
-- Urlaub/Krank → Ist = Soll = hours_per_day (überstundenneutral)
-- Gleittag → Ist = 0, Soll bleibt (Überstundenabbau)
+- Bezahlte Abwesenheit (Urlaub/Krank/Gleittag) → Ist = Soll = hours_per_day
 - **Gesamtstunden bleiben erhalten** (nur Verteilung ändert sich)
+
+Siehe [Berechnungslogik](https://github.com/icepaule/IceTimereport/blob/main/docs/CALCULATIONS.md) für eine detaillierte Erklärung aller Formeln.
 
 ## Features
 
-- **Multi-Client-Unterstützung:** Alle Solidtime-Einträge zählen standardmäßig, mit konfigurierbaren Ausschlüssen (z.B. private Projekte, ehrenamtliche Wochenendarbeit)
-- **Kumulatives Überstundenkonto:** Jahresübergreifender Übertrag seit Vertragsstart (`START_DATE`)
-- **Stichtag-Berechnung:** Aktuelles Jahr nur bis heute berechnet, keine falschen Minusstunden
-- **Urlaubsübertrag:** Automatische Zuordnung jahresübergreifender Urlaubsperioden
+- **Multi-Client-Unterstützung:** Alle Solidtime-Einträge zählen standardmäßig, mit konfigurierbaren Ausschlüssen (`EXCLUDE_CLIENTS`, `THW_CLIENT_ID`)
+- **Kumulatives Überstundenkonto:** Jahresübergreifender Übertrag seit `START_DATE`
 - Automatische Feiertagsberechnung für alle 16 Bundesländer
-- Erkennung von Urlaub/Krank/Gleittagen aus Projekt-Namen
-- Zusammenfassungs-Sheet mit Überstundenkonto, Urlaubskonto und Krankheitstagen
-- Monatliche E-Mail mit Zusammenfassung + Excel-Anhang + Google Drive Link
-- ArbZG-Compliance-Bestätigung in der E-Mail (§3, §4, §5, §9)
+- Erkennung von Urlaub/Krankheit/Gleittagen aus Projekt-Namen
+- Urlaubs- und Überstundenkonto mit Vorjahres-Carry-Over
+- Monatliche E-Mail mit Zusammenfassung + Excel-Anhang
 - Google Drive Sync via rclone
 - Täglicher Cron-Job für automatische Generierung
+
+## Schnellstart
+
+Siehe [Benutzerhandbuch](https://github.com/icepaule/IceTimereport/blob/main/docs/USER.md) für die vollständige Anleitung.
+
+```bash
+# 1. Repository klonen
+git clone https://github.com/your-org/overtime-report.git
+cd overtime-report
+
+# 2. Konfiguration anpassen
+cp .env.example .env
+nano .env  # Member-ID, Ausschlüsse, E-Mail etc. eintragen
+
+# 3. Container bauen und starten
+docker compose up -d
+
+# 4. Manuell generieren (alle Jahre seit START_DATE)
+docker exec overtime-report python3 /app/main.py generate
+
+# 5. Ergebnis prüfen
+ls -la output/real/ output/office/
+```
 
 ## Voraussetzungen
 
@@ -94,9 +89,9 @@ Dieses Tool liest Zeiteinträge aus einer lokalen Solidtime-Installation (Postgr
 
 | Dokument | Inhalt |
 |----------|--------|
-| [Benutzerhandbuch](https://icepaule.github.io/IceTimereport/USER) | Tägliche Nutzung, Konfiguration, FAQ |
-| [Administratorhandbuch](https://icepaule.github.io/IceTimereport/ADMIN) | Installation, Solidtime-Setup, E-Mail, rclone, Troubleshooting |
-| [Berechnungslogik](https://icepaule.github.io/IceTimereport/CALCULATIONS) | Detaillierte Erklärung aller Berechnungen und Algorithmen |
+| [Benutzerhandbuch](https://github.com/icepaule/IceTimereport/blob/main/docs/USER.md) | Tägliche Nutzung, Konfiguration, FAQ |
+| [Berechnungslogik](https://github.com/icepaule/IceTimereport/blob/main/docs/CALCULATIONS.md) | Detaillierte Erklärung aller Formeln und Algorithmen |
+| [Administratorhandbuch](https://github.com/icepaule/IceTimereport/blob/main/docs/ADMIN.md) | Installation, Solidtime-Setup, E-Mail, rclone, Troubleshooting |
 
 ## Projektstruktur
 
@@ -106,6 +101,8 @@ overtime-report/
 ├── docker-compose.yml      # Container-Definition
 ├── requirements.txt        # Python-Abhängigkeiten
 ├── .env.example            # Konfigurations-Template
+├── .env                    # Lokale Konfiguration (git-ignored)
+├── rclone.conf             # Google Drive Konfiguration (git-ignored)
 ├── entrypoint.sh           # Container-Startskript
 ├── crontab                 # Scheduling-Konfiguration
 ├── app/
@@ -116,15 +113,16 @@ overtime-report/
 │   ├── excel_real.py       # Reale Version (+ ArbZG-Spalte)
 │   ├── excel_office.py     # Büro-Version (korrigiert)
 │   └── mailer.py           # E-Mail-Versand (SMTP)
-├── output/                 # Generierte Excel-Dateien
+├── output/                 # Generierte Excel-Dateien (git-ignored)
 │   ├── real/               # Private Version
 │   └── office/             # Büro-Version
 └── docs/
     ├── USER.md             # Benutzerhandbuch
-    ├── ADMIN.md            # Administratorhandbuch
-    └── CALCULATIONS.md     # Berechnungslogik
+    ├── CALCULATIONS.md     # Berechnungslogik (Formeln, Algorithmen, Beispiele)
+    └── ADMIN.md            # Administratorhandbuch
 ```
 
 ## Lizenz
 
 MIT
+{% endraw %}
