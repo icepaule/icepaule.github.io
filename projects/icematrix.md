@@ -1,9 +1,11 @@
 ---
 layout: default
 title: IceMatrix
-parent: Security & Malware Analysis
-nav_order: 13
+parent: Hardware & ESP32
+nav_order: 2
 ---
+
+<!-- manually-curated -->
 
 # IceMatrix
 
@@ -13,107 +15,71 @@ nav_order: 13
 
 **IceMatrix**
 
-Steuerung von MAX7219 8x8 LED Dot-Matrix Displays über Tasmota, Node-RED und Home Assistant.
-
-![Overview](docs/images/overview.png)
+{% raw %}
+LED-Matrix-Displays fürs Zuhause — von seriellen MAX7219-Dot-Matrix-Anzeigen (Tasmota + Node-RED + Home Assistant) bis zu einem eigenständigen RGB-HUB75-Panel-Projekt auf ESP32-S3.
 
 ## Hardware
 
 | Display | Module | Farbe | ESP | Funktion |
 |---------|--------|-------|-----|----------|
-| Matrix1 (PV-Matrix) | 4x MAX7219 (32x8) | Rot | ESP8266 (Wemos D1 Mini) | PV-Leistung + Uhrzeit |
-| Matrix2 | 4x MAX7219 (32x8) | Rot | ESP8266 (Wemos D1 Mini) | Uhrzeit + PV-Leistung |
-| Matrix3 | 8x MAX7219 (64x8) | 4x Rot + 4x Blau | ESP8266 (Wemos D1 Mini) | Uhrzeit + PV + Alerts |
+| Matrix1 (PV-Matrix) | 4x MAX7219 (32x8) | Rot | ESP-12F | PV-Leistung (Sonnenstand-basiert) |
+| Matrix2 | 4x MAX7219 (32x8) | Rot | ESP-12F | Uhrzeit + PV-Leistung |
+| Matrix3 | 8x MAX7219 (64x8) | 4x Rot + 4x Blau | Wemos D1 Mini | Uhrzeit + PV + Alerts |
+| Matrix4 (Strompreis) | 4x MAX7219 (32x8) | Rot | Wemos D1 Mini | Tibber Strompreis + Trend |
+| Matrix5 (2FA-Anzeige) | 2x HUB75 P4-2121-64x32-16S | RGB | ESP32-S3 | TOTP/2FA-Codes, eigene Firmware |
 
-## Verkabelung (alle Displays)
+> ESP-12F (Matrix1/2) und Wemos D1 Mini (Matrix3/4) haben unterschiedliche GPIO-Zuordnungen — Details in der Repo-Doku.
 
-| MAX7219 Pin | Wemos D1 Mini Pin | GPIO |
-|-------------|-------------------|------|
-| CLK | D5 | GPIO14 |
-| DIN (MOSI) | D7 | GPIO13 |
-| CS | D3 | GPIO0 |
-| VCC | 5V | - |
-| GND | GND | - |
+## Architektur (Matrix1-4)
 
-## Architektur
-
-```
-Home Assistant ──► Node-RED ──► MQTT (Mosquitto) ──► Tasmota ESP8266 ──► MAX7219 Matrix
-     │                │
-     │  Sensoren:     │  Formatierung:
-     │  - PV Leistung │  - Uhrzeit (HH:MM)
-     │  - Tibber      │  - PV Watt/kWh
-     │  - NINA/DWD    │  - Alert-Codes (4 Zeichen)
-     │  - Divera THW  │
-     │  - Netzwerk    │  MQTT Topics:
-     │  - Petkit      │  cmnd/<name>/DisplayText
-     │  - Meshtastic  │  cmnd/<name>/DisplayDimmer
-     └────────────────┘
+```mermaid
+flowchart LR
+    subgraph HA["Home Assistant"]
+        S1["PV Leistung"]
+        S2["Tibber"]
+        S3["NINA / DWD"]
+        S4["Divera THW"]
+        S5["Netzwerk"]
+        S6["Petkit"]
+        S7["Meshtastic"]
+    end
+    HA --> NR["Node-RED<br/>Formatierung: Uhrzeit, PV Watt/kWh, Alert-Codes"]
+    NR -->|"cmnd/&lt;name&gt;/DisplayText<br/>cmnd/&lt;name&gt;/DisplayDimmer"| MQTT[("MQTT<br/>Mosquitto")]
+    MQTT --> T1["Tasmota ESP8266"]
+    T1 --> M["MAX7219 Matrix"]
 ```
 
-## Custom Firmware (Pflicht!)
+**Matrix5** läuft komplett unabhängig davon auf eigener C++/PlatformIO-Firmware (kein Tasmota, kein Node-RED) — HUB75-RGB-Panels brauchen eine kontinuierliche DMA-Ansteuerung, die Tasmota nicht unterstützt. Stattdessen: WLAN + NTP-Sync, HMAC-SHA1/TOTP direkt auf dem ESP32-S3, Ausgabe auf zwei gekettete 64x32-Panels.
 
-Die Standard-Tasmota-Firmware (`tasmota-display.bin`) enthält **NICHT** den MAX7219 Dot-Matrix-Treiber!
-Sie enthält nur `USE_DISPLAY_MAX7219` (7-Segment), nicht `USE_DISPLAY_MAX7219_MATRIX` (Dot-Matrix).
+## Custom Firmware (Pflicht für Matrix1-4!)
 
-**Ohne Custom-Build leuchten alle LEDs permanent!**
-
-→ [Custom Build Anleitung](docs/custom-build.md)
-
-## Node-RED Flows
-
-Jedes Display hat einen eigenen Node-RED Flow:
-
-- **Matrix1**: PV-Leistung (Standard) / Uhrzeit (10s alle 60s)
-- **Matrix2**: Uhrzeit (Standard) / PV-Leistung (10s alle 60s)
-- **Matrix3**: Links Uhr/PV (5 Zeichen) | Rechts Alerts (4 Zeichen, rotierend)
-
-→ [Node-RED Konfiguration](docs/nodered-config.md)
+Die Standard-Tasmota-Firmware enthält **nicht** den MAX7219-Dot-Matrix-Treiber (nur den 7-Segment-Treiber) — ohne Custom-Build (`USE_DISPLAY_MAX7219_MATRIX`) leuchten alle LEDs permanent.
 
 ## Alert-System (Matrix3)
 
-| Code | Priorität | Quelle | Beschreibung |
-|------|-----------|--------|--------------|
-| ALM! | 1 (Kritisch) | Divera | THW Alarm aktiv |
-| NNET | 1 (Kritisch) | FritzBox | Internet offline |
-| NINA | 2 (Hoch) | NINA | Katastrophenwarnung |
-| UNWT | 2 (Hoch) | DWD | Unwetterwarnung |
-| HCHW | 2 (Hoch) | Pegel Isar | Hochwasser (>600cm) |
-| THW! | 2 (Hoch) | Divera | Rückmeldung fällig |
-| NETZ | 2 (Hoch) | Netzwerk | Netzwerkproblem |
-| KATZ | 3 (Mittel) | Petkit | Katzen-Feeder Problem |
-| MESH | 3 (Mittel) | Meshtastic | Neue Mesh-Nachricht (<30min) |
-| Bxx | 3 (Mittel) | Meshtastic | Mesh-Batterie niedrig (<20%) |
-| WSCH | 3 (Mittel) | HA | Waschmaschine fertig |
-| TRCK | 3 (Mittel) | HA | Trockner fertig |
-| TEUR | 4 (Niedrig) | Tibber | Strom sehr teuer |
-| BIL! | 4 (Niedrig) | Tibber | Strom sehr günstig |
+14 priorisierte Alert-Codes über 4 Prioritätsstufen (THW-Alarm, Wetter-/Hochwasserwarnungen, Netzwerkstatus, Haushaltsgeräte, Strompreis) — jeder einzeln per Home-Assistant-Toggle ein-/ausschaltbar, alle standardmäßig aus.
 
-## Dateien
+## Dokumentation
 
-```
-IceMatrix/
-├── README.md                          # Diese Datei
-├── docs/
-│   ├── custom-build.md                # Schritt-für-Schritt Build-Anleitung
-│   └── nodered-config.md              # Node-RED Flow Dokumentation
-├── firmware/
-│   └── tasmota-display.bin            # Fertige Custom-Firmware (v14.4.1)
-├── config/
-│   ├── tasmota/
-│   │   ├── user_config_override.h     # PlatformIO Build-Override
-│   │   └── platformio_override.ini    # PlatformIO Environment-Config
-│   ├── nodered/
-│   │   └── matrix_flows.json          # Exportierte Node-RED Flows
-│   └── homeassistant/
-│       └── matrix3_notifications.yaml # HA Package für Alert-Toggles
-└── images/                            # Dokumentations-Grafiken
-```
+| Dokument | Inhalt |
+|---|---|
+| [docs/custom-build.md](https://github.com/icepaule/IceMatrix/blob/main/docs/custom-build.md) | Custom-Tasmota-Build für MAX7219 Dot-Matrix (Matrix1-4) |
+| [docs/nodered-config.md](https://github.com/icepaule/IceMatrix/blob/main/docs/nodered-config.md) | Node-RED-Flows, MQTT-Topics, Alert-System, alle 4 Displays im Detail |
+| [docs/matrix5-totp.md](https://github.com/icepaule/IceMatrix/blob/main/docs/matrix5-totp.md) | Matrix5: HUB75/ESP32-S3, Verkabelungsplan, Firmware-Gerüst |
 
-## Lessons Learned
+## Status
 
-1. **Standard tasmota-display.bin hat KEINEN Matrix-Treiber** - Custom Build erforderlich
-2. **OP_DISPLAYTEST muss explizit deaktiviert werden** - Sonst bleiben nach Power-Glitch alle LEDs an
-3. **CS-Pin verifizieren** - Nicht blind der ESPHome-Config vertrauen, Pin am Board prüfen
-4. **ESP8266 1MB Flash zu klein für OTA** - Muss per USB/Serial geflasht werden
-5. **CH340 USB-Serial hat Protocol Error 71** - Workaround: USB unbind/rebind + Python serial pre-open
+- [x] Matrix1-4 produktiv im Einsatz (Tasmota + Node-RED + Home Assistant)
+- [x] Matrix5: ESP32-S3 erkannt, WLAN/NTP-Firmware erfolgreich getestet
+- [ ] Matrix5: finale TOTP-Firmware mit echten Accounts
+- [ ] Fotos aller 5 Displays
+
+## Keine sensiblen Daten in diesem Repo
+
+Interne IPs sowie WLAN-/MQTT-Zugangsdaten werden in der Doku durch Platzhalter ersetzt.
+Ein früherer Commit hatte versehentlich echte Zugangsdaten im Klartext enthalten — ein
+Folgecommit hatte nur den *aktuellen* Dateiinhalt redigiert, die Klartext-Version blieb aber
+über die Git-History abrufbar. Die komplette History wurde inzwischen bereinigt
+(`git filter-repo` + Force-Push), betroffene interne Referenzen sind durchgängig durch
+Platzhalter ersetzt.
+{% endraw %}
