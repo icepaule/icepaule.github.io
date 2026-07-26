@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-Ghidra-Orchestrator
 parent: Security & Malware Analysis
-nav_order: 15
+nav_order: 3
 ---
 
 # IcePorge-Ghidra-Orchestrator

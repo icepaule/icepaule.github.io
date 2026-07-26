@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-25 05:34 UTC*
+*Last updated: 2026-07-26 05:50 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**57 repos** documented: 2 curated, 49 auto-generated.
+**58 repos** documented: 3 curated, 49 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -65,6 +65,7 @@ flowchart LR
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Auto | [View](icebackup.html) |
 | [IceBewerkungsAssistent](https://github.com/icepaule/IceBewerkungsAssistent) |  | No README | - |
 | [IceBirdwatch](https://github.com/icepaule/IceBirdwatch) |  | Auto | [View](icebirdwatch.html) |
+| [IceBSB-Heizung](https://github.com/icepaule/IceBSB-Heizung) |  | Auto | [View](icebsb-heizung.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Auto | [View](icedataemphasise.html) |
 | [IceDHCP](https://github.com/icepaule/IceDHCP) |  | No README | - |
@@ -73,7 +74,7 @@ flowchart LR
 | [IceITSOAI](https://github.com/icepaule/IceITSOAI) |  | Auto | [View](iceitsoai.html) |
 | [IceLaborVPN](https://github.com/icepaule/IceLaborVPN) | Secure Zero-Trust Remote Access Gateway for Malware Analysis | Auto | [View](icelaborvpn.html) |
 | [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Auto | [View](icemailarchive.html) |
-| [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Auto | [View](icematrix.html) |
+| [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Curated | [View](icematrix.html) |
 | [IceMeshCore](https://github.com/icepaule/IceMeshCore) |  | Auto | [View](icemeshcore.html) |
 | [IceMultiGPUAI](https://github.com/icepaule/IceMultiGPUAI) |  | Auto | [View](icemultigpuai.html) |
 | [IceOSINT](https://github.com/icepaule/IceOSINT) |  | Auto | [View](iceosint.html) |
@@ -109,18 +110,18 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-07-25 |
-| Repos Scanned | 57 |
-| Clean Repos | 54 |
-| Repos with Findings | 3 |
-| Total Findings | 13 |
+| Last Scan | 2026-07-26 |
+| Repos Scanned | 58 |
+| Clean Repos | 51 |
+| Repos with Findings | 7 |
+| Total Findings | 52 |
 | Verified Findings | 0 |
-| New Findings (last scan) | 0 |
+| New Findings (last scan) | 39 |
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 54
-    "Findings" : 3
+    "Clean" : 51
+    "Findings" : 7
 ```
 
 ---

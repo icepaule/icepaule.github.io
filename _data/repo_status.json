@@ -140,6 +140,13 @@
     "status": "auto_updated"
   },
   {
+    "name": "IceBSB-Heizung",
+    "description": "",
+    "pushed_at": "2026-07-25T15:13:57Z",
+    "doc_file": "icebsb-heizung.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceCrow",
     "description": "",
     "pushed_at": "2026-02-03T11:00:47Z",
@@ -198,9 +205,9 @@
   {
     "name": "IceMatrix",
     "description": "",
-    "pushed_at": "2026-02-28T07:59:33Z",
+    "pushed_at": "2026-07-25T13:11:37Z",
     "doc_file": "icematrix.md",
-    "status": "auto_updated"
+    "status": "curated"
   },
   {
     "name": "IceMeshCore",
