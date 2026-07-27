@@ -2,7 +2,7 @@
 layout: default
 title: IceBSB-Heizung
 parent: Data & Tools
-nav_order: 31
+nav_order: 28
 ---
 
 # IceBSB-Heizung
@@ -35,12 +35,14 @@ BSB-LAN ist ein ESP32-basierter Adapter, der über den BSB-Bus mit dem Heizungsc
 - [Home Assistant Integration](https://github.com/icepaule/IceBSB-Heizung/blob/main/docs/homeassistant.md) — Entities, Sensoren, Dashboard
 - [Firmware-Update 3.2.2 → 5.1](https://github.com/icepaule/IceBSB-Heizung/blob/main/docs/firmware-update.md) — kompletter Update-Prozess Schritt für Schritt
 - [Parameter-Referenz](https://github.com/icepaule/IceBSB-Heizung/blob/main/docs/parameter-referenz.md) — BSB-Parameter, die für dieses System freigeschaltet wurden
+- [Gaswarner](https://github.com/icepaule/IceBSB-Heizung/blob/main/docs/gaswarner.md) — MQ-2-Gassensor (Luft4) im Heizungskeller, Alarmierung über Push/Alexa/Dashboard
 
 ## Status
 
-- Firmware: BSB-LAN v5.1.1
-- Netzwerk: WLAN Bad!IoT (VLAN12), DHCP
+- Firmware: BSB-LAN v5.1.1 (offizieller, gerätespezifischer Parameter-Export liegt bereit, aber wegen eines gefundenen Duplikat-Zeilen-Bugs noch nicht produktiv im Einsatz — siehe [Firmware-Update, Abschnitt 17](https://github.com/icepaule/IceBSB-Heizung/blob/main/docs/firmware-update.md))
+- Netzwerk: WLAN Bad!IoT (VLAN12), DHCP — **bekannt schwacher Empfang am Standort Heizungskeller** (-79dBm/39% Retries), Hardware-Fix (ESP32-WROOM-32U mit externer Antenne) beschafft, Tausch steht noch aus
 - Home Assistant: native `bsblan`-Integration + eigene REST-Sensoren, vollständig funktionsfähig
+- Gaswarner (Luft4/MQ-2): aktiv, end-to-end getestet
 
 ## Lizenz / Hinweis
 

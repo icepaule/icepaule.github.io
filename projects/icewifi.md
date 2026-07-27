@@ -2,7 +2,7 @@
 layout: default
 title: IceWiFi
 parent: Home Automation & Networking
-nav_order: 1
+nav_order: 7
 ---
 
 # IceWiFi
@@ -210,6 +210,28 @@ IceWiFi/
 ├── scripts/                     # Utility scripts
 └── templates/                   # Documentation templates
 ```
+
+## Lessons Learned
+
+- **2026-07-26 - Credential leak in `generate.py`:** the doc generator held real SSH/UI
+  passwords, an SNMP community string, MAC addresses and an admin email as literal
+  strings in source (used both for the private-doc templates and the public-sanitize
+  redact-list) - which meant they were committed to this public repo since the very
+  first commit. All of these values already existed properly in the gitignored
+  `icewifi-config.json`; `generate.py` now reads them from there at runtime instead of
+  duplicating them as literals. Git history was rewritten (`git filter-repo
+  --replace-text` + force-push) to remove the exposed values from all prior commits.
+- **2026-07-26 - `icewifi-admin` UniFi account had been deleted:** `backup-network.service`
+  and the screenshot capture were failing (`401`) because the dedicated local account no
+  longer existed on the controller - recreated via the UniFi UI (Network-admin role, not
+  Super Admin).
+- **2026-07-26 - Legacy port 8443 API path deprecated:** `backup-unifi.sh` talked to the
+  Cloud Key via the classic `127.0.0.1:8443` (socat-proxied) `/api/login` +
+  `/api/s/default/cmd/backup` endpoints, which now reject sessions from this controller
+  generation. Fixed to use the modern Unified-OS API directly (`/api/auth/login` +
+  `/proxy/network/api/s/default/cmd/backup`, with `X-CSRF-Token`).
+- **Screenshot target IP was stale:** the "unifi-dashboard" screenshot target pointed at
+  an unreachable `10.10.10.10`; corrected to the controller's real address.
 
 ## License
 

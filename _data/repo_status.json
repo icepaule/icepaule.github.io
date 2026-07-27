@@ -44,7 +44,7 @@
   {
     "name": "followmysun",
     "description": "Single axis adjustment for my solar panel",
-    "pushed_at": "2026-07-24T12:59:55Z",
+    "pushed_at": "2026-07-26T14:15:48Z",
     "doc_file": "followmysun.md",
     "status": "auto_updated"
   },
@@ -142,9 +142,9 @@
   {
     "name": "IceBSB-Heizung",
     "description": "",
-    "pushed_at": "2026-07-25T15:13:57Z",
+    "pushed_at": "2026-07-26T13:47:35Z",
     "doc_file": "icebsb-heizung.md",
-    "status": "auto_created"
+    "status": "auto_updated"
   },
   {
     "name": "IceCrow",
@@ -359,7 +359,7 @@
   {
     "name": "IceWiFi",
     "description": "My Home-WiFi setup using UniFi equipment",
-    "pushed_at": "2026-02-02T12:53:28Z",
+    "pushed_at": "2026-07-26T09:03:51Z",
     "doc_file": "icewifi.md",
     "status": "auto_updated"
   },
