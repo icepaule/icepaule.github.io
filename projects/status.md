@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-29 05:42 UTC*
+*Last updated: 2026-07-30 05:30 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**58 repos** documented: 3 curated, 49 auto-generated.
+**59 repos** documented: 3 curated, 50 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -52,6 +52,7 @@ flowchart LR
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
 | [esxi2proxmox](https://github.com/icepaule/esxi2proxmox) |  | Curated | [View](esxi2proxmox.html) |
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | Auto | [View](followmysun.html) |
+| [Ice-2FA-Kiosk](https://github.com/icepaule/Ice-2FA-Kiosk) |  | Auto | [View](ice-2fa-kiosk.html) |
 | [ICE-DKMS](https://github.com/icepaule/ICE-DKMS) |  | Auto | [View](ice-dkms.html) |
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Auto | [View](ice-github-doku.html) |
 | [Ice-IR-Plattform](https://github.com/icepaule/Ice-IR-Plattform) |  | Auto | [View](ice-ir-plattform.html) |
@@ -110,9 +111,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-07-29 |
-| Repos Scanned | 58 |
-| Clean Repos | 51 |
+| Last Scan | 2026-07-30 |
+| Repos Scanned | 59 |
+| Clean Repos | 52 |
 | Repos with Findings | 7 |
 | Total Findings | 52 |
 | Verified Findings | 0 |
@@ -120,7 +121,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 51
+    "Clean" : 52
     "Findings" : 7
 ```
 
