@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-07-31 05:56 UTC*
+*Last updated: 2026-08-01 05:46 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**59 repos** documented: 3 curated, 50 auto-generated.
+**60 repos** documented: 3 curated, 51 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -61,6 +61,7 @@ flowchart LR
 | [Ice-LLM-router](https://github.com/icepaule/Ice-LLM-router) |  | Auto | [View](ice-llm-router.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Auto | [View](ice-mtastik.html) |
 | [Ice-SEC-cli](https://github.com/icepaule/Ice-SEC-cli) |  | Auto | [View](ice-sec-cli.html) |
+| [ICE_www.mpauli.de](https://github.com/icepaule/ICE_www.mpauli.de) |  | Auto | [View](ice_www.mpauli.de.html) |
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Auto | [View](iceai-tax-2025.html) |
 | [IceAlexaSecure](https://github.com/icepaule/IceAlexaSecure) |  | Auto | [View](icealexasecure.html) |
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Auto | [View](icebackup.html) |
@@ -111,9 +112,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-07-31 |
-| Repos Scanned | 59 |
-| Clean Repos | 52 |
+| Last Scan | 2026-08-01 |
+| Repos Scanned | 60 |
+| Clean Repos | 53 |
 | Repos with Findings | 7 |
 | Total Findings | 52 |
 | Verified Findings | 0 |
@@ -121,7 +122,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 52
+    "Clean" : 53
     "Findings" : 7
 ```
 

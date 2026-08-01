@@ -2,7 +2,7 @@
 layout: default
 title: IceMultiGPUAI
 parent: Data & Tools
-nav_order: 11
+nav_order: 10
 ---
 
 # IceMultiGPUAI
