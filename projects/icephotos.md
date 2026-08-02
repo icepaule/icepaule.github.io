@@ -2,7 +2,7 @@
 layout: default
 title: IcePhotos
 parent: Data & Tools
-nav_order: 31
+nav_order: 28
 ---
 
 # IcePhotos
