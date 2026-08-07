@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-08-06 05:39 UTC*
+*Last updated: 2026-08-07 04:47 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**60 repos** documented: 3 curated, 50 auto-generated.
+**61 repos** documented: 3 curated, 51 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -57,6 +57,7 @@ flowchart LR
 | [Ice-GitHub-Doku](https://github.com/icepaule/Ice-GitHub-Doku) |  | Auto | [View](ice-github-doku.html) |
 | [Ice-IR-Plattform](https://github.com/icepaule/Ice-IR-Plattform) |  | Auto | [View](ice-ir-plattform.html) |
 | [Ice-Kubernetes](https://github.com/icepaule/Ice-Kubernetes) |  | Auto | [View](ice-kubernetes.html) |
+| [Ice-KVM-Bridge](https://github.com/icepaule/Ice-KVM-Bridge) | ESP32-S3 USB-Host-zu-WiFi-Bridge: Notfall-Fernkonsole für Ge | Auto | [View](ice-kvm-bridge.html) |
 | [Ice-Leak-Monitoring](https://github.com/icepaule/Ice-Leak-Monitoring) |  | Curated | [View](ice-leak-monitoring.html) |
 | [Ice-LLM-router](https://github.com/icepaule/Ice-LLM-router) |  | Auto | [View](ice-llm-router.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Auto | [View](ice-mtastik.html) |
@@ -112,9 +113,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-08-06 |
-| Repos Scanned | 60 |
-| Clean Repos | 53 |
+| Last Scan | 2026-08-07 |
+| Repos Scanned | 61 |
+| Clean Repos | 54 |
 | Repos with Findings | 7 |
 | Total Findings | 52 |
 | Verified Findings | 0 |
@@ -122,7 +123,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 53
+    "Clean" : 54
     "Findings" : 7
 ```
 

@@ -84,6 +84,13 @@
     "status": "auto_updated"
   },
   {
+    "name": "Ice-KVM-Bridge",
+    "description": "ESP32-S3 USB-Host-zu-WiFi-Bridge: Notfall-Fernkonsole für Geräte mit nur einem Micro-USB-Konsolenport (Fork von betaflight/bridge)",
+    "pushed_at": "2026-08-06T17:02:01Z",
+    "doc_file": "ice-kvm-bridge.md",
+    "status": "auto_created"
+  },
+  {
     "name": "Ice-Leak-Monitoring",
     "description": "",
     "pushed_at": "2026-07-31T16:47:31Z",
