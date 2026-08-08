@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-MWDB-Stack
 parent: Security & Malware Analysis
-nav_order: 10
+nav_order: 12
 ---
 
 # IcePorge-MWDB-Stack

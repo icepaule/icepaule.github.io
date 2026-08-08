@@ -88,7 +88,7 @@
     "description": "ESP32-S3 USB-Host-zu-WiFi-Bridge: Notfall-Fernkonsole für Geräte mit nur einem Micro-USB-Konsolenport (Fork von betaflight/bridge)",
     "pushed_at": "2026-08-06T17:02:01Z",
     "doc_file": "ice-kvm-bridge.md",
-    "status": "auto_created"
+    "status": "auto_updated"
   },
   {
     "name": "Ice-Leak-Monitoring",
@@ -268,7 +268,7 @@
   {
     "name": "IcePorge",
     "description": "IcePorge - Comprehensive Malware Analysis & Threat Intelligence Stack",
-    "pushed_at": "2026-07-31T16:21:48Z",
+    "pushed_at": "2026-08-07T12:42:21Z",
     "doc_file": "iceporge.md",
     "status": "auto_updated"
   },

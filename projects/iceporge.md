@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge
 parent: Security & Malware Analysis
-nav_order: 6
+nav_order: 5
 ---
 
 # IcePorge
@@ -323,6 +323,21 @@ Contributions welcome! Please:
 1. Fork the relevant component repository
 2. Create a feature branch
 3. Submit a pull request
+
+## Documentation
+
+### Core Guides
+- **[Troubleshooting Guide](https://github.com/icepaule/IcePorge/blob/main/docs/TROUBLESHOOTING.md)** - Common issues and fixes
+- **[CAPE AI Analysis](https://github.com/icepaule/IcePorge/blob/main/docs/CAPE-AI-ANALYSIS.md)** - AI-enhanced malware analysis system
+- **[AWS Deployment](https://github.com/icepaule/IcePorge/blob/main/docs/aws/AWS-CLOUDSHELL-DEPLOY.md)** - Cloud deployment guide
+- **[Changelog August 2026](https://github.com/icepaule/IcePorge/blob/main/docs/CHANGELOG-2026-08.md)** - Recent fixes and improvements
+
+### Operational Manuals (German)
+- [ITSO Production Setup](https://github.com/icepaule/IcePorge/blob/main/docs/ITSO_PRODUCTION_SETUP.md)
+- [Security Operations Manual](https://github.com/icepaule/IcePorge/blob/main/docs/SECURITY-BETRIEBSHANDBUCH.md)
+- [TruffleHog Operations](https://github.com/icepaule/IcePorge/blob/main/docs/TRUFFLEHOG-BETRIEBSHANDBUCH.md)
+
+---
 
 ## Support
 
