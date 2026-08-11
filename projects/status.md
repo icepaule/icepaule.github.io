@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-08-10 04:21 UTC*
+*Last updated: 2026-08-11 04:12 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**61 repos** documented: 3 curated, 51 auto-generated.
+**62 repos** documented: 3 curated, 52 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -83,6 +83,7 @@ flowchart LR
 | [IceOSINT](https://github.com/icepaule/IceOSINT) |  | Auto | [View](iceosint.html) |
 | [IcePaperlessAI](https://github.com/icepaule/IcePaperlessAI) |  | Auto | [View](icepaperlessai.html) |
 | [IcePhotos](https://github.com/icepaule/IcePhotos) |  | Auto | [View](icephotos.html) |
+| [IcePlantWatering](https://github.com/icepaule/IcePlantWatering) |  | Auto | [View](iceplantwatering.html) |
 | [IcePorge](https://github.com/icepaule/IcePorge) | IcePorge - Comprehensive Malware Analysis & Threat Intellige | Auto | [View](iceporge.html) |
 | [IcePorge-CAPE-Feed](https://github.com/icepaule/IcePorge-CAPE-Feed) | MalwareBazaar to CAPE to MISP automated pipeline | Auto | [View](iceporge-cape-feed.html) |
 | [IcePorge-CAPE-Mailer](https://github.com/icepaule/IcePorge-CAPE-Mailer) | CAPE Sandbox Email Integration - Automated malware analysis  | Auto | [View](iceporge-cape-mailer.html) |
@@ -113,9 +114,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-08-10 |
-| Repos Scanned | 61 |
-| Clean Repos | 54 |
+| Last Scan | 2026-08-11 |
+| Repos Scanned | 62 |
+| Clean Repos | 55 |
 | Repos with Findings | 7 |
 | Total Findings | 52 |
 | Verified Findings | 0 |
@@ -123,7 +124,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 54
+    "Clean" : 55
     "Findings" : 7
 ```
 
