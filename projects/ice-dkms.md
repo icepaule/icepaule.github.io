@@ -2,7 +2,7 @@
 layout: default
 title: ICE-DKMS
 parent: Data & Tools
-nav_order: 32
+nav_order: 6
 ---
 
 # ICE-DKMS
