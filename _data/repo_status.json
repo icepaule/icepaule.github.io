@@ -193,7 +193,7 @@
     "description": "THW Hermine 3D-Druck-Kanal: Download, Kategorisierung und HTML-Katalog-Generierung",
     "pushed_at": "2026-08-12T07:56:48Z",
     "doc_file": "icehermine3d.md",
-    "status": "auto_created"
+    "status": "auto_updated"
   },
   {
     "name": "IceHomeAssist",
@@ -233,7 +233,7 @@
   {
     "name": "IceMatrix",
     "description": "",
-    "pushed_at": "2026-08-12T05:10:43Z",
+    "pushed_at": "2026-08-13T08:25:55Z",
     "doc_file": "icematrix.md",
     "status": "curated"
   },
