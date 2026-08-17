@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-08-16 03:39 UTC*
+*Last updated: 2026-08-17 03:40 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**63 repos** documented: 3 curated, 53 auto-generated.
+**64 repos** documented: 3 curated, 54 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -71,6 +71,7 @@ flowchart LR
 | [IceBSB-Heizung](https://github.com/icepaule/IceBSB-Heizung) |  | Auto | [View](icebsb-heizung.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Auto | [View](icedataemphasise.html) |
+| [IceDeck](https://github.com/icepaule/IceDeck) |  | Auto | [View](icedeck.html) |
 | [IceDHCP](https://github.com/icepaule/IceDHCP) |  | No README | - |
 | [IceHermine3D](https://github.com/icepaule/IceHermine3D) | THW Hermine 3D-Druck-Kanal: Download, Kategorisierung und HT | Auto | [View](icehermine3d.html) |
 | [IceHomeAssist](https://github.com/icepaule/IceHomeAssist) | My Home Assistant setup | Auto | [View](icehomeassist.html) |
@@ -115,9 +116,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-08-16 |
-| Repos Scanned | 63 |
-| Clean Repos | 56 |
+| Last Scan | 2026-08-17 |
+| Repos Scanned | 64 |
+| Clean Repos | 57 |
 | Repos with Findings | 7 |
 | Total Findings | 52 |
 | Verified Findings | 0 |
@@ -125,7 +126,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 56
+    "Clean" : 57
     "Findings" : 7
 ```
 

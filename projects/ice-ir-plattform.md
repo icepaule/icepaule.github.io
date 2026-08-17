@@ -2,7 +2,7 @@
 layout: default
 title: Ice-IR-Plattform
 parent: Data & Tools
-nav_order: 30
+nav_order: 3
 ---
 
 # Ice-IR-Plattform

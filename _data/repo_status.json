@@ -182,6 +182,13 @@
     "status": "auto_updated"
   },
   {
+    "name": "IceDeck",
+    "description": "",
+    "pushed_at": "2026-08-16T18:00:49Z",
+    "doc_file": "icedeck.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceDHCP",
     "description": "",
     "pushed_at": "2026-07-31T16:54:12Z",
