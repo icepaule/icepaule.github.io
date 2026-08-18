@@ -119,6 +119,13 @@
     "status": "auto_updated"
   },
   {
+    "name": "Ice-USB-Witness-Bridge",
+    "description": "",
+    "pushed_at": "2026-08-17T17:09:13Z",
+    "doc_file": "ice-usb-witness-bridge.md",
+    "status": "auto_created"
+  },
+  {
     "name": "ICE_www.mpauli.de",
     "description": "",
     "pushed_at": "2026-07-31T17:10:59Z",
@@ -186,7 +193,7 @@
     "description": "",
     "pushed_at": "2026-08-16T18:00:49Z",
     "doc_file": "icedeck.md",
-    "status": "auto_created"
+    "status": "auto_updated"
   },
   {
     "name": "IceDHCP",
