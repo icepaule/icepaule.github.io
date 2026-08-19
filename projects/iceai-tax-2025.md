@@ -2,7 +2,7 @@
 layout: default
 title: IceAI-tax-2025
 parent: Data & Tools
-nav_order: 40
+nav_order: 32
 ---
 
 # IceAI-tax-2025
