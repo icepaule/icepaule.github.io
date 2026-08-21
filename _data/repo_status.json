@@ -121,7 +121,7 @@
   {
     "name": "Ice-USB-Witness-Bridge",
     "description": "",
-    "pushed_at": "2026-08-17T17:09:13Z",
+    "pushed_at": "2026-08-20T11:47:12Z",
     "doc_file": "ice-usb-witness-bridge.md",
     "status": "auto_updated"
   },
@@ -401,7 +401,7 @@
   {
     "name": "IceWeatherstation",
     "description": "",
-    "pushed_at": "2026-08-09T11:29:41Z",
+    "pushed_at": "2026-08-20T12:41:01Z",
     "doc_file": "iceweatherstation.md",
     "status": "auto_updated"
   },
