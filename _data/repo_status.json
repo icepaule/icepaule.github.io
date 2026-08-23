@@ -168,6 +168,13 @@
     "status": "auto_updated"
   },
   {
+    "name": "IceBriefkasten",
+    "description": "",
+    "pushed_at": "2026-08-22T17:46:12Z",
+    "doc_file": "icebriefkasten.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceBSB-Heizung",
     "description": "",
     "pushed_at": "2026-07-31T17:09:57Z",
@@ -212,7 +219,7 @@
   {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
-    "pushed_at": "2026-08-19T14:43:28Z",
+    "pushed_at": "2026-08-22T12:23:49Z",
     "doc_file": "icehomeassist.md",
     "status": "auto_updated"
   },
@@ -401,7 +408,7 @@
   {
     "name": "IceWeatherstation",
     "description": "",
-    "pushed_at": "2026-08-20T12:41:01Z",
+    "pushed_at": "2026-08-22T10:54:00Z",
     "doc_file": "iceweatherstation.md",
     "status": "auto_updated"
   },

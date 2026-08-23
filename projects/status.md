@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-08-21 03:41 UTC*
+*Last updated: 2026-08-23 03:41 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**65 repos** documented: 3 curated, 55 auto-generated.
+**66 repos** documented: 3 curated, 56 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -69,6 +69,7 @@ flowchart LR
 | [IceBackup](https://github.com/icepaule/IceBackup) |  | Auto | [View](icebackup.html) |
 | [IceBewerkungsAssistent](https://github.com/icepaule/IceBewerkungsAssistent) |  | No README | - |
 | [IceBirdwatch](https://github.com/icepaule/IceBirdwatch) |  | Auto | [View](icebirdwatch.html) |
+| [IceBriefkasten](https://github.com/icepaule/IceBriefkasten) |  | Auto | [View](icebriefkasten.html) |
 | [IceBSB-Heizung](https://github.com/icepaule/IceBSB-Heizung) |  | Auto | [View](icebsb-heizung.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Auto | [View](icedataemphasise.html) |
@@ -117,9 +118,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-08-21 |
-| Repos Scanned | 65 |
-| Clean Repos | 58 |
+| Last Scan | 2026-08-23 |
+| Repos Scanned | 66 |
+| Clean Repos | 59 |
 | Repos with Findings | 7 |
 | Total Findings | 52 |
 | Verified Findings | 0 |
@@ -127,7 +128,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 58
+    "Clean" : 59
     "Findings" : 7
 ```
 

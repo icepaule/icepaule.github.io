@@ -2,7 +2,7 @@
 layout: default
 title: IcePaperlessAI
 parent: Data & Tools
-nav_order: 39
+nav_order: 1
 ---
 
 # IcePaperlessAI
