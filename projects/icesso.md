@@ -2,7 +2,7 @@
 layout: default
 title: IceSSO
 parent: Data & Tools
-nav_order: 38
+nav_order: 36
 ---
 
 # IceSSO

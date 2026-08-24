@@ -2,7 +2,7 @@
 layout: default
 title: IceBriefkasten
 parent: Data & Tools
-nav_order: 6
+nav_order: 15
 ---
 
 # IceBriefkasten
@@ -105,21 +105,80 @@ sequenceDiagram
 ## Status
 
 🚧 DS3231/MOSFET-Teile noch nicht bestellt, daher noch kein Power-Gating-Aufbau.
-Zum Testen der Pipeline gibt es das PlatformIO-Environment `esp32cam_test`
-(dauerhaft an USB-Strom, kein Power-Gating nötig, siehe
+**Der Testbetrieb (`esp32cam_test`) läuft seit 23.08.2026 komplett end-to-end**,
+inkl. Node-RED-Flow (live deployt) und Diff-Ergebnis-Rückgabe an die Test-GUI.
+
+### Kalibrier-Fund: AEC/AGC-Einschwingzeit verursacht False-Positives
+
+Zwei Fotos derselben unveränderten Szene zeigten anfangs einen Diff-Score von ~31 (bei
+Schwellwert 18 → fälschlich "Post da"), obwohl visuell identisch. Ursache: die
+Auto-Belichtung/-Verstärkung/-Weißabgleich des OV2640 braucht ein paar Frames nach
+Kamera-Init, um sich einzupendeln — das allererste Frame ist oft leicht anders belichtet
+als ein Frame kurz danach, rein durch die Sensor-Elektronik, nicht durch echte
+Bildänderung. **Fix:** 6 Frames nach Init verwerfen, bevor das tatsächlich verwendete
+Bild geholt wird (`firmware/src/main.cpp`, `captureAndUpload()`) — senkt den
+Grundrauschen-Diff bei unveränderter Szene auf ~4-6 (bei realistischem Aufnahmeabstand,
+nicht Rapid-Fire-Tests — schnelles Hintereinander-Fotografieren erhitzt den Sensor
+minimal und verschiebt die Belichtung zusätzlich, das passiert im echten 5min/1h-Takt
+mit Stromabschaltung dazwischen nicht).
+
+### Wichtiger Fund beim ersten Testaufbau: Stromversorgung des Programmers
+
+Zwei verschiedene ESP32-CAM-Boards zeigten denselben sofortigen Boot-Loop (Absturz
+noch im ROM-Bootloader, bevor überhaupt Firmware-Code läuft) am selben
+CH340-USB-Programmer. Ursache: der kleine Onboard-3,3V-Regler solcher Billig-Programmer
+ist oft zu schwach für den vollen Boot inkl. WLAN. **Mit separater 5V-Stromversorgung
+(nur noch TX/RX/GND vom Programmer) bootet es sauber.** Für den späteren
+Power-Gated-Aufbau ist das ohnehin irrelevant (eigene Versorgung über Battery-Shield),
+aber beim Testen mit einem USB-Programmer unbedingt beachten.
+
+### Testbetrieb-Firmware (`esp32cam_test`)
+
+Läuft dauerhaft an USB- oder externer Stromversorgung, kein Power-Gating nötig (siehe
 [firmware/platformio.ini](https://github.com/icepaule/IceBriefkasten/blob/main/firmware/platformio.ini)):
 
 - WLAN bleibt verbunden, Uhrzeit kommt per NTP statt DS3231
 - speichert `/master.jpg` (Referenz) und `/current.jpg` (letzte Aufnahme) auf der
   SD-Karte des ESP32-CAM
-- kleiner Webserver auf Port 80 zeigt beide Bilder nebeneinander + Button
-  "Aktuelles Bild als neues Master setzen" (setzt lokal auf der SD UND
-  synchronisiert die Node-RED-Diff-Referenz per `&setmaster=1`, siehe
-  [docs/nodered-flow.md](https://github.com/icepaule/IceBriefkasten/blob/main/docs/nodered-flow.md))
-- Firmware nutzt auf der SD-Karte ausschließlich diese zwei Dateinamen -
-  vorhandener Karteninhalt ist irrelevant, bei Bedarf vorher am PC formatieren
+- Web-Dashboard (Nerd-Style, dunkel/monospace) auf Port 80:
+  - Live-Status (per JS alle 2s aktualisiert, kein Reload): WLAN/RSSI, IP,
+    MQTT-Erreichbarkeit, SD-Status, Heap, Uptime, Batteriespannung, letzte Aufnahme
+  - Fortschrittsbalken während ein Upload/Vergleich läuft
+  - Ergebnis-Banner "📬 Briefkasten Gefüllt" / "📭 Briefkasten Leer" inkl. Diff-Score,
+    kommt direkt aus der JSON-Antwort von Node-RED zurück (kein eigener Diff auf dem
+    ESP32)
+  - Diff-Schwellwert per Eingabefeld änderbar (wird bei jedem Upload als
+    `&threshold=` mitgeschickt, siehe [docs/nodered-flow.md](https://github.com/icepaule/IceBriefkasten/blob/main/docs/nodered-flow.md))
+  - Bilder (Master/Aktuell) halbiert dargestellt
+  - `/status` (JSON), `/log` (Ringpuffer der letzten Log-Zeilen), `/console`
+    (einfache Fernwartungskonsole: `status`, `log`, `capture`, `setmaster`,
+    `interval <ms>`, `threshold <wert>`, `mqtt`, `sdlist`, `reboot`) — gedacht dafür,
+    das Gerät auch ohne physischen/seriellen Zugriff per WLAN zu inspizieren, z.B.
+    `curl "http://<ip>/cmd?cmd=status"`
+- "Aktuelles Bild als neues Master setzen"-Button setzt lokal auf der SD UND
+  synchronisiert die Node-RED-Diff-Referenz (`&setmaster=1`)
+- Firmware nutzt auf der SD-Karte ausschließlich `/master.jpg`+`/current.jpg` -
+  vorhandener Karteninhalt ist sonst irrelevant, bei Bedarf vorher am PC formatieren
 
-Flashen: `pio run -e esp32cam_test -t upload -t monitor` (oder Environment
-`esp32cam` für den späteren Power-Gated-Betrieb). Die IP der Web-GUI erscheint
-im Seriellen Monitor nach dem Boot.
+**Dashboard** (live vom Testgerät, 23.08.2026 — korrekt erkannter "Leer"-Zustand nach
+dem AEC/AGC-Fix oben, diff-score 6.41 bei Schwelle 18):
+
+![Dashboard](https://raw.githubusercontent.com/icepaule/IceBriefkasten/main/docs/images/dashboard.png)
+
+**Fernwartungskonsole** (`/console`, Befehl `status`):
+
+![Konsole](https://raw.githubusercontent.com/icepaule/IceBriefkasten/main/docs/images/console.png)
+
+Flashen: `pio run -e esp32cam_test -t upload` (oder Environment `esp32cam` für den
+späteren Power-Gated-Betrieb). Die IP erscheint im seriellen Monitor nach dem Boot,
+oder in UniFi unter dem Hostnamen `esp32-<MAC-Suffix>`.
+
+### Node-RED-Backend
+
+Live deployt (NUC-HA, Home-Assistant-Add-on-Container) — kompletter Aufbau
+inkl. `sharp`-Installation und `functionGlobalContext`-Anpassung dokumentiert in
+[docs/nodered-flow.md](https://github.com/icepaule/IceBriefkasten/blob/main/docs/nodered-flow.md), die Flow-Erzeugung selbst liegt als
+nachvollziehbares Python-Skript in [nodered/build_flow.py](https://github.com/icepaule/IceBriefkasten/blob/main/nodered/build_flow.py) +
+[nodered/patch_flow_response.py](https://github.com/icepaule/IceBriefkasten/blob/main/nodered/patch_flow_response.py) statt als
+Klick-Anleitung.
 {% endraw %}
