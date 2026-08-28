@@ -2,7 +2,7 @@
 layout: default
 title: IceHermine3D
 parent: Data & Tools
-nav_order: 6
+nav_order: 15
 ---
 
 # IceHermine3D
