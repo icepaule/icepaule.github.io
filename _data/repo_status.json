@@ -210,6 +210,13 @@
     "status": "no_readme"
   },
   {
+    "name": "IceDrone",
+    "description": "",
+    "pushed_at": "2026-09-02T07:05:23Z",
+    "doc_file": "icedrone.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceHermine3D",
     "description": "THW Hermine 3D-Druck-Kanal: Download, Kategorisierung und HTML-Katalog-Generierung",
     "pushed_at": "2026-08-12T07:56:48Z",
