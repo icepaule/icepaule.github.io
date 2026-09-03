@@ -2,7 +2,7 @@
 layout: default
 title: IceDrone
 parent: Data & Tools
-nav_order: 28
+nav_order: 11
 ---
 
 # IceDrone
@@ -16,7 +16,11 @@ nav_order: 28
 {% raw %}
 A small, 3D-printable brushed quadcopter built around the **Seeed Studio XIAO ESP32-S3 Sense** with onboard **OV3660 camera**, Wi-Fi MJPEG video and an Open32Drone-derived flight stack.
 
-> **Project status:** early engineering documentation. This repository currently contains the bill of materials, pin/netlist tables, wiring diagram and bench-test firmware. CAD sources, renders, the Open32Drone firmware overlay and helper scripts referenced in the docs are not part of this initial upload yet.
+![Frame v1 render](https://raw.githubusercontent.com/icepaule/IceDrone/main/cad/renders/frame_v1.png)
+
+> **Project status:** early engineering documentation. This repository contains the bill of materials, pin/netlist tables, wiring diagram, parametric CAD (frame, camera cradle, battery cradle, prop guard) with rendered previews and STL exports, and bench-test firmware. The Open32Drone firmware overlay and helper scripts referenced in the docs are not part of this repository — fetch Open32Drone from its own upstream repository as described in `docs/04_FIRMWARE.md`.
+>
+> 📖 Full documentation with step-by-step build instructions: **[icepaule.github.io/IceDrone](https://icepaule.github.io/IceDrone/)** (also readable directly in [`docs/`](https://github.com/icepaule/IceDrone/blob/main/docs/)).
 
 ## Design goals
 
@@ -51,9 +55,22 @@ Primary technical references:
 ├── README.md
 ├── LICENSE
 ├── NOTICE
+├── mkdocs.yml
+├── .github/
+│   └── workflows/
+│       └── docs.yml
 ├── bom/
 │   └── bom.csv
+├── cad/
+│   ├── frame_v1.scad
+│   ├── camera_cradle_15deg.scad
+│   ├── battery_cradle_650.scad
+│   ├── prop_guard_corner.scad
+│   ├── stl/
+│   └── renders/
 ├── docs/
+│   ├── README.md
+│   ├── assets/
 │   ├── 01_BOM.md
 │   ├── 02_ELECTRICAL.md
 │   ├── 03_MECHANICAL.md
@@ -72,16 +89,23 @@ Primary technical references:
     └── wiring.svg
 ```
 
-CAD sources (`cad/`), the Open32Drone firmware overlay and build/fetch scripts are planned but not yet part of this repository — see the status note above.
+`docs/assets/` holds copies of the wiring diagram and CAD renders used by the [icepaule.github.io/IceDrone](https://icepaule.github.io/IceDrone/) website build (`.github/workflows/docs.yml` + `mkdocs.yml`); the canonical sources are `hardware/wiring.svg` and `cad/renders/`.
+
+The Open32Drone firmware overlay and its build/fetch helper scripts are not part of this repository by design — see `docs/04_FIRMWARE.md`.
+
+## Documentation
+
+Start at [`docs/README.md`](https://github.com/icepaule/IceDrone/blob/main/docs/README.md) for the full table of contents, or read the same content as a website at **[icepaule.github.io/IceDrone](https://icepaule.github.io/IceDrone/)**. The detailed, step-by-step assembly and test procedure lives in [`docs/05_BUILD_AND_TEST.md`](https://github.com/icepaule/IceDrone/blob/main/docs/05_BUILD_AND_TEST.md).
 
 ## Quick start
 
 1. Read `docs/01_BOM.md` and order the V1 parts.
-2. Assemble electronics **without propellers**.
-3. Run the bench firmware in `firmware/bench_test/` to validate the camera, IMU wiring and each MOSFET/motor channel.
-4. Fetch Open32Drone and follow `docs/04_FIRMWARE.md`.
-5. Complete every prop-off test in `docs/05_BUILD_AND_TEST.md` before fitting props.
-6. Perform the first hover using `docs/06_FIRST_FLIGHT.md`.
+2. Print the frame and cradles from `cad/stl/` (or re-render from `cad/*.scad`).
+3. Assemble electronics **without propellers**, following `docs/02_ELECTRICAL.md`.
+4. Run the bench firmware in `firmware/bench_test/` to validate the camera, IMU wiring and each MOSFET/motor channel.
+5. Fetch Open32Drone and follow `docs/04_FIRMWARE.md`.
+6. Complete every prop-off test in `docs/05_BUILD_AND_TEST.md` before fitting props.
+7. Perform the first hover using `docs/06_FIRST_FLIGHT.md`.
 
 ## Mechanical concept
 
