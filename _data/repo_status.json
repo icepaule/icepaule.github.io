@@ -217,6 +217,13 @@
     "status": "auto_updated"
   },
   {
+    "name": "IceGeigerCounter",
+    "description": "",
+    "pushed_at": "2026-09-04T07:24:25Z",
+    "doc_file": "icegeigercounter.md",
+    "status": "auto_created"
+  },
+  {
     "name": "IceHermine3D",
     "description": "THW Hermine 3D-Druck-Kanal: Download, Kategorisierung und HTML-Katalog-Generierung",
     "pushed_at": "2026-08-12T07:56:48Z",
@@ -226,7 +233,7 @@
   {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
-    "pushed_at": "2026-08-31T16:43:58Z",
+    "pushed_at": "2026-09-03T12:12:21Z",
     "doc_file": "icehomeassist.md",
     "status": "auto_updated"
   },
