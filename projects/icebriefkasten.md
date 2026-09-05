@@ -2,7 +2,7 @@
 layout: default
 title: IceBriefkasten
 parent: Data & Tools
-nav_order: 19
+nav_order: 35
 ---
 
 # IceBriefkasten
@@ -163,7 +163,10 @@ Läuft dauerhaft an USB- oder externer Stromversorgung, kein Power-Gating nötig
 **Dashboard** (live vom Testgerät, 23.08.2026 — korrekt erkannter "Leer"-Zustand nach
 dem AEC/AGC-Fix oben, diff-score 6.41 bei Schwelle 18):
 
-![Dashboard](https://raw.githubusercontent.com/icepaule/IceBriefkasten/main/docs/images/dashboard.png)
+![Dashboard](https://raw.githubusercontent.com/icepaule/IceBriefkasten/main/<img width="189" height="592" alt="2026-09-04 16_50_56-Inbox" src="https://github.com/user-attachments/assets/6f928792-5f54-4ad2-9b0d-fde1ca30e635" />g)
+<img width="480" height="640" alt="IMG_7523" src="https://github.com/user-attachments/assets/68d7d912-f706-4f0f-a108-d96d329b3f59" />
+<img width="480" height="640" alt="IMG_7524" src="https://github.com/user-attachments/assets/252380d2-1d2b-4bee-a9f6-23a8299701c8" />
+<img width="480" height="640" alt="IMG_7525" src="https://github.com/user-attachments/assets/dc30719c-fdba-4c0d-9531-947f5de5180f" />
 
 **Fernwartungskonsole** (`/console`, Befehl `status`):
 

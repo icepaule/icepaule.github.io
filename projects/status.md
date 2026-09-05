@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-09-04 07:29 UTC*
+*Last updated: 2026-09-05 07:11 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**68 repos** documented: 3 curated, 58 auto-generated.
+**69 repos** documented: 3 curated, 59 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -83,6 +83,7 @@ flowchart LR
 | [IceITSOAI](https://github.com/icepaule/IceITSOAI) |  | Auto | [View](iceitsoai.html) |
 | [IceLaborVPN](https://github.com/icepaule/IceLaborVPN) | Secure Zero-Trust Remote Access Gateway for Malware Analysis | Auto | [View](icelaborvpn.html) |
 | [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Auto | [View](icemailarchive.html) |
+| [IceMark5](https://github.com/icepaule/IceMark5) |  | Auto | [View](icemark5.html) |
 | [IceMatrix](https://github.com/icepaule/IceMatrix) |  | Curated | [View](icematrix.html) |
 | [IceMeshCore](https://github.com/icepaule/IceMeshCore) |  | Auto | [View](icemeshcore.html) |
 | [IceMultiGPUAI](https://github.com/icepaule/IceMultiGPUAI) |  | Auto | [View](icemultigpuai.html) |
@@ -120,9 +121,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-09-04 |
-| Repos Scanned | 68 |
-| Clean Repos | 61 |
+| Last Scan | 2026-09-05 |
+| Repos Scanned | 69 |
+| Clean Repos | 62 |
 | Repos with Findings | 7 |
 | Total Findings | 52 |
 | Verified Findings | 0 |
@@ -130,7 +131,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 61
+    "Clean" : 62
     "Findings" : 7
 ```
 

@@ -170,7 +170,7 @@
   {
     "name": "IceBriefkasten",
     "description": "",
-    "pushed_at": "2026-08-27T05:41:45Z",
+    "pushed_at": "2026-09-04T14:59:03Z",
     "doc_file": "icebriefkasten.md",
     "status": "auto_updated"
   },
@@ -219,9 +219,9 @@
   {
     "name": "IceGeigerCounter",
     "description": "",
-    "pushed_at": "2026-09-04T07:24:25Z",
+    "pushed_at": "2026-09-04T08:05:48Z",
     "doc_file": "icegeigercounter.md",
-    "status": "auto_created"
+    "status": "auto_updated"
   },
   {
     "name": "IceHermine3D",
@@ -264,6 +264,13 @@
     "pushed_at": "2026-02-21T11:46:20Z",
     "doc_file": "icemailarchive.md",
     "status": "auto_updated"
+  },
+  {
+    "name": "IceMark5",
+    "description": "",
+    "pushed_at": "2026-09-04T14:21:21Z",
+    "doc_file": "icemark5.md",
+    "status": "auto_created"
   },
   {
     "name": "IceMatrix",
