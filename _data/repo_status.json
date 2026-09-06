@@ -212,7 +212,7 @@
   {
     "name": "IceDrone",
     "description": "",
-    "pushed_at": "2026-09-02T14:40:55Z",
+    "pushed_at": "2026-09-05T14:57:51Z",
     "doc_file": "icedrone.md",
     "status": "auto_updated"
   },
@@ -270,7 +270,7 @@
     "description": "",
     "pushed_at": "2026-09-04T14:21:21Z",
     "doc_file": "icemark5.md",
-    "status": "auto_created"
+    "status": "auto_updated"
   },
   {
     "name": "IceMatrix",
