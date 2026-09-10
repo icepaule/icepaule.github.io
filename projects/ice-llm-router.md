@@ -2,7 +2,7 @@
 layout: default
 title: Ice-LLM-router
 parent: Data & Tools
-nav_order: 38
+nav_order: 36
 ---
 
 # Ice-LLM-router
