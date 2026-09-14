@@ -2,7 +2,7 @@
 layout: default
 title: Ice-USB-Witness-Bridge
 parent: Data & Tools
-nav_order: 20
+nav_order: 22
 ---
 
 # Ice-USB-Witness-Bridge
