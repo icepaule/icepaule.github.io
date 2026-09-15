@@ -2,7 +2,7 @@
 layout: default
 title: IceGeigerCounter
 parent: Data & Tools
-nav_order: 8
+nav_order: 34
 ---
 
 # IceGeigerCounter
@@ -22,13 +22,14 @@ Mobiler Geigerzähler/Strahlungslogger mit **Home Assistant, WLAN/MQTT, GNSS, mi
 
 - **GC-1602-NANO** als eigenständige Geigerplattform mit Nano/LCD/Buzzer
 - gelieferter **HITT-Tracker V1.2** mit ESP32-S3-Familie, **SX1262** und **UC6580**
-- 2× wechselbare Samsung INR18650-25R, **1S2P**
+- 2× wechselbare Samsung INR18650-25R
+- **integriertes duales 18650 Battery Shield**, real gemessen mit 100,2 × 48,0 mm
 - microSD für Offline-Routen
 - WLAN/MQTT für Livewerte und Backfill zuhause
 - EU868 LoRaWAN/ChirpStack für mobile Telemetrie bei Gateway-Abdeckung
 - kompaktes, gedichtetes Field Case mit Beta-Fenster + Schutzkappe
 
-![Field Case](https://raw.githubusercontent.com/icepaule/IceGeigerCounter/main/docs/v2/images/field_case_v12_assembled.png)
+![Field Case](https://raw.githubusercontent.com/icepaule/IceGeigerCounter/main/docs/v2/images/field_case_v14_assembled.png)
 
 ## Gekaufter Geiger-Bausatz
 
@@ -68,14 +69,17 @@ flowchart LR
 
 ## CAD
 
-Aktueller Stand: `hardware/v2/field_case_v12/`.
+Aktueller Druckstand: **`hardware/v2/field_case_v14/`**.
 
-Der gelieferte Tracker ist mechanisch verifiziert. GC-1602-spezifische Standoffs und das Beta-Fenster bleiben **PRELIMINARY**, bis der bestellte GC-1602 physisch vermessen ist. Die aktuelle konservative Kollisionsprüfung ist bestanden.
+v1.4 integriert das real vermessene duale 18650 Battery Shield direkt in das Gesamtgehäuse. Das Shield sitzt auf zwei massiven 5×5-mm-Befestigungsschienen; darüber liegt eine herausnehmbare Service-Brücke für HITT-Tracker und microSD. Die vorherige `field_case_v12/` bleibt als historischer Stand erhalten.
+
+Der Tracker und das Battery Shield sind mechanisch anhand realer Hardware/Abmessungen berücksichtigt. Beim GC-1602 wird weiterhin die Verkäuferhülle 108 × 65 × 47 mm verwendet; v1.4 nutzt deshalb bewusst breite, ungebohrte Montagepads statt erfundener Lochabstände.
 
 ## Sicherheit
 
 - GC-1602 erzeugt intern mehrere hundert Volt.
 - GC-INT nie direkt an 3,3-V-GPIO; Pegel zuerst messen und teilen.
-- Zwei 18650 nur parallel mit nahezu gleicher Zellspannung und 1S-Schutz/BMS einsetzen.
+- Bei zwei 18650 vor parallelem Einsetzen nahezu gleiche Zellspannung sicherstellen und Polarität strikt beachten.
+- Das Battery Shield erst nach Multimeter-/Lasttest als Lade-/Schutz-/5-V-Versorgung verwenden; Clone-Revisionen können sich unterscheiden.
 - keine LoRaWAN-/WLAN-/MQTT-Schlüssel committen; siehe `SECURITY.md`.
 {% endraw %}
