@@ -2,7 +2,7 @@
 layout: default
 title: IceGeigerCounter
 parent: Data & Tools
-nav_order: 34
+nav_order: 25
 ---
 
 # IceGeigerCounter
@@ -29,7 +29,7 @@ Mobiler Geigerzähler/Strahlungslogger mit **Home Assistant, WLAN/MQTT, GNSS, mi
 - EU868 LoRaWAN/ChirpStack für mobile Telemetrie bei Gateway-Abdeckung
 - kompaktes, gedichtetes Field Case mit Beta-Fenster + Schutzkappe
 
-![Field Case](https://raw.githubusercontent.com/icepaule/IceGeigerCounter/main/docs/v2/images/field_case_v14_assembled.png)
+![Field Case](https://raw.githubusercontent.com/icepaule/IceGeigerCounter/main/docs/v2/images/field_case_v151_assembled.png)
 
 ## Gekaufter Geiger-Bausatz
 
@@ -69,11 +69,21 @@ flowchart LR
 
 ## CAD
 
-Aktueller Druckstand: **`hardware/v2/field_case_v14/`**.
+Aktueller Druckstand: **`hardware/v2/field_case_v151/`**.
 
-v1.4 integriert das real vermessene duale 18650 Battery Shield direkt in das Gesamtgehäuse. Das Shield sitzt auf zwei massiven 5×5-mm-Befestigungsschienen; darüber liegt eine herausnehmbare Service-Brücke für HITT-Tracker und microSD. Die vorherige `field_case_v12/` bleibt als historischer Stand erhalten.
+v1.5.1 integriert die Ergebnisse des ersten physischen Battery-Shield-Passformtests:
 
-Der Tracker und das Battery Shield sind mechanisch anhand realer Hardware/Abmessungen berücksichtigt. Beim GC-1602 wird weiterhin die Verkäuferhülle 108 × 65 × 47 mm verwendet; v1.4 nutzt deshalb bewusst breite, ungebohrte Montagepads statt erfundener Lochabstände.
+- Battery Shield 100,2 × 48,0 mm
+- gemessene Lochmitten in Längsrichtung: 97,0 mm
+- Auflageschienen auf **90,0 mm** gekürzt; ca. 5,1 mm Endfreiheit pro PCB-Seite
+- vier 10 × 10 mm Insert-Auflagen für M3-Gewindeeinsätze
+- zwei 10 × 10 mm Kabelöffnungen durch die Zwischenwand
+- 11-mm-Kabeldurchführung beim Shield
+- verstärkte 12-mm-Aufhängeöse für Seil/Drone-Sling
+- separates Kontrastfarbteil mit Radioaktivsymbol und `IceDrone`
+- jedes Druckteil besitzt eine eigene OpenSCAD-Wrapperdatei; die COMPLETE-SCAD enthält das Gesamtmodell
+
+Die älteren `field_case_v14/` und `field_case_v12/` bleiben als historische Stände erhalten.
 
 ## Sicherheit
 
@@ -81,5 +91,6 @@ Der Tracker und das Battery Shield sind mechanisch anhand realer Hardware/Abmess
 - GC-INT nie direkt an 3,3-V-GPIO; Pegel zuerst messen und teilen.
 - Bei zwei 18650 vor parallelem Einsetzen nahezu gleiche Zellspannung sicherstellen und Polarität strikt beachten.
 - Das Battery Shield erst nach Multimeter-/Lasttest als Lade-/Schutz-/5-V-Versorgung verwenden; Clone-Revisionen können sich unterscheiden.
+- Externe 5 V nicht blind auf als Ausgang beschriftete `5V`-Pads einspeisen; zunächst den vorgesehenen USB-C-/Micro-USB-Ladeeingang verwenden.
 - keine LoRaWAN-/WLAN-/MQTT-Schlüssel committen; siehe `SECURITY.md`.
 {% endraw %}
