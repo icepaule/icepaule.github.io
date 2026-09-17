@@ -2,7 +2,7 @@
 layout: default
 title: IceGeigerCounter
 parent: Data & Tools
-nav_order: 25
+nav_order: 13
 ---
 
 # IceGeigerCounter
@@ -69,7 +69,7 @@ flowchart LR
 
 ## CAD
 
-Aktueller Druckstand: **`hardware/v2/field_case_v151/`**.
+Aktueller Gehäuse-Druckstand: **`hardware/v2/field_case_v151/`**.
 
 v1.5.1 integriert die Ergebnisse des ersten physischen Battery-Shield-Passformtests:
 
@@ -80,8 +80,20 @@ v1.5.1 integriert die Ergebnisse des ersten physischen Battery-Shield-Passformte
 - zwei 10 × 10 mm Kabelöffnungen durch die Zwischenwand
 - 11-mm-Kabeldurchführung beim Shield
 - verstärkte 12-mm-Aufhängeöse für Seil/Drone-Sling
-- separates Kontrastfarbteil mit Radioaktivsymbol und `IceDrone`
 - jedes Druckteil besitzt eine eigene OpenSCAD-Wrapperdatei; die COMPLETE-SCAD enthält das Gesamtmodell
+
+### ACE Zweifarben-Badge v1.5.3
+
+Unter **`hardware/v2/field_case_v151/badge_v153/`** liegt die aktuelle Zweifarben-Version des Rear Badges für Kobra S1 + ACE Pro:
+
+- schwarze Grundplatte als eigener STL-Körper
+- Radioaktivsymbol + **`IceGeiger`** als eigener gelber STL-Körper
+- beide Körper verwenden dieselben Koordinaten für Multi-Part-Import
+- fertige Multi-Part-3MF für Anycubic Slicer Next
+- 0,40-mm-Verzahnung zwischen Grundplatte und Schrift/Logo
+- 0,90 mm sichtbare Erhöhung von Schrift und Symbol
+
+`badge_v152/` bleibt als historischer Stand erhalten und enthält noch den supersedierten Schriftzug `IceDrone`.
 
 Die älteren `field_case_v14/` und `field_case_v12/` bleiben als historische Stände erhalten.
 

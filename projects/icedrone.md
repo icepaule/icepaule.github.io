@@ -2,7 +2,7 @@
 layout: default
 title: IceDrone
 parent: Data & Tools
-nav_order: 13
+nav_order: 24
 ---
 
 # IceDrone
@@ -14,11 +14,28 @@ nav_order: 13
 **IceDrone**
 
 {% raw %}
-A small, 3D-printable brushed quadcopter built around the **Seeed Studio XIAO ESP32-S3 Sense**, a **GY-91 IMU**, four **8520 brushed coreless motors** and 75/76 mm propellers. The project combines an Open32Drone-derived flight stack with Wi-Fi camera streaming and a modular printable airframe sized for an **Anycubic Kobra S1**.
+A small, 3D-printable brushed quadcopter built around the **Seeed Studio XIAO ESP32-S3 Sense**, a **GY-91 IMU**, **VL6180X ToF sensor**, four **8520 brushed coreless motors** and 75/76 mm propellers. The project combines an Open32Drone-derived flight stack with Wi-Fi camera streaming and a modular printable airframe sized for an **Anycubic Kobra S1**.
 
-> **Current mechanical design: Airframe V2.** The older V1 frame/cradle files have been removed from `main`; Git history still contains them if needed.
->
+> **Current mechanical design: Airframe V2.**  
+> **Current electrical design: V3.4 HW-VERIFIED.** V3.2/V3.3 drawings are obsolete for soldering.  
 > Full documentation: **[icepaule.github.io/IceDrone](https://icepaule.github.io/IceDrone/)** and [`docs/`](https://github.com/icepaule/IceDrone/blob/main/docs/).
+
+## Electrical V3.4
+
+The current 70×30 mm perfboard prototype and the custom-PCB path share the same V3.4 electrical profile:
+
+- M1 rear-left: GPIO4 / D3
+- M2 rear-right: **GPIO44 / D7**
+- M3 front-right: GPIO6 / D5
+- M4 front-left: GPIO5 / D4
+- I2C: SDA GPIO2 / D1, SCL GPIO43 / D6; firmware uses `Wire.begin(2, 43)`
+- motor flyback: SS34-class ≥3 A Schottky
+- C1: 470 µF / 10 V low-ESR
+- C2: 100 µF / 10 V low-ESR
+- raw 1S LiHV is **not** fed directly into XIAO 5V/BAT; V3.4 uses an off-board 1S→5 V boost followed by D5
+- photographed VL6180X order: `VIN | 2V8 | GND | GPIO | SHDN | SCL | SDA`
+
+For the temporary perfboard build use **[`docs/10_PERFBOARD_V34_SOLDERING_DE.md`](https://github.com/icepaule/IceDrone/blob/main/docs/10_PERFBOARD_V34_SOLDERING_DE.md)** and the machine-readable files in `hardware/`.
 
 ## Airframe V2
 
@@ -88,13 +105,13 @@ The repository includes CW/CCW STL exports and a 1 mm shaft-fit coupon. The toro
 
 ## Quick start
 
-1. Read [`docs/01_BOM.md`](https://github.com/icepaule/IceDrone/blob/main/docs/01_BOM.md) and verify the actual delivered part dimensions.
-2. Print [`cad/airframe_v2/stl/motor_cup_test_v2.stl`](https://github.com/icepaule/IceDrone/blob/main/cad/airframe_v2/stl/motor_cup_test_v2.stl) before committing to the full frame.
-3. Print the Airframe V2 parts using the settings in [`docs/03_MECHANICAL.md`](https://github.com/icepaule/IceDrone/blob/main/docs/03_MECHANICAL.md).
-4. Assemble electronics **without propellers**, following [`docs/02_ELECTRICAL.md`](https://github.com/icepaule/IceDrone/blob/main/docs/02_ELECTRICAL.md).
-5. Run the bench firmware in [`firmware/bench_test/`](https://github.com/icepaule/IceDrone/blob/main/firmware/bench_test/) and verify IMU orientation and every motor channel.
-6. Follow [`docs/05_BUILD_AND_TEST.md`](https://github.com/icepaule/IceDrone/blob/main/docs/05_BUILD_AND_TEST.md) and only then install balanced propellers.
-7. Perform first hover tests using [`docs/06_FIRST_FLIGHT.md`](https://github.com/icepaule/IceDrone/blob/main/docs/06_FIRST_FLIGHT.md).
+1. Read [`docs/01_BOM.md`](https://github.com/icepaule/IceDrone/blob/main/docs/01_BOM.md) and [`docs/02_ELECTRICAL.md`](https://github.com/icepaule/IceDrone/blob/main/docs/02_ELECTRICAL.md); V3.4 is authoritative.
+2. If building the temporary 70×30 mm perfboard, follow [`docs/10_PERFBOARD_V34_SOLDERING_DE.md`](https://github.com/icepaule/IceDrone/blob/main/docs/10_PERFBOARD_V34_SOLDERING_DE.md) hole by hole and multimeter-test each stage.
+3. Print [`cad/airframe_v2/stl/motor_cup_test_v2.stl`](https://github.com/icepaule/IceDrone/blob/main/cad/airframe_v2/stl/motor_cup_test_v2.stl) before committing to the full frame.
+4. Print the Airframe V2 parts using the settings in [`docs/03_MECHANICAL.md`](https://github.com/icepaule/IceDrone/blob/main/docs/03_MECHANICAL.md).
+5. Assemble and power electronics **without propellers**, following [`docs/05_BUILD_AND_TEST.md`](https://github.com/icepaule/IceDrone/blob/main/docs/05_BUILD_AND_TEST.md).
+6. Run the V3.4 bench firmware in [`firmware/bench_test/`](https://github.com/icepaule/IceDrone/blob/main/firmware/bench_test/) and verify IMU orientation and every motor channel.
+7. Only after all bench checks pass, install balanced propellers and continue with [`docs/06_FIRST_FLIGHT.md`](https://github.com/icepaule/IceDrone/blob/main/docs/06_FIRST_FLIGHT.md).
 
 ## Primary references
 
