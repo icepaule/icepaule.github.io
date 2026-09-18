@@ -2,7 +2,7 @@
 layout: default
 title: IceOSINT
 parent: Data & Tools
-nav_order: 29
+nav_order: 17
 ---
 
 # IceOSINT

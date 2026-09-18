@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-CAPE-Mailer
 parent: Security & Malware Analysis
-nav_order: 1
+nav_order: 2
 ---
 
 # IcePorge-CAPE-Mailer
