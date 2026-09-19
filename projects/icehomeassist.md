@@ -2,7 +2,7 @@
 layout: default
 title: IceHomeAssist
 parent: Home Automation & Networking
-nav_order: 5
+nav_order: 1
 ---
 
 # IceHomeAssist
@@ -29,6 +29,10 @@ curl -sSL https://raw.githubusercontent.com/icepaule/IceHomeAssist/main/restore.
 Die vollständige HTML-Dokumentation (deutsch) ist unter GitHub Pages verfügbar:
 
 **[https://icepaule.github.io/IceHomeAssist/docs/](https://icepaule.github.io/IceHomeAssist/docs/)**
+
+## Projekte
+
+- **[IceFlightRadar](https://github.com/icepaule/IceHomeAssist/blob/main/IceFlightRadar/)** - ADS-B Flugradar (RTL-SDR, readsb/tar1090) mit interaktiver Karte als Dashboard "FlightRadar" und Feed an ADSBExchange
 
 ## System-Übersicht
 

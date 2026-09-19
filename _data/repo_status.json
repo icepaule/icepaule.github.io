@@ -212,14 +212,14 @@
   {
     "name": "IceDrone",
     "description": "",
-    "pushed_at": "2026-09-16T16:39:51Z",
+    "pushed_at": "2026-09-18T10:38:52Z",
     "doc_file": "icedrone.md",
     "status": "auto_updated"
   },
   {
     "name": "IceGeigerCounter",
     "description": "",
-    "pushed_at": "2026-09-16T16:43:31Z",
+    "pushed_at": "2026-09-18T11:26:31Z",
     "doc_file": "icegeigercounter.md",
     "status": "auto_updated"
   },
@@ -233,7 +233,7 @@
   {
     "name": "IceHomeAssist",
     "description": "My Home Assistant setup",
-    "pushed_at": "2026-09-03T12:12:21Z",
+    "pushed_at": "2026-09-18T18:48:16Z",
     "doc_file": "icehomeassist.md",
     "status": "auto_updated"
   },

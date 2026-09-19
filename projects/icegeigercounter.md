@@ -2,7 +2,7 @@
 layout: default
 title: IceGeigerCounter
 parent: Data & Tools
-nav_order: 24
+nav_order: 38
 ---
 
 # IceGeigerCounter
@@ -17,6 +17,115 @@ nav_order: 24
 Mobiler Geigerzähler/Strahlungslogger mit **Home Assistant, WLAN/MQTT, GNSS, microSD und EU868-LoRaWAN**.
 
 > IceGeiger ist kein geeichtes Dosimeter. CPM/Impulse bleiben der Primärmesswert; µSv/h ist eine röhrenabhängige Ableitung.
+
+## Project description
+
+**IceGeiger V2** is a rugged, 3D-printable enclosure and electronics expansion platform built around the **AHGSUP / GC-1602-NANO Geiger counter module**.
+
+The original Geiger counter board provides the radiation detection function. IceGeiger extends it into a portable, network-connected environmental radiation monitor with GPS positioning, local data logging, Wi-Fi/MQTT connectivity and optional LoRaWAN telemetry.
+
+The enclosure was designed for field use, mobile measurements and experimental drone-mounted radiation mapping.
+
+### Main functions
+
+The AHGSUP Geiger counter remains the actual radiation detector. IceGeiger adds an independent ESP32-based telemetry system that reads the pulse output of the Geiger counter and combines it with position, time and power information.
+
+The system can record measurements locally even when no network connection is available. Once connectivity becomes available again, stored measurements can be synchronized to a backend such as Home Assistant, MQTT, InfluxDB or Grafana.
+
+### Additional hardware integrated into IceGeiger
+
+Compared with the standard AHGSUP Geiger counter module, the enclosure provides space and mounting provisions for:
+
+- **ESP32-S3 based Heltec/HITT Wireless Tracker**
+- **SX1262 LoRa radio**
+- **UC6580 GNSS/GPS receiver**
+- **microSD card module for offline measurement logging**
+- **dual 18650 battery shield**
+- **2 × replaceable 18650 Li-ion cells**
+- **Wi-Fi connectivity**
+- **MQTT communication**
+- **LoRaWAN / ChirpStack support**
+- **battery voltage monitoring**
+- external antenna connection
+- service and cable routing space
+- removable beta-particle measurement window cover
+
+The Geiger module itself remains electrically and mechanically separate from the telemetry electronics, which means the original detector can continue to operate with its own display and buzzer.
+
+### Data recorded by the system
+
+Depending on the firmware configuration, IceGeiger can record:
+
+- radiation pulse count
+- CPM – counts per minute
+- calculated radiation dose rate
+- GPS latitude and longitude
+- GNSS timestamp
+- satellite count
+- GNSS accuracy / HDOP
+- battery voltage
+- sequence number
+- system status
+
+Data can be stored on the microSD card and transmitted later when Wi-Fi or LoRaWAN becomes available.
+
+### Home Assistant and mapping
+
+IceGeiger was designed to integrate with a local monitoring environment.
+
+Typical data flow:
+
+**Geiger Counter → ESP32 → Wi-Fi / LoRaWAN → MQTT → Home Assistant / InfluxDB / Grafana**
+
+This makes it possible to display current radiation level, device position, battery level, measurement history and GPS-tagged radiation measurements on a map.
+
+Because the raw data is also stored locally, measurements are not lost when the device is temporarily outside Wi-Fi or LoRa coverage.
+
+### Enclosure design
+
+The enclosure is divided into separate electronics areas for the Geiger counter and the telemetry / battery section.
+
+Current design features include:
+
+- dedicated compartment for the AHGSUP / GC-1602-NANO Geiger counter module
+- mounting area for a dual-18650 battery shield
+- 90 mm battery-shield support rails
+- mounting pads for heat-set threaded inserts
+- 10 × 10 mm internal cable passages
+- 11 mm external charging / power cable feed-through
+- internal service bridge for ESP32 / tracker and microSD hardware
+- removable beta measurement window cover
+- sealing groove for silicone cord
+- multiple M3 lid fastening points
+- external antenna position
+- reinforced suspension eye for experimental drone or rope mounting
+- separate rear identification badge
+
+### Multi-color IceGeiger badge
+
+A separate rear badge is included.
+
+For printers with a multi-material system such as the **Anycubic Kobra S1 with ACE Pro**, the badge is provided as separate meshes:
+
+- **Badge Base** – typically printed in black
+- **Radiation symbol + IceGeiger lettering** – typically printed in yellow
+
+The artwork is partially embedded into the base rather than simply being printed on top, improving mechanical bonding between the two colors.
+
+A one-color version is also included.
+
+### Intended applications
+
+IceGeiger can be used for portable background-radiation measurements, environmental monitoring, field surveys, GPS-tagged radiation logging, Home Assistant radiation monitoring, LoRaWAN remote monitoring, experimental radiation mapping, drone-carried measurement experiments and educational electronics projects.
+
+### Important note
+
+IceGeiger is a **DIY / experimental measurement project** and is not a certified radiation safety instrument.
+
+Calculated dose values depend strongly on the Geiger tube type, calibration factor and radiation energy. For scientific or safety-critical applications, the detector must be calibrated against a known reference instrument.
+
+The drone suspension point is also an experimental FDM-printed structure. Always perform static load testing and use a secondary safety tether before airborne operation.
+
 
 ## V2 – aktueller Aufbau
 

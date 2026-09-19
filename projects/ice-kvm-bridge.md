@@ -2,7 +2,7 @@
 layout: default
 title: Ice-KVM-Bridge
 parent: Data & Tools
-nav_order: 14
+nav_order: 40
 ---
 
 # Ice-KVM-Bridge
