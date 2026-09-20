@@ -2,7 +2,7 @@
 layout: default
 title: IceGeigerCounter
 parent: Data & Tools
-nav_order: 38
+nav_order: 36
 ---
 
 # IceGeigerCounter
@@ -167,14 +167,17 @@ flowchart LR
 3. [Firmware](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/03-firmware.md)
 4. [Offline-Logging/Backfill](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/04-mobile-logging-sync.md)
 5. [LoRaWAN/ChirpStack](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/05-lorawan-chirpstack.md)
+   - [ChirpStack als Docker-Stack (integrations/chirpstack)](https://github.com/icepaule/IceGeigerCounter/blob/main/integrations/chirpstack/README.md)
 6. [Home Assistant](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/06-home-assistant.md)
 7. [Field Case / OpenSCAD / STL](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/07-enclosure.md)
 8. [Assembly](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/08-assembly.md)
+   - [Phase D Schritt für Schritt: INT-Schnittstelle](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/08a-phase-d-int-schnittstelle.md)
 9. [Testplan](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/09-commissioning-test.md)
 10. [Kalibrierung](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/10-calibration-data-quality.md)
 11. [Schuppenbetrieb](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/11-shed-operation.md)
 12. [Quellen](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/12-sources.md)
 13. [Validierungsstatus](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/v2/13-validation-status.md)
+14. [Sicherheitsregeln & Strahlungsgrundlagen (Einheiten, Grenzwerte, Entladen der Hochspannung)](https://github.com/icepaule/IceGeigerCounter/blob/main/docs/07-safety-and-radiation-basics.md)
 
 ## CAD
 

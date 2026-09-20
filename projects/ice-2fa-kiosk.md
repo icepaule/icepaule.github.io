@@ -2,7 +2,7 @@
 layout: default
 title: Ice-2FA-Kiosk
 parent: Data & Tools
-nav_order: 30
+nav_order: 3
 ---
 
 # Ice-2FA-Kiosk
