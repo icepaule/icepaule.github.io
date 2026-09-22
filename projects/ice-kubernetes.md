@@ -2,7 +2,7 @@
 layout: default
 title: Ice-Kubernetes
 parent: Data & Tools
-nav_order: 6
+nav_order: 15
 ---
 
 # Ice-Kubernetes
