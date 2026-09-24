@@ -2,7 +2,7 @@
 layout: default
 title: IceIntelligence
 parent: Security & Malware Analysis
-nav_order: 6
+nav_order: 5
 ---
 
 # IceIntelligence
