@@ -2,7 +2,7 @@
 layout: default
 title: IceWeatherstation
 parent: Data & Tools
-nav_order: 37
+nav_order: 29
 ---
 
 # IceWeatherstation
