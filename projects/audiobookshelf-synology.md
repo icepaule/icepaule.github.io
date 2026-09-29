@@ -2,7 +2,7 @@
 layout: default
 title: audiobookshelf-synology
 parent: Data & Tools
-nav_order: 26
+nav_order: 12
 ---
 
 # audiobookshelf-synology
