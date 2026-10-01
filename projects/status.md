@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-09-30 09:06 UTC*
+*Last updated: 2026-10-01 09:30 UTC*
 
 ---
 
@@ -41,14 +41,13 @@ flowchart LR
 
 ## Documentation Coverage
 
-**69 repos** documented: 3 curated, 59 auto-generated.
+**69 repos** documented: 3 curated, 60 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
 | [adguard-kiosk](https://github.com/icepaule/adguard-kiosk) | My Adguard implementation using a raspberry 3b | Auto | [View](adguard-kiosk.html) |
 | [audiobookshelf-synology](https://github.com/icepaule/audiobookshelf-synology) | Selbst gehosteter Hoerbuch-Server mit KI-Metadaten (Ollama)  | Auto | [View](audiobookshelf-synology.html) |
 | [cuckoo-docker](https://github.com/icepaule/cuckoo-docker) | Creating a docker container hosting a cuckoo sandbox | Auto | [View](cuckoo-docker.html) |
-| [doed_forensics](https://github.com/icepaule/doed_forensics) | doed´s little helpers | No README | - |
 | [esp32cam-dataset-firmware](https://github.com/icepaule/esp32cam-dataset-firmware) | AI Edge version to look at my postbox if there is a mail. | No README | - |
 | [esxi2proxmox](https://github.com/icepaule/esxi2proxmox) |  | Curated | [View](esxi2proxmox.html) |
 | [followmysun](https://github.com/icepaule/followmysun) | Single axis adjustment for my solar panel | Auto | [View](followmysun.html) |
@@ -71,6 +70,7 @@ flowchart LR
 | [IceBirdwatch](https://github.com/icepaule/IceBirdwatch) |  | Auto | [View](icebirdwatch.html) |
 | [IceBriefkasten](https://github.com/icepaule/IceBriefkasten) |  | Auto | [View](icebriefkasten.html) |
 | [IceBSB-Heizung](https://github.com/icepaule/IceBSB-Heizung) |  | Auto | [View](icebsb-heizung.html) |
+| [ICECarCAM](https://github.com/icepaule/ICECarCAM) |  | Auto | [View](icecarcam.html) |
 | [IceCrow](https://github.com/icepaule/IceCrow) |  | No README | - |
 | [IceDataEmphasise](https://github.com/icepaule/IceDataEmphasise) |  | Auto | [View](icedataemphasise.html) |
 | [IceDeck](https://github.com/icepaule/IceDeck) |  | Auto | [View](icedeck.html) |
@@ -121,7 +121,7 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-09-30 |
+| Last Scan | 2026-10-01 |
 | Repos Scanned | 69 |
 | Clean Repos | 61 |
 | Repos with Findings | 8 |

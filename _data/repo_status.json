@@ -21,13 +21,6 @@
     "status": "auto_updated"
   },
   {
-    "name": "doed_forensics",
-    "description": "doed´s little helpers",
-    "pushed_at": "2019-07-27T15:58:49Z",
-    "doc_file": "doed_forensics.md",
-    "status": "no_readme"
-  },
-  {
     "name": "esp32cam-dataset-firmware",
     "description": "AI Edge version to look at my postbox if there is a mail.",
     "pushed_at": "2026-07-31T20:44:10Z",
@@ -180,6 +173,13 @@
     "pushed_at": "2026-07-31T17:09:57Z",
     "doc_file": "icebsb-heizung.md",
     "status": "auto_updated"
+  },
+  {
+    "name": "ICECarCAM",
+    "description": "",
+    "pushed_at": "2026-09-30T15:38:33Z",
+    "doc_file": "icecarcam.md",
+    "status": "auto_created"
   },
   {
     "name": "IceCrow",
