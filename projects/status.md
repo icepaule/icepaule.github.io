@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-10-04 08:56 UTC*
+*Last updated: 2026-10-05 09:42 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**69 repos** documented: 3 curated, 60 auto-generated.
+**70 repos** documented: 3 curated, 61 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -100,6 +100,7 @@ flowchart LR
 | [IcePorge-MWDB-Feeder](https://github.com/icepaule/IcePorge-MWDB-Feeder) | Multi-source malware sample aggregator (URLhaus, ThreatFox,  | Auto | [View](iceporge-mwdb-feeder.html) |
 | [IcePorge-MWDB-Stack](https://github.com/icepaule/IcePorge-MWDB-Stack) | MWDB-core with Karton orchestration for malware sample manag | Auto | [View](iceporge-mwdb-stack.html) |
 | [IceProxmoxBackup](https://github.com/icepaule/IceProxmoxBackup) |  | Auto | [View](iceproxmoxbackup.html) |
+| [IceRansomlook](https://github.com/icepaule/IceRansomlook) |  | Auto | [View](iceransomlook.html) |
 | [IceSeller](https://github.com/icepaule/IceSeller) |  | Auto | [View](iceseller.html) |
 | [IceSpider](https://github.com/icepaule/IceSpider) |  | Auto | [View](icespider.html) |
 | [IceSSO](https://github.com/icepaule/IceSSO) |  | Auto | [View](icesso.html) |
@@ -121,9 +122,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-10-04 |
-| Repos Scanned | 69 |
-| Clean Repos | 61 |
+| Last Scan | 2026-10-05 |
+| Repos Scanned | 70 |
+| Clean Repos | 62 |
 | Repos with Findings | 8 |
 | Total Findings | 51 |
 | Verified Findings | 0 |
@@ -131,7 +132,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 61
+    "Clean" : 62
     "Findings" : 8
 ```
 
