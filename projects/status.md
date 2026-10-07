@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-10-06 09:30 UTC*
+*Last updated: 2026-10-07 09:27 UTC*
 
 ---
 
@@ -122,7 +122,7 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-10-06 |
+| Last Scan | 2026-10-07 |
 | Repos Scanned | 70 |
 | Clean Repos | 62 |
 | Repos with Findings | 8 |

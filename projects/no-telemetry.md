@@ -2,7 +2,7 @@
 layout: default
 title: no-telemetry
 parent: Data & Tools
-nav_order: 38
+nav_order: 36
 ---
 
 # no-telemetry

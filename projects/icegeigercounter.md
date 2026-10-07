@@ -2,7 +2,7 @@
 layout: default
 title: IceGeigerCounter
 parent: Data & Tools
-nav_order: 30
+nav_order: 3
 ---
 
 # IceGeigerCounter
