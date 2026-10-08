@@ -2,7 +2,7 @@
 layout: default
 title: IceITSOAI
 parent: Data & Tools
-nav_order: 15
+nav_order: 30
 ---
 
 # IceITSOAI
