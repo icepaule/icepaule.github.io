@@ -2,7 +2,7 @@
 layout: default
 title: IceDeck
 parent: Data & Tools
-nav_order: 27
+nav_order: 26
 ---
 
 # IceDeck
