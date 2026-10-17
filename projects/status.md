@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-10-16 07:36 UTC*
+*Last updated: 2026-10-17 07:16 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**70 repos** documented: 3 curated, 61 auto-generated.
+**71 repos** documented: 3 curated, 62 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -80,6 +80,7 @@ flowchart LR
 | [IceHermine3D](https://github.com/icepaule/IceHermine3D) | THW Hermine 3D-Druck-Kanal: Download, Kategorisierung und HT | Auto | [View](icehermine3d.html) |
 | [IceHomeAssist](https://github.com/icepaule/IceHomeAssist) | My Home Assistant setup | Auto | [View](icehomeassist.html) |
 | [IceIntelligence](https://github.com/icepaule/IceIntelligence) |  | Auto | [View](iceintelligence.html) |
+| [IceIPhoneRemote](https://github.com/icepaule/IceIPhoneRemote) |  | Auto | [View](iceiphoneremote.html) |
 | [IceITSOAI](https://github.com/icepaule/IceITSOAI) |  | Auto | [View](iceitsoai.html) |
 | [IceLaborVPN](https://github.com/icepaule/IceLaborVPN) | Secure Zero-Trust Remote Access Gateway for Malware Analysis | Auto | [View](icelaborvpn.html) |
 | [IceMailArchive](https://github.com/icepaule/IceMailArchive) | Self-hosted Email-Archivierung mit OpenArchiver, Proton Brid | Auto | [View](icemailarchive.html) |
@@ -122,9 +123,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-10-16 |
-| Repos Scanned | 70 |
-| Clean Repos | 62 |
+| Last Scan | 2026-10-17 |
+| Repos Scanned | 71 |
+| Clean Repos | 63 |
 | Repos with Findings | 8 |
 | Total Findings | 51 |
 | Verified Findings | 0 |
@@ -132,7 +133,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 62
+    "Clean" : 63
     "Findings" : 8
 ```
 
