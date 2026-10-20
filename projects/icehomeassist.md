@@ -2,7 +2,7 @@
 layout: default
 title: IceHomeAssist
 parent: Home Automation & Networking
-nav_order: 2
+nav_order: 5
 ---
 
 # IceHomeAssist

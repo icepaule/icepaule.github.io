@@ -2,7 +2,7 @@
 layout: default
 title: IceTravelAP
 parent: Data & Tools
-nav_order: 45
+nav_order: 15
 ---
 
 # IceTravelAP
