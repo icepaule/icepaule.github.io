@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-Cockpit
 parent: Security & Malware Analysis
-nav_order: 7
+nav_order: 6
 ---
 
 # IcePorge-Cockpit
