@@ -2,7 +2,7 @@
 layout: default
 title: IceDrone
 parent: Data & Tools
-nav_order: 25
+nav_order: 13
 ---
 
 # IceDrone
