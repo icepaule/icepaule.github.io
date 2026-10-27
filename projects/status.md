@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-10-26 08:12 UTC*
+*Last updated: 2026-10-27 08:28 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**71 repos** documented: 3 curated, 62 auto-generated.
+**72 repos** documented: 3 curated, 63 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -113,6 +113,7 @@ flowchart LR
 | [IceXWiKi](https://github.com/icepaule/IceXWiKi) |  | Auto | [View](icexwiki.html) |
 | [no-telemetry](https://github.com/icepaule/no-telemetry) | Win10 Telemetry blocklist for piHole | Auto | [View](no-telemetry.html) |
 | [secintel](https://github.com/icepaule/secintel) | A security intel project powered by Django | Auto | [View](secintel.html) |
+| [secintel](https://github.com/icepaule/secintel) | A security intel project powered by Django | Auto | [View](secintel.html) |
 | [tibberampel](https://github.com/icepaule/tibberampel) | Meine Tibberampel mit einem ESP8266 | Auto | [View](tibberampel.html) |
 | [Torlinks](https://github.com/icepaule/Torlinks) | Tor Links Database. This repository contains 2 files contain | Auto | [View](torlinks.html) |
 | [xwiki-stack](https://github.com/icepaule/xwiki-stack) |  | No README | - |
@@ -123,18 +124,18 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-10-26 |
-| Repos Scanned | 71 |
-| Clean Repos | 63 |
-| Repos with Findings | 8 |
-| Total Findings | 51 |
+| Last Scan | 2026-10-27 |
+| Repos Scanned | 60 |
+| Clean Repos | 48 |
+| Repos with Findings | 5 |
+| Total Findings | 44 |
 | Verified Findings | 0 |
 | New Findings (last scan) | 0 |
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 63
-    "Findings" : 8
+    "Clean" : 48
+    "Findings" : 5
 ```
 
 ---
