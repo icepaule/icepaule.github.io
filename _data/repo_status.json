@@ -476,13 +476,6 @@
     "status": "auto_updated"
   },
   {
-    "name": "secintel",
-    "description": "A security intel project powered by Django",
-    "pushed_at": "2020-06-06T08:58:10Z",
-    "doc_file": "secintel.md",
-    "status": "auto_updated"
-  },
-  {
     "name": "tibberampel",
     "description": "Meine Tibberampel mit einem ESP8266",
     "pushed_at": "2026-07-31T16:21:13Z",
