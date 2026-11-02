@@ -10,7 +10,7 @@ nav_order: 99
 Automated documentation & security scanning status.
 {: .fs-6 .fw-300 }
 
-*Last updated: 2026-11-01 09:51 UTC*
+*Last updated: 2026-11-02 10:10 UTC*
 
 ---
 
@@ -41,7 +41,7 @@ flowchart LR
 
 ## Documentation Coverage
 
-**71 repos** documented: 3 curated, 62 auto-generated.
+**72 repos** documented: 3 curated, 63 auto-generated.
 
 | Repo | Description | Status | Doc Page |
 |:-----|:------------|:-------|:---------|
@@ -61,6 +61,7 @@ flowchart LR
 | [Ice-LLM-router](https://github.com/icepaule/Ice-LLM-router) |  | Auto | [View](ice-llm-router.html) |
 | [Ice-MTastik](https://github.com/icepaule/Ice-MTastik) | My Meshtastik setup | Auto | [View](ice-mtastik.html) |
 | [Ice-SEC-cli](https://github.com/icepaule/Ice-SEC-cli) |  | Auto | [View](ice-sec-cli.html) |
+| [Ice-Traffic-Data](https://github.com/icepaule/Ice-Traffic-Data) |  | Auto | [View](ice-traffic-data.html) |
 | [Ice-USB-Witness-Bridge](https://github.com/icepaule/Ice-USB-Witness-Bridge) |  | Auto | [View](ice-usb-witness-bridge.html) |
 | [ICE_www.mpauli.de](https://github.com/icepaule/ICE_www.mpauli.de) |  | No README | - |
 | [IceAI-tax-2025](https://github.com/icepaule/IceAI-tax-2025) |  | Auto | [View](iceai-tax-2025.html) |
@@ -123,9 +124,9 @@ flowchart LR
 
 | Metric | Value |
 |:-------|:------|
-| Last Scan | 2026-11-01 |
-| Repos Scanned | 71 |
-| Clean Repos | 63 |
+| Last Scan | 2026-11-02 |
+| Repos Scanned | 72 |
+| Clean Repos | 64 |
 | Repos with Findings | 8 |
 | Total Findings | 51 |
 | Verified Findings | 0 |
@@ -133,7 +134,7 @@ flowchart LR
 
 ```mermaid
 pie title Repository Security Status
-    "Clean" : 63
+    "Clean" : 64
     "Findings" : 8
 ```
 
