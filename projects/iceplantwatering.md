@@ -2,7 +2,7 @@
 layout: default
 title: IcePlantWatering
 parent: Data & Tools
-nav_order: 25
+nav_order: 13
 ---
 
 # IcePlantWatering

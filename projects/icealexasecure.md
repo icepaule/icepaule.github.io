@@ -2,7 +2,7 @@
 layout: default
 title: IceAlexaSecure
 parent: Data & Tools
-nav_order: 48
+nav_order: 32
 ---
 
 # IceAlexaSecure
