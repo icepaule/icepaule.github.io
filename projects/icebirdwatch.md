@@ -2,7 +2,7 @@
 layout: default
 title: IceBirdwatch
 parent: Home Automation & Networking
-nav_order: 1
+nav_order: 7
 ---
 
 # IceBirdwatch
