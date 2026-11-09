@@ -2,7 +2,7 @@
 layout: default
 title: adguard-kiosk
 parent: Home Automation & Networking
-nav_order: 8
+nav_order: 4
 ---
 
 # adguard-kiosk

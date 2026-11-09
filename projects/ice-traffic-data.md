@@ -2,7 +2,7 @@
 layout: default
 title: Ice-Traffic-Data
 parent: Data & Tools
-nav_order: 30
+nav_order: 33
 ---
 
 # Ice-Traffic-Data
@@ -27,7 +27,7 @@ Mobiler Empfang von **C-ITS / ITS-G5 (802.11p)** Verkehrsdaten im Auto – Ampel
 ```mermaid
 flowchart LR
     RSU["Ampel / RSU<br/>Fahrzeuge / Baustellenwarner"] -- "ITS-G5 5,9 GHz" --> C5["ESP32-C5<br/>Sniffer"]
-    C5 -- "UART 115200, ITS5-Format" --> C3["ESP32-C3<br/>WLAN/MQTT-Bruecke"]
+    C5 -- "UART 921600, ITS6-Format" --> C3["ESP32-C3<br/>WLAN/MQTT-Bruecke"]
     C3 -- "WLAN 2,4 GHz" --> HS["iPhone<br/>Hotspot"]
     HS -- "LTE/5G, MQTT/TLS" --> SRV["Heimserver<br/>Decoder + Dashboard"]
     SRV --> SAF["Safari auf dem iPhone"]
@@ -60,6 +60,13 @@ flowchart LR
 | 14 | [Inbetriebnahme & Vorbereitung ohne Hardware](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/14-inbetriebnahme.md) |
 | 15 | [TEMPUS: Recherche & Unterstützungsangebot (Mail-Entwurf)](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/15-tempus.md) |
 | 16 | [ToDo nach Liefereingang & Zugänge](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/16-todo-nach-lieferung.md) |
+| 17 | [Umsetzungsplan (Phasen 0–9, mit Teilen)](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/17-umsetzungsplan.md) |
+| 18 | [Stand Schreibtischtest, Statusseite & Mitschnitt](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/18-schreibtischtest-und-mitschnitt.md) |
+| 19 | [Gehäuse (3D-Druck, SolidWorks-STEP)](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/19-gehaeuse.md) |
+| 20 | [Auswertung der ersten Testfahrt (echte CAM/DENM, Beifang)](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/20-auswertung-testfahrt-1.md) |
+| 21 | [Testfahrt 1: Empfangs-Timeline, Karte, Verbesserungen](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/21-testfahrt-1-timeline-karte-verbesserungen.md) |
+| 22 | [Plan und Umsetzung Verbesserungen V1–V9](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/22-plan-verbesserungen.md) |
+| 23 | [TEMPUS-Nachfolge, heutige Einsätze, Erweiterungen](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/23-tempus-nachfolge-und-erweiterungen.md) |
 
 ## Quellen
 
