@@ -2,7 +2,7 @@
 layout: default
 title: Ice-Traffic-Data
 parent: Data & Tools
-nav_order: 33
+nav_order: 3
 ---
 
 # Ice-Traffic-Data
@@ -67,6 +67,7 @@ flowchart LR
 | 21 | [Testfahrt 1: Empfangs-Timeline, Karte, Verbesserungen](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/21-testfahrt-1-timeline-karte-verbesserungen.md) |
 | 22 | [Plan und Umsetzung Verbesserungen V1–V9](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/22-plan-verbesserungen.md) |
 | 23 | [TEMPUS-Nachfolge, heutige Einsätze, Erweiterungen](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/23-tempus-nachfolge-und-erweiterungen.md) |
+| 24 | [Messfahrt 2: Vorbereitung und Checkliste](https://github.com/icepaule/Ice-Traffic-Data/blob/main/docs/24-messfahrt-2-vorbereitung.md) |
 
 ## Quellen
 

@@ -2,7 +2,7 @@
 layout: default
 title: Ice-MTastik
 parent: Mesh & Communication
-nav_order: 1
+nav_order: 3
 ---
 
 # Ice-MTastik
