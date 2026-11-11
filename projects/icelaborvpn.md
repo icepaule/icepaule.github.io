@@ -2,7 +2,7 @@
 layout: default
 title: IceLaborVPN
 parent: Security & Malware Analysis
-nav_order: 8
+nav_order: 7
 ---
 
 # IceLaborVPN
