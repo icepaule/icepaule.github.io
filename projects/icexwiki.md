@@ -2,7 +2,7 @@
 layout: default
 title: IceXWiKi
 parent: Home Automation & Networking
-nav_order: 6
+nav_order: 2
 ---
 
 # IceXWiKi
