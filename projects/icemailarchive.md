@@ -2,7 +2,7 @@
 layout: default
 title: IceMailArchive
 parent: Home Automation & Networking
-nav_order: 1
+nav_order: 7
 ---
 
 # IceMailArchive
