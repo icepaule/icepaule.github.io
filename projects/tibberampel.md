@@ -2,7 +2,7 @@
 layout: default
 title: tibberampel
 parent: Home Automation & Networking
-nav_order: 5
+nav_order: 1
 ---
 
 # tibberampel
