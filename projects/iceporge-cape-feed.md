@@ -2,7 +2,7 @@
 layout: default
 title: IcePorge-CAPE-Feed
 parent: Security & Malware Analysis
-nav_order: 10
+nav_order: 12
 ---
 
 # IcePorge-CAPE-Feed
