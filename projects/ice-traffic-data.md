@@ -2,7 +2,7 @@
 layout: default
 title: Ice-Traffic-Data
 parent: Data & Tools
-nav_order: 17
+nav_order: 8
 ---
 
 # Ice-Traffic-Data
